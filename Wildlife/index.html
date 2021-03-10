@@ -10,7 +10,81 @@
 </head>
 
 <body>
+    <div class="wrapper">
+        <header class="header">
+            <picture class="header-logo">
+                <img src="./assets/logo.svg" alt="Logo">
+                <p class="header-logo__text">Wildlife</p>
+            </picture>
+            <nav class="header-nav">
+                <ul class="header-nav__list">
+                    <li class="header-nav__item"><a href="#" class="header-nav__link">Blog</a></li>
+                    <li class="header-nav__item"><a href="#" class="header-nav__link">Contacts</a></li>
+                    <li class="header-nav__item"><a href="#" class="header-nav__link"><img src="./assets/search.svg"
+                                alt="search"></a></li>
+                    <li class="header-nav__item"><a href="#" class="header-nav__link">Sign in</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main">
+            <section class="hero">
+                <h1 class="hero-title">Survival</h1>
+                <p class="hero-text">What this means is that we exist to help protect our environment and do in numbers
+                    of ways. You can save the planet by donation.</p>
+                <button class="hero-button">Donate</button>
+            </section>
+            <section class="articles">
+                <h2 class="articles-title">Latest articles</h2>
+                <p class="sh-2">Breaking news from the wild</p>
+                <div class="articles-slider">
+                    <button class="articles-slider__button slider__button--left"><img src="./assets/icons/arrow.svg"
+                            alt="arrow left"></button>
+                    <div class="articles-slider__item">
+                        <img src="./assets/slider1.jpg" alt="first slider">
+                        <p class="slider__item-title">Deer</p>
+                        <p class="slider__item-subtitle">Naturalist investigation</p>
+                    </div>
+                    <div class="articles-slider__item">
+                        <img src="./assets/slider2.jpg" alt="first slider">
+                        <p class="slider__item-title">Squirrel</p>
+                        <p class="slider__item-subtitle">Kamikaze squirrels</p>
+                    </div>
 
+                    <div class="articles-slider__item">
+                        <img src="./assets/slider3.jpg" alt="first slider">
+                        <p class="slider__item-title">Bird</p>
+                        <p class="slider__item-subtitle">Birds Fight club</p>
+                    </div>
+                    <button class="articles-slider__button slider__button--right"><img src="./assets/icons/arrow.svg"
+                            alt="arrow right"></button>
+                </div>
+                <h3 class="articles-subtitle">Get notified about new amazing articles</h3>
+                <form action="/#" class="articles-form">
+                    <input class="articles-form" --input type="text" name="email" id="email" placeholder="Email">
+                    <button class="articles-form--button">Send</button>
+                </form>
+            </section>
+        </main>
+        <footer class="footer">
+            <pictur class="footer-logo">
+                <img src="./assets/logo.svg" alt="Logo">
+                <p class="footer-logo__text">Wildlife</p>
+                </picture>
+                <div class="footer-nav">
+                    <ul class="footer-nav--list">
+                        <li class="footer-nav--item">Articles</li>
+                        <li class="footer-nav--item">About us</li>
+                        <li class="footer-nav--item">Learn more</li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <img src="./assets/icons/fb.svg" alt="Facebook" class="footer-social--links">
+                    <img src="./assets/icons/inst.svg" alt="Instagram" class="footer-social--links">
+                    <img src="./assets/icons/print.svg" alt="Printest" class="footer-social--links">
+                    <img src="./assets/icons/tg.svg" alt="Telegram" class="footer-social--links">
+                </div>
+        </footer>
+    </div>
 </body>
 
 </html>
