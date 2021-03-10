@@ -1,0 +1,122 @@
+:root {
+  /*Color Palete*/
+  --orange-main: #cd6326;
+  --orange-light: #e39128;
+  --orange-dark: #8f5613;
+  --font-light: #f7f7f7;
+  --font-grey: #666666;
+  --font-dark: #333333;
+}
+
+/*Typography*/
+
+/* roboto-regular */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+    url('./assets/fonts/roboto-v20-latin-regular.woff2') format('woff2');
+}
+
+/* open-sans-regular */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+    url('../fonts/open-sans-v18-latin-regular.woff2') format('woff2'); /* Super Modern Browsers */
+}
+
+h1 {
+  letter-spacing: 2px;
+}
+
+h1,
+h2 {
+  font-size: 48px;
+  line-height: 72px;
+  letter-spacing: 2px;
+}
+
+h3 {
+  font-size: 27px;
+  line-height: 40px;
+}
+
+h4 {
+  font-size: 22px;
+  line-height: 36px;
+}
+
+.sh-2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.text-menu {
+  font-size: 23px;
+  line-height: 60px;
+}
+
+.text-regular-ui {
+  font-size: 23px;
+  line-height: 27px;
+}
+
+.text-small {
+  font-size: 17px;
+  line-height: 27px;
+}
+
+.text-regular {
+  font-size: 18px;
+  line-height: 27px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+/*Reset*/
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+/*Main*/
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: 0;
+  padding: 0;
+  width: 1px;
+  height: auto;
+  border: 0;
+  white-space: nowrap;
+}
+
+.wrapper {
+  max-width: 1440px;
+  margin: 0 120px;
+  position: relative;
+}
+
+/*Header*/
+/*Main*/
+/*Slider*/
+/*Footer*/
