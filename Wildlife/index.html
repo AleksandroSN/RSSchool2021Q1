@@ -14,10 +14,10 @@
     <header class="header">
         <div class="wrapper">
             <div class="header-container">
-                <picture class="header-logo">
+                <div class="header-logo">
                     <a href="#"><img src="./assets/logo.svg" alt="Logo"></a>
                     <p class="header-logo__text">Wildlife</p>
-                </picture>
+                </div>
                 <div class="burger">
                     <img src="./assets/Burger.svg" alt="burger menu">
                 </div>
@@ -54,23 +54,26 @@
                     <div class="articles-slider">
                         <button class="articles-slider__button slider__button--left"><img src="./assets/icons/arrow.svg"
                                 alt="arrow left"></button>
-                        <a href="#" class="articles-slider__item">
-                            <img src="./assets/slider1.jpg" alt="first slider">
-                            <h4 class="slider__item-title item-title__first ">Deer</h4>
-                            <p class="slider__item-subtitle item-subtitle__first text-small">Naturalist investigation
-                            </p>
-                        </a>
-                        <a href="#" class="articles-slider__item">
-                            <img src="./assets/slider2.jpg" alt="first slider">
-                            <h4 class="slider__item-title item-title__second">Squirrel</h4>
-                            <p class="slider__item-subtitle item-subtitle__second text-small">Kamikaze squirrels</p>
-                        </a>
+                        <div class="slider-container">
+                            <a href="#" class="articles-slider__item">
+                                <img src="./assets/slider1.jpg" alt="first slider">
+                                <h4 class="slider__item-title item-title__first ">Deer</h4>
+                                <p class="slider__item-subtitle item-subtitle__first text-small">Naturalist
+                                    investigation
+                                </p>
+                            </a>
+                            <a href="#" class="articles-slider__item">
+                                <img src="./assets/slider2.jpg" alt="first slider">
+                                <h4 class="slider__item-title item-title__second">Squirrel</h4>
+                                <p class="slider__item-subtitle item-subtitle__second text-small">Kamikaze squirrels</p>
+                            </a>
 
-                        <a href="#" class="articles-slider__item">
-                            <img src="./assets/slider3.jpg" alt="first slider">
-                            <h4 class="slider__item-title item-title__thirth">Bird</h4>
-                            <p class="slider__item-subtitle item-subtitle__thirth text-small">Birds Fight club</p>
-                        </a>
+                            <a href="#" class="articles-slider__item">
+                                <img src="./assets/slider3.jpg" alt="first slider">
+                                <h4 class="slider__item-title item-title__thirth">Bird</h4>
+                                <p class="slider__item-subtitle item-subtitle__thirth text-small">Birds Fight club</p>
+                            </a>
+                        </div>
                         <button class="articles-slider__button slider__button--right"><img
                                 src="./assets/icons/arrow.svg" alt="arrow right"></button>
                     </div>
@@ -86,10 +89,10 @@
     <footer class="footer">
         <div class="wrapper">
             <div class="footer-container">
-                <picture class="footer-logo">
+                <div class="footer-logo">
                     <a href="#"><img src="./assets/logo.svg" alt="Logo"></a>
                     <p class="footer-logo__text">Wildlife</p>
-                </picture>
+                </div>
                 <nav class="footer-nav">
                     <ul class="footer-nav__list">
                         <li class="footer-nav__item"><a href="#">Articles</a></li>
@@ -114,7 +117,6 @@
             </div>
         </div>
     </footer>
-    </div>
     <script src="index.js"></script>
 </body>
 
