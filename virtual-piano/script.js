@@ -14,14 +14,12 @@ btnContainer.addEventListener('click', (e) => {
 
     switch (e.target.innerText) {
         case 'Notes':
-            console.log(e.target.innerText);
             pianoKeys.forEach(key => {
                 key.classList.remove('letters');
                 key.classList.add('notes')
             })
             break;
         case 'Letters':
-            console.log(e.target.innerText);
             pianoKeys.forEach(key => {
                 key.classList.remove('notes');
                 key.classList.add('letters')
@@ -40,7 +38,7 @@ fullscreenBtn.addEventListener("click", (e) => {
 
 }, false);
 
-function toggleFullScreen() {
+const toggleFullScreen = () => {
     if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen();
     } else {
@@ -61,18 +59,26 @@ const stopSound = (e) => {
 
 const play = (evt) => {
     startSound(evt);
+    piano.addEventListener('mouseover', startSound);
+    piano.addEventListener('mouseout', stopSound);
 }
 
 const stop = (evt) => {
     stopSound(evt);
+    piano.removeEventListener('mouseover', startSound);
+    piano.removeEventListener('mouseout', stopSound);
 }
 
+const main = document.querySelector('.main');
 
 piano.addEventListener('mousedown', (e) => {
-    play(e)
+    play(e);
+}, false)
+piano.addEventListener('mouseup', (e) => {
+    stop(e);
 })
 
-piano.addEventListener('mouseup', (e) => {
+main.addEventListener('mouseup', (e) => {
     stop(e);
 })
 
