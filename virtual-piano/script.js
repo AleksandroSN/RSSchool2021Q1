@@ -50,6 +50,109 @@ function toggleFullScreen() {
     }
 }
 
-piano.addEventListener('click', (e) => {
-    console.log(e.target);
+const startSound = (e) => {
+    e.target.classList.add('piano-key-active-pseudo', 'piano-key-active');
+    playNotes(e);
+}
+
+const stopSound = (e) => {
+    e.target.classList.remove('piano-key-active-pseudo', 'piano-key-active');
+}
+
+const play = (evt) => {
+    startSound(evt);
+}
+
+const stop = (evt) => {
+    stopSound(evt);
+}
+
+
+piano.addEventListener('mousedown', (e) => {
+    play(e)
 })
+
+piano.addEventListener('mouseup', (e) => {
+    stop(e);
+})
+
+const addStyleKey = (key) => {
+    pianoKeys.forEach(el => {
+        elemAttribute = el.getAttribute('data-letter');
+        if (elemAttribute == key.code.slice(-1)) {
+            el.classList.add('piano-key-active-pseudo', 'piano-key-active');
+        }
+    })
+}
+const removeStyleKey = (key) => {
+    pianoKeys.forEach(el => {
+        elemAttribute = el.getAttribute('data-letter');
+        if (elemAttribute == key.code.slice(-1)) {
+            el.classList.remove('piano-key-active-pseudo', 'piano-key-active');
+        }
+    })
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.repeat) return false;
+    addStyleKey(e);
+    playNotes(e);
+})
+
+document.addEventListener('keyup', (e) => {
+    removeStyleKey(e);
+})
+
+const playNotes = (key) => {
+    let sound = new Audio();
+    let keySound
+
+    if (key.type == 'mousedown' || key.type == 'mouseover') {
+        keySound = key.target.getAttribute('data-letter');
+    } else if (key.type == 'keydown') {
+        keySound = key.code.slice(-1)
+    };
+
+    switch (keySound) {
+        case 'D':
+            sound = new Audio('./assets/audio/c.mp3')
+            break;
+        case 'F':
+            sound = new Audio('./assets/audio/d.mp3')
+            break;
+        case 'G':
+            sound = new Audio('./assets/audio/e.mp3')
+            break;
+        case 'H':
+            sound = new Audio('./assets/audio/f.mp3')
+            break;
+        case 'J':
+            sound = new Audio('./assets/audio/g.mp3')
+            break;
+        case 'K':
+            sound = new Audio('./assets/audio/a.mp3')
+            break;
+        case 'L':
+            sound = new Audio('./assets/audio/b.mp3')
+            break;
+        case 'R':
+            sound = new Audio('./assets/audio/c♯.mp3')
+            break;
+        case 'T':
+            sound = new Audio('./assets/audio/d♯.mp3')
+            break;
+        case 'U':
+            sound = new Audio('./assets/audio/f♯.mp3')
+            break;
+        case 'I':
+            sound = new Audio('./assets/audio/g♯.mp3')
+            break;
+        case 'O':
+            sound = new Audio('./assets/audio/a♯.mp3')
+            break;
+        default:
+            break;
+    }
+    sound.currentTime = 0;
+    sound.play();
+}

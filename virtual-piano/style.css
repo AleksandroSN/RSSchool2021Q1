@@ -188,8 +188,10 @@ body {
 
 .piano-key-active-pseudo:hover::after,
 .piano-key-active-pseudo:hover::before,
-.piano-key-active::after,
-.piano-key-active::before {
+.piano-key-active.letters::after,
+.piano-key-active.letters::before,
+.piano-key-active.notes::after,
+.piano-key-active.notes::before {
   color: #00b4a4;
 }
 
