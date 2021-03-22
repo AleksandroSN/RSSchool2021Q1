@@ -78,8 +78,7 @@ window.addEventListener('mouseup', (e) => {
 
 const designKey = (key) => {
     pianoKeys.forEach(el => {
-        let = elemAttribute = el.getAttribute('data-letter');
-        console.log(key.type);
+        let elemAttribute = el.getAttribute('data-letter');
         if (elemAttribute == key.code.slice(-1) && key.type === 'keydown') {
             el.classList.add('piano-key-active-pseudo', 'piano-key-active');
         } else el.classList.remove('piano-key-active-pseudo', 'piano-key-active');
@@ -102,50 +101,18 @@ const playNotes = (key) => {
 
     if (key.type == 'mousedown' || key.type == 'mouseover') {
         keySound = key.target.getAttribute('data-letter');
+        keyNote = key.target.getAttribute('data-note');
+        sound = new Audio(`./assets/audio/${keyNote}.mp3`);
     } else if (key.type == 'keydown') {
-        keySound = key.code.slice(-1)
+        keySound = key.code.slice(-1);
+        pianoKeys.forEach(el => {
+            let elemAttribute = el.getAttribute('data-letter');
+            let note = el.getAttribute('data-note');
+            if (elemAttribute == keySound) {
+                sound = new Audio(`./assets/audio/${note}.mp3`);
+            }
+        })
     };
-
-    switch (keySound) {
-        case 'D':
-            sound = new Audio('./assets/audio/c.mp3')
-            break;
-        case 'F':
-            sound = new Audio('./assets/audio/d.mp3')
-            break;
-        case 'G':
-            sound = new Audio('./assets/audio/e.mp3')
-            break;
-        case 'H':
-            sound = new Audio('./assets/audio/f.mp3')
-            break;
-        case 'J':
-            sound = new Audio('./assets/audio/g.mp3')
-            break;
-        case 'K':
-            sound = new Audio('./assets/audio/a.mp3')
-            break;
-        case 'L':
-            sound = new Audio('./assets/audio/b.mp3')
-            break;
-        case 'R':
-            sound = new Audio('./assets/audio/c♯.mp3')
-            break;
-        case 'T':
-            sound = new Audio('./assets/audio/d♯.mp3')
-            break;
-        case 'U':
-            sound = new Audio('./assets/audio/f♯.mp3')
-            break;
-        case 'I':
-            sound = new Audio('./assets/audio/g♯.mp3')
-            break;
-        case 'O':
-            sound = new Audio('./assets/audio/a♯.mp3')
-            break;
-        default:
-            break;
-    }
     sound.currentTime = 0;
     sound.play();
 }
