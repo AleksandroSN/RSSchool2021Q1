@@ -99,7 +99,7 @@ body {
 }
 .keys-sharp {
   position: absolute;
-  top: 0;
+  top: 3px;
   bottom: 0;
   left: 53px;
   right: 53px;
@@ -117,6 +117,9 @@ body {
   z-index: 3;
   pointer-events: auto;
   transform-origin: center top;
+}
+.piano-key.sharp:hover {
+  background-color: #1b2024;
 }
 .piano-key.piano-key-active,
 .piano-key.sharp.piano-key-active {
@@ -160,7 +163,7 @@ body {
 }
 .piano-key:hover::before,
 .piano-key:hover::after {
-  color: #d7dfe6;
+  color: #00b4a4;
 }
 
 .sharp:active {
