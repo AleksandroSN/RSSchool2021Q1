@@ -33,10 +33,9 @@ btnContainer.addEventListener('click', (e) => {
 
 const fullscreenBtn = document.querySelector('.fullscreen');
 
-fullscreenBtn.addEventListener("click", (e) => {
+fullscreenBtn.addEventListener("click", () => {
     toggleFullScreen();
-
-}, false);
+});
 
 const toggleFullScreen = () => {
     if (!document.fullscreenElement) {
@@ -69,49 +68,37 @@ const stop = (evt) => {
     piano.removeEventListener('mouseout', stopSound);
 }
 
-const main = document.querySelector('.main');
-
 piano.addEventListener('mousedown', (e) => {
     play(e);
 }, false)
-piano.addEventListener('mouseup', (e) => {
+
+window.addEventListener('mouseup', (e) => {
     stop(e);
 })
 
-main.addEventListener('mouseup', (e) => {
-    stop(e);
-})
-
-const addStyleKey = (key) => {
+const designKey = (key) => {
     pianoKeys.forEach(el => {
-        elemAttribute = el.getAttribute('data-letter');
-        if (elemAttribute == key.code.slice(-1)) {
+        let = elemAttribute = el.getAttribute('data-letter');
+        console.log(key.type);
+        if (elemAttribute == key.code.slice(-1) && key.type === 'keydown') {
             el.classList.add('piano-key-active-pseudo', 'piano-key-active');
-        }
-    })
-}
-const removeStyleKey = (key) => {
-    pianoKeys.forEach(el => {
-        elemAttribute = el.getAttribute('data-letter');
-        if (elemAttribute == key.code.slice(-1)) {
-            el.classList.remove('piano-key-active-pseudo', 'piano-key-active');
-        }
+        } else el.classList.remove('piano-key-active-pseudo', 'piano-key-active');
     })
 }
 
 document.addEventListener('keydown', (e) => {
-    if (e.repeat) return false;
-    addStyleKey(e);
+    if (e.repeat) return;
+    designKey(e);
     playNotes(e);
 })
 
 document.addEventListener('keyup', (e) => {
-    removeStyleKey(e);
+    designKey(e);
 })
 
 const playNotes = (key) => {
     let sound = new Audio();
-    let keySound
+    let keySound;
 
     if (key.type == 'mousedown' || key.type == 'mouseover') {
         keySound = key.target.getAttribute('data-letter');
