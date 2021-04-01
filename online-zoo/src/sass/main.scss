@@ -1,0 +1,15 @@
+@import './base/normalize';
+@import './base/typography';
+@import './pages/404';
+@import './pages/map';
+@import './pages/translations';
+@import './layout/footer';
+@import './layout/header';
+@import './layout/grid';
+@import './layout/navigation';
+@import './utils/variables';
+
+body {
+  font-family: Rubik, open-sans;
+  color: $mainColor;
+}

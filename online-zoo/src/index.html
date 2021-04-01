@@ -5,15 +5,40 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Online-Zoo</title>
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
 </head>
 
 <body>
   <main>
-
+    <header class="header">
+      <div class="container">
+        <a href="/" class="header-logo">
+          <svg class="header-logo__svg">
+            <use xlink:href="#header-logo"></use>
+          </svg>
+        </a>
+        <nav class="header-nav">
+          <ul class="header-nav__list">
+            <li class="header-nav__item"><a href="./404.html" class="header-nav__link">About</a></li>
+            <li class="header-nav__item"><a href="./map.html" class="header-nav__link">Map</a></li>
+            <li class="header-nav__item"><a href="./translation.html" class="header-nav__link">Zoos</a></li>
+            <li class="header-nav__item"><a href="#" class="header-nav__link">Contact us</a></li>
+            <li class="header-nav__item"><a href="#" class="header-nav__link">Design</a></li>
+          </ul>
+        </nav>
+        <div class="header-profile">
+          <svg class="header-profile__svg">
+            <use xlink:href="#profile"></use>
+          </svg>
+          <svg class="header-burger__svg">
+            <use xlink:href="#burger_menu"></use>
+          </svg>
+        </div>
+      </div>
+    </header>
   </main>
-  <script src="./js/app.js"></script>
 </body>
 
 </html>

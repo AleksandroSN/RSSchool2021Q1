@@ -1,0 +1,52 @@
+.header {
+  padding: 19px 0;
+  grid-area: header;
+
+  &-logo {
+    display: flex;
+    margin-left: 19px;
+
+    @media screen and (max-width: 1200px) {
+      margin-left: 0;
+    }
+
+    &__svg {
+      width: 52px;
+      height: 40px;
+    }
+
+    @media screen and (max-width: 640px) {
+      flex: 1;
+    }
+  }
+  &-profile {
+    display: flex;
+    margin-right: 92px;
+
+    @media screen and (max-width: 1200px) {
+      margin-right: 72px;
+    }
+
+    @media screen and (max-width: 640px) {
+      margin-right: 0;
+    }
+
+    &__svg {
+      width: 52px;
+      height: 52px;
+
+      @media screen and (max-width: 640px) {
+        display: none;
+      }
+    }
+  }
+
+  &-burger__svg {
+    display: none;
+    @media screen and (max-width: 640px) {
+      display: block;
+      width: 55px;
+      height: 35px;
+    }
+  }
+}

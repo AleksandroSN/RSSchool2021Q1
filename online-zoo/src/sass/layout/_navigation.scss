@@ -1,0 +1,39 @@
+@import '../utils/variables';
+
+.header {
+  &-nav {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin-left: 113px;
+
+    &__list {
+      display: flex;
+      gap: 130px;
+
+      @media screen and (max-width: 1200px) {
+        gap: 100px;
+      }
+
+      @media screen and (max-width: 950px) {
+        gap: 40px;
+      }
+    }
+
+    &__link {
+      color: $mainColor;
+    }
+
+    @media screen and (max-width: 1200px) {
+      margin-left: 88px;
+    }
+
+    @media screen and (max-width: 950px) {
+      margin-left: 40px;
+    }
+
+    @media screen and (max-width: 640px) {
+      display: none;
+    }
+  }
+}
