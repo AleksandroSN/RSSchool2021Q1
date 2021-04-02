@@ -5,11 +5,82 @@
 @import './pages/translations';
 @import './layout/footer';
 @import './layout/header';
+@import './layout/aside';
 @import './layout/grid';
 @import './layout/navigation';
 @import './utils/variables';
+@import './utils/helpers';
+@import './components/buttons';
 
 body {
   font-family: Rubik, open-sans;
   color: $mainColor;
+  background-color: $whiteColor;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.border {
+  border: 2px solid $borderHeader;
+}
+
+.main {
+  grid-area: content;
+}
+.first-screen {
+  margin-top: 55px;
+  display: grid;
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 45px 0;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  // &__text {
+
+  // }
+
+  &__subtitle {
+    color: $darkGrayColor;
+  }
+
+  &__title {
+    margin-top: 25px;
+    color: $mainColor;
+    font-family: Merriweather, open-sans;
+    font-weight: 700;
+    font-size: 84px;
+    line-height: 103px;
+    letter-spacing: 1.1;
+
+    &-container {
+      display: inline-block;
+      margin: 0 -20px;
+    }
+
+    &--dot {
+      display: block;
+      line-height: 0.15;
+      color: $redColor;
+    }
+
+    &--letter {
+      display: block;
+      line-height: 1.2;
+    }
+  }
+
+  &__btns {
+    margin-top: 60px;
+    display: flex;
+    gap: 60px;
+  }
+
+  &__photo {
+    border-radius: 5px;
+    overflow: hidden;
+    object-fit: cover;
+  }
 }

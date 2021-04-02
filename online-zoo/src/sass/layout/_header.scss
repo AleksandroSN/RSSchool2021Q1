@@ -1,10 +1,25 @@
+@import '../utils/variables';
+
 .header {
-  padding: 19px 0;
   grid-area: header;
+  // margin: 0 60px;
+
+  &-main {
+    display: flex;
+    width: 100%;
+    padding: 17px 0;
+  }
 
   &-logo {
     display: flex;
-    margin-left: 19px;
+    // margin-left: 13px;
+    width: 90px;
+    height: 90px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
+    border: 2px solid #f0f0f0;
+    position: fixed;
 
     @media screen and (max-width: 1200px) {
       margin-left: 0;

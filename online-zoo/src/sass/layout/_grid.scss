@@ -2,17 +2,23 @@
 
 .container {
   display: flex;
-  align-content: center;
   max-width: 1800px;
   width: 100%;
+  flex-wrap: wrap;
+  margin: 0 60px;
+
+  @media screen and (min-width: 1921px) {
+    margin: 0 auto;
+  }
 }
 
-main {
-  padding: 25px 10px 0;
+.wrapper {
+  padding-top: 25px;
   column-gap: 40px;
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(10, minmax(30px, 144px));
+  // grid-template-columns: repeat(10, minmax(30px, 144px));
+  grid-template-columns: repeat(10, 1fr);
   grid-template-rows:
     $headHeight minmax(calc(100vh - 90px - 766px), auto)
     $footerHeight;

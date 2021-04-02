@@ -11,7 +11,8 @@
 </head>
 
 <body>
-  <main>
+  <h1 class="visually-hidden">Online-Zoo</h1>
+  <div class="wrapper">
     <header class="header">
       <div class="container">
         <a href="/" class="header-logo">
@@ -19,26 +20,129 @@
             <use xlink:href="#header-logo"></use>
           </svg>
         </a>
-        <nav class="header-nav">
-          <ul class="header-nav__list">
-            <li class="header-nav__item"><a href="./404.html" class="header-nav__link">About</a></li>
-            <li class="header-nav__item"><a href="./map.html" class="header-nav__link">Map</a></li>
-            <li class="header-nav__item"><a href="./translation.html" class="header-nav__link">Zoos</a></li>
-            <li class="header-nav__item"><a href="#" class="header-nav__link">Contact us</a></li>
-            <li class="header-nav__item"><a href="#" class="header-nav__link">Design</a></li>
-          </ul>
-        </nav>
-        <div class="header-profile">
-          <svg class="header-profile__svg">
-            <use xlink:href="#profile"></use>
-          </svg>
-          <svg class="header-burger__svg">
-            <use xlink:href="#burger_menu"></use>
-          </svg>
+        <div class="header-main border">
+          <nav class="header-nav">
+            <ul class="header-nav__list">
+              <li class="header-nav__item"><a href="/" class="header-nav__link">About</a></li>
+              <li class="header-nav__item"><a href="./map.html" class="header-nav__link">Map</a></li>
+              <li class="header-nav__item"><a href="./translation.html" class="header-nav__link">Zoos</a></li>
+              <li class="header-nav__item"><a href="./404.html" class="header-nav__link">Contact us</a></li>
+              <li class="header-nav__item"><a href="https://www.figma.com/file/74wXlorl9mZQP0uhqDg83j/Online-Zoo"
+                  class="header-nav__link">Design</a></li>
+            </ul>
+          </nav>
+          <div class="header-profile">
+            <!-- добавить ссылки на соцсети -->
+            <svg class="header-profile__svg">
+              <use xlink:href="#profile"></use>
+            </svg>
+            <svg class="header-burger__svg">
+              <use xlink:href="#burger_menu"></use>
+            </svg>
+          </div>
         </div>
       </div>
     </header>
-  </main>
+    <main class="main">
+      <div class="container">
+        <aside class="aside">
+          <div class="aside-social">
+            <svg class="aside-social__svg">
+              <use xlink:href="#insta"></use>
+            </svg>
+            <svg class="aside-social__svg">
+              <use xlink:href="#fb"></use>
+            </svg>
+            <svg class="aside-social__svg">
+              <use xlink:href="#twitter"></use>
+            </svg>
+          </div>
+          <div class="aside-totop">
+            <svg class="aside-totop__svg">
+              <use xlink:href="#arrow"></use>
+            </svg>
+          </div>
+        </aside>
+        <section class="first-screen">
+          <div class="first-screen__text">
+            <h2 class="first-screen__subtitle">Wild park</h2>
+            <p class="first-screen__title">Watch your favorite animal onl
+              <!--This comment is required to remove whitespace created by inline-block elements.
+            --><span class="first-screen__title-container">
+                <span class="first-screen__title--dot">.</span>
+                <span class="first-screen__title--letter">ı</span>
+              </span>
+              <!--This comment is required to remove whitespace created by inline-block elements.
+            -->ne
+            </p>
+            <div class="first-screen__btns">
+              <button class="first-screen__btn btn btn--dark">Choose zoo</button>
+              <button class="first-screen__btn btn btn--light">Wath online</button>
+            </div>
+
+          </div>
+          <picture class="first-screen__photo">
+            <img src="./assets/img/panda.jpg" alt="cute Panda">
+          </picture>
+        </section>
+        <section class="second-screen"></section>
+        <section class="third-screen"></section>
+        <section class="fourth-screen"></section>
+        <section class="thifth-screen"></section>
+        <section class="sixth-screen"></section>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-wrapper">
+          <div class="footer-logos">
+            <div class="footer-logos__main">
+              <svg class="footer-logos__main--svg">
+                <use xlink:href="#logo"></use>
+              </svg>
+            </div>
+            <div class="footer-logos__sub">
+              <svg class="footer-logos__sub--svg-left">
+                <use xlink:href="#yem_digital"></use>
+              </svg>
+              <span class="footer-logos__sub-span">x</span>
+              <svg class="footer-logos__sub--svg-right">
+                <use xlink:href="#rs_school_js"></use>
+              </svg>
+            </div>
+          </div>
+          <nav class="footer-nav">
+            <h2 class="footer-nav__title">Navigation</h2>
+            <ul class="footer-nav__list">
+              <li class="footer-nav__item"><a href="#" class="footer-nav__link">Watch online</a></li>
+              <li class="footer-nav__item"><a href="#" class="footer-nav__link">How it works</a></li>
+              <li class="footer-nav__item"><a href="#" class="footer-nav__link">Famous pets</a></li>
+              <li class="footer-nav__item"><a href="#" class="footer-nav__link">Pay & feed</a></li>
+              <li class="footer-nav__item"><a href="#" class="footer-nav__link">Testimonials</a></li>
+              <li class="footer-nav__item"><a href="#" class="footer-nav__link">Zoogeography</a></li>
+            </ul>
+          </nav>
+          <div class="volunteers">
+            <div class="volunteers-support">
+              <h2 class="volunteers-support__title">Support of volunteers</h2>
+              <p class="volunteers-support__text">You can thank the volunteers for their work. For example, caring for
+                animals and sincere love for them.</p>
+              <a href="#" class="volunteers-support__button">Donate for volunteers </a>
+            </div>
+            <ul class="volunteers-social">
+              <li class="volunteers-social__item"><a href="#" class="volunteers-social__link">Instagram</a></li>
+              <li class="volunteers-social__item"><a href="#" class="volunteers-social__link">Facebook</a></li>
+              <li class="volunteers-social__item"><a href="#" class="volunteers-social__link">Twitter</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-copyrights">
+          <p class="footer-copyrights__left">Copyright ©RSSchool and ©Yem Digital 2020 - 2021</p>
+          <p class="footer-copyrights__right">Designed by Vladislav Chernov</p>
+        </div>
+      </div>
+    </footer>
+  </div>
 </body>
 
 </html>

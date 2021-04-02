@@ -40,3 +40,15 @@
   font-weight: 300;
   src: local(''), url('../assets/fonts/rubik-300.woff2') format('woff2');
 }
+
+h2 {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: 0.115em;
+
+  @media screen and (max-width: 639px) {
+    font-size: 18px;
+    line-height: 21px;
+  }
+}

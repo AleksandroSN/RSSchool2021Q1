@@ -1,0 +1,26 @@
+@import '../utils/variables';
+
+.btn {
+  padding: 18px 78px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &--light {
+    border: 2px solid $mainColor;
+    color: $mainColor;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    background-color: transparent;
+  }
+
+  &--dark {
+    border-width: 0;
+    background-color: $mainColor;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: $whiteColor;
+  }
+}
