@@ -1,0 +1,73 @@
+@import '../utils/variables';
+
+.header {
+  &-logo {
+    &--absolute {
+      position: absolute;
+    }
+  }
+}
+
+.about404 {
+  margin: 10px 0 80px;
+
+  &-bg {
+    top: 0;
+    z-index: -1;
+    position: absolute;
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 144px;
+    line-height: 181px;
+    text-align: center;
+    color: #d9e8ff;
+  }
+
+  &-wrapper {
+    padding-top: 120px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  &-text {
+    font-size: 24px;
+    line-height: 154%;
+    text-align: center;
+    color: #080029;
+
+    &:last-of-type {
+      margin-top: -30px;
+    }
+  }
+
+  &-to_home {
+    margin-top: 20px;
+  }
+}
+
+.video404 {
+  &-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+
+.support {
+  &-text {
+    max-width: 425px;
+    margin: 0 auto;
+    padding: 60px 0 80px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    color: $grayColor;
+  }
+}

@@ -5,15 +5,115 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Map</title>
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
 </head>
 
-<body>
-  <main>
-
-  </main>
-  <script src="./js/app.js"></script>
+<body class="map">
+  <h1 class="visually-hidden">Online-Zoo</h1>
+  <div class="wrapper">
+    <header class="header">
+      <div class="container">
+        <a href="/" class="header-logo">
+          <svg class="header-logo__svg">
+            <use xlink:href="#header-logo"></use>
+          </svg>
+        </a>
+        <div class="header-main border bg-white">
+          <nav class="header-nav">
+            <ul class="header-nav__list">
+              <li class="header-nav__item"><a href="/" class="header-nav__link">About</a></li>
+              <li class="header-nav__item nav__active"><a href="./map.html" class="header-nav__link">Map</a></li>
+              <li class="header-nav__item"><a href="./zoos.html" class="header-nav__link">Zoos</a></li>
+              <li class="header-nav__item"><a href="./404.html" class="header-nav__link">Contact us</a></li>
+              <li class="header-nav__item"><a href="https://www.figma.com/file/74wXlorl9mZQP0uhqDg83j/Online-Zoo"
+                  class="header-nav__link">Design</a></li>
+            </ul>
+          </nav>
+          <div class="header-profile">
+            <!-- добавить ссылки на соцсети -->
+            <svg class="header-profile__svg">
+              <use xlink:href="#profile"></use>
+            </svg>
+            <svg class="header-burger__svg">
+              <use xlink:href="#burger_menu"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </header>
+    <aside class="aside aside--map">
+      <button class="aside-btn">
+        <svg class="aside-btn--up">
+          <use xlink:href="#up"></use>
+        </svg>
+      </button>
+      <ul class="aside-animals">
+        <li class="aside-animals_item aside-animals--panda">
+          <svg class="">
+            <use xlink:href="#panda-pin"></use>
+          </svg>
+        </li>
+        <li class="aside-animals_item aside-animals--crocy">
+          <svg class="">
+            <use xlink:href="#crocy-pin"></use>
+          </svg>
+        </li>
+        <li class="aside-animals_item aside-animals--eagle">
+          <svg class="">
+            <use xlink:href="#eagle-pin"></use>
+          </svg>
+        </li>
+        <li class="aside-animals_item aside-animals--gorilla aside-animals--active">
+          <svg class="">
+            <use xlink:href="#gorilla-pin"></use>
+          </svg>
+        </li>
+        <!-- <li class="aside-animals_item aside-animals--additional">
+          <svg class="">
+            <use xlink:href="#crocy-pin"></use>
+          </svg>
+        </li> -->
+      </ul>
+      <button class="aside-btn">
+        <svg class="aside-btn--down">
+          <use xlink:href="#down"></use>
+        </svg>
+      </button>
+    </aside>
+    <main class="main">
+      <section class="tooltips">
+        <div class="sixth-screen__tooltip map-mode">
+          <div class="sixth-screen__tooltip-container map-mode--container">
+            <img src="./assets/img/map-gorilla.jpg" alt="gorilla" class="sixth-screen__tooltip-image">
+            <div class="sixth-screen__tooltip-content map-mode--content">
+              <h3 class="sixth-screen__tooltip-title">Gorilla</h3>
+              <p class="sixth-screen__tooltip-text map-mode--text">The broadcast comes from the Democratic Republic of
+                the Congo in a
+                forest area. Watch their life and life together</p>
+              <a href="#" class="sixth-screen__tooltip-lnk map-mode--link">Watch now -></a>
+            </div>
+          </div>
+        </div>
+        <div class="sixth-screen__map-pin sixth-screen__map-pin--crocy map-mode--crocy">
+          <svg class="sixth-screen__map-svg sixth-screen__map-svg--crocy">
+            <use xlink:href="#crocy-pin"></use>
+          </svg>
+        </div>
+        <div class="sixth-screen__map-pin sixth-screen__map-pin--gorilla map-mode--gorilla active">
+          <svg class="sixth-screen__map-svg sixth-screen__map-svg--gorilla">
+            <use xlink:href="#gorilla-pin"></use>
+          </svg>
+        </div>
+        <div class="sixth-screen__map-pin sixth-screen__map-pin--panda map-mode--panda">
+          <svg class="sixth-screen__map-svg sixth-screen__map-svg--panda">
+            <use xlink:href="#panda-pin"></use>
+          </svg>
+        </div>
+      </section>
+    </main>
+    <script src="./js/app.js"></script>
 </body>
 
 </html>

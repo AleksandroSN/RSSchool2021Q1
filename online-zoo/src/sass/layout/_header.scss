@@ -13,6 +13,7 @@
   &-logo {
     display: flex;
     // margin-left: 13px;
+    cursor: pointer;
     width: 90px;
     height: 90px;
     justify-content: center;
@@ -20,6 +21,8 @@
     margin-left: 0;
     border: 2px solid #f0f0f0;
     position: fixed;
+    left: 60px;
+    z-index: 2;
 
     @media screen and (max-width: 1200px) {
       margin-left: 0;
@@ -37,6 +40,7 @@
   &-profile {
     display: flex;
     margin-right: 92px;
+    cursor: pointer;
 
     @media screen and (max-width: 1200px) {
       margin-right: 72px;

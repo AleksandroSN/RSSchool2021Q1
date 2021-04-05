@@ -7,6 +7,7 @@ const OptimizeCssAssetWebpackPlugin = require('optimize-css-assets-webpack-plugi
 const CopyPlugin = require('copy-webpack-plugin'); // для копирования файлов
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin'); // минификация картинок
 const TerserPlugin = require('terser-webpack-plugin'); //минификация JS
+// const SpriteLoaderPlugin = require('svg-sprite-loader/plugin'); //для использования SVG в стилях
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
@@ -70,6 +71,31 @@ module.exports = {
       template: './404.html',
       filename: '404.html',
     }),
+    new HtmlWebpackPlugin({
+      title: 'Map',
+      template: './map.html',
+      filename: 'map.html',
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Zoos-Panda',
+      template: './zoos.html',
+      filename: 'zoos.html',
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Zoos-Crocy',
+      template: './zoos/crocy.html',
+      filename: 'zoos/crocy.html',
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Zoos-Gorilla',
+      template: './zoos/gorilla.html',
+      filename: 'zoos/gorilla.html',
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Zoos-Eagle',
+      template: './zoos/eagle.html',
+      filename: 'zoos/eagle.html',
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
@@ -87,15 +113,38 @@ module.exports = {
         ],
       },
     }),
+    // new SpriteLoaderPlugin(),
   ],
   module: {
     rules: [
       //SVG
       {
         test: /\.svg$/,
+        exclude: /img/,
         use: ['svg-sprite-loader', 'svgo-loader'],
+        // use: [
+        //   {
+        //     loader: 'svg-sprite-loader',
+        //     options: {
+        //       extract: true,
+        //       spriteFilename: 'sprite.svg',
+        //     },
+        //   },
+        //   {
+        //     loader: 'svgo-loader',
+        //   },
+        // ],
       },
-      //Styles
+      {
+        test: /\.svg|jpg$/,
+        include: /img/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: './assets/img/[name].[ext]',
+          },
+        },
+      },
       {
         test: /\.scss|css$/,
         use: [

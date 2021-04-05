@@ -1,0 +1,150 @@
+.map {
+  background-image: url(../assets/img/map.jpg);
+  background-repeat: no-repeat no-repeat;
+  background-size: cover;
+  height: 100vh;
+
+  .wrapper {
+    grid-template-rows: 90px minmax(calc(100vh - 90px - 20px - 10px), auto);
+  }
+}
+
+.bg-white {
+  background-color: #fcfcfc;
+}
+
+.aside {
+  &--map {
+    background-color: #fcfcfc;
+    top: 114px;
+    padding: 19px 15.5px;
+    z-index: 1;
+  }
+
+  &-btn {
+    background: transparent;
+    border-width: 0;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &-animals {
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+    margin: 30px 0;
+
+    &_item {
+      border-radius: 50%;
+      border: 2px solid #d9e8ff;
+      height: 55px;
+      width: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        border: 2px solid #609fff;
+        cursor: pointer;
+      }
+
+      svg {
+        height: 34px;
+        width: 30px;
+      }
+    }
+
+    &--additional {
+      svg {
+        height: 28px;
+        width: 10px;
+      }
+    }
+
+    &--active {
+      border: 2px solid #609fff;
+    }
+  }
+}
+
+.map-mode {
+  position: absolute;
+  left: 32%;
+  top: 18%;
+  margin-top: 0;
+  margin-left: 0;
+
+  &--gorilla {
+    top: 49%;
+    left: 53%;
+
+    &:hover {
+      top: 42.6%;
+      left: 49.3%;
+    }
+  }
+
+  &--crocy {
+    top: 14.1%;
+    left: 12.8%;
+
+    &:hover {
+      top: 10%;
+      left: 12.3%;
+    }
+  }
+
+  &--panda {
+    top: 19.7%;
+    left: 86.5%;
+
+    &:hover {
+      top: 16.5%;
+      left: 85.8%;
+    }
+  }
+
+  &--container {
+    margin-top: 0;
+  }
+
+  &--content {
+    padding: 0 35px 50px;
+  }
+
+  &--text {
+    margin: 20px 0;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    color: #747474;
+    text-align: center;
+  }
+
+  &--link {
+    margin: 50px 0 0;
+  }
+}
+
+.active {
+  width: calc(113px * 1.3);
+  height: calc(113px * 1.3);
+  background-image: url(../assets/img/pinborder.svg);
+  top: 42.6%;
+  left: 49.3%;
+
+  svg {
+    left: 34%;
+    top: 17%;
+  }
+}

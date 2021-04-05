@@ -21,6 +21,30 @@
       }
     }
 
+    &__item {
+      transition: 0.3s;
+      padding: 3px;
+      &:hover {
+        border-radius: 5px;
+        cursor: pointer;
+        transform: translateY(-5px);
+        box-shadow: 0 0.8rem 0.5rem -0.5rem $mainColor,
+          inset 0 0 0px 1px $mainColor;
+      }
+
+      &.nav__active {
+        border-radius: 5px;
+        cursor: context-menu;
+        transform: translateY(-5px);
+        box-shadow: 0 0.8rem 0.5rem -0.5rem $mainColor,
+          inset 0 0 0px 1px $mainColor;
+
+        .header-nav__link {
+          cursor: context-menu;
+        }
+      }
+    }
+
     &__link {
       color: $mainColor;
       font-weight: 500;
