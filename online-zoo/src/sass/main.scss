@@ -1,8 +1,5 @@
 @import './base/normalize';
 @import './base/typography';
-@import './pages/404';
-@import './pages/map';
-@import './pages/zoos';
 @import './layout/footer';
 @import './layout/header';
 @import './layout/aside';
@@ -12,9 +9,16 @@
 @import './utils/helpers';
 @import './components/buttons';
 @import './pages/404';
+@import './pages/map';
+@import './pages/zoos';
 
 html {
   scroll-behavior: smooth;
+  font-size: 18px;
+
+  // @media screen and (max-width: 1201px) {
+  //   font-size: 16px;
+  // }
 }
 
 body {
@@ -29,7 +33,7 @@ img {
 }
 
 .border {
-  border: 2px solid $borderHeader;
+  border: 2px solid $graySoft;
 }
 
 .main {
@@ -455,7 +459,7 @@ img {
           display: inline-block;
           vertical-align: super;
           font-weight: 500;
-          font-size: 24px;
+          font-size: 1.333333rem;
           line-height: 32px;
           color: $blackColor;
         }
@@ -591,6 +595,3 @@ img {
     }
   }
 }
-
-@import './pages/map';
-@import './pages/zoos.scss';

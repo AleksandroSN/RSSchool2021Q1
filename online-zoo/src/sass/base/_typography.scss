@@ -58,6 +58,16 @@ h3 {
   font-weight: 700;
   font-size: 36px;
   line-height: 52px;
+
+  @media screen and (max-width: 1201px) {
+    font-size: 28px;
+  }
+  @media screen and (max-width: 641px) {
+    font-size: 26px;
+  }
+  @media screen and (max-width: 321px) {
+    font-size: 20px;
+  }
 }
 
 h4 {
@@ -66,4 +76,19 @@ h4 {
   font-size: 26px;
   line-height: 38px;
   color: #080029;
+}
+
+.text-bold {
+  font-family: Merriweather;
+  font-weight: 700;
+  font-size: 144px;
+  line-height: 181px;
+
+  @media screen and (max-width: 1201px) {
+    font-size: 120px;
+  }
+  @media screen and (max-width: 641px) {
+    font-size: 96px;
+    line-height: 121px;
+  }
 }

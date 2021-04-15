@@ -1,27 +1,32 @@
 @import '../utils/variables';
 
 .btn {
-  padding: 18px 78px;
+  padding: 1rem 4.3333rem;
   border-radius: 5px;
   cursor: pointer;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
 
   &--light {
     border: 2px solid $mainColor;
     color: $mainColor;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 21px;
-    text-align: center;
     background-color: transparent;
   }
 
   &--dark {
     border-width: 0;
     background-color: $mainColor;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 21px;
     color: $whiteColor;
+  }
+
+  @media screen and (max-width: 1201px) {
+    padding: 0.8889rem 3.3333rem;
+  }
+  @media screen and (max-width: 321px) {
+    font-size: 14px;
+    line-height: 17px;
   }
 }
 

@@ -5,10 +5,20 @@
   max-width: 1800px;
   width: 100%;
   flex-wrap: wrap;
-  margin: 0 60px;
+  margin: 0 auto;
+  padding: 0 60px;
 
   @media screen and (min-width: 1921px) {
-    margin: 0 auto;
+    padding: 0;
+  }
+  @media screen and (max-width: 1201px) {
+    padding: 0 40px;
+  }
+  @media screen and (max-width: 641px) {
+    padding: 0 20px;
+  }
+  @media screen and (max-width: 321px) {
+    padding: 0 10px;
   }
 
   &-grid {
@@ -41,7 +51,7 @@
   @media screen and (max-width: 1201px) {
     // margin: 0 40px;
     column-gap: 20px;
-    grid-template-columns: repeat(8, minmax(30px, 120px));
+    grid-template-columns: repeat(8, minmax(30px, auto));
     grid-template-areas:
       'header header header header header header header header'
       'content content content content content content content content'
@@ -51,15 +61,18 @@
   @media screen and (max-width: 641px) {
     // margin: 0 10px;
     column-gap: 10px;
-    grid-template-columns: repeat(6, minmax(30px, 120px));
+    grid-template-columns: repeat(6, minmax(30px, auto));
     grid-template-areas:
       'header header header header header header'
       'content content content content content content'
       'footer footer footer footer footer footer';
   }
   @media screen and (max-width: 401px) {
-    // margin: 0 10px;
-    grid-template-columns: repeat(4, minmax(30px, 120px));
+    padding: 15px 0;
+    grid-template-columns: repeat(4, minmax(30px, auto));
+    grid-template-rows:
+      calc(90px - 15px - 30px) minmax(calc(100vh - 90px - 766px), auto)
+      minmax($footerHeight, auto);
     grid-template-areas:
       'header header header header'
       'content content content content'

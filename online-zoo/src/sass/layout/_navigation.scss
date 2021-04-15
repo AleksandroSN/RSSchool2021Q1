@@ -10,10 +10,10 @@
 
     &__list {
       display: flex;
-      gap: 130px;
+      gap: 6.8333rem;
 
       @media screen and (max-width: 1200px) {
-        gap: 100px;
+        gap: 94px;
       }
 
       @media screen and (max-width: 950px) {
@@ -53,7 +53,8 @@
     }
 
     @media screen and (max-width: 1200px) {
-      margin-left: 88px;
+      // margin-left: 88px;
+      margin-left: 140px; //ширина лого + отступ от левого края
     }
 
     @media screen and (max-width: 950px) {
