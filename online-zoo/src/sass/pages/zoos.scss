@@ -1,8 +1,8 @@
 .animal-cams {
-  margin-top: 90px;
+  margin-top: 70px;
 
   .container {
-    max-width: 1450px;
+    // max-width: 1450px;
     margin: 0 auto;
   }
 }
@@ -10,24 +10,66 @@
 .aside--zoos {
   top: 114px;
   padding: 19px 15.5px;
+
+  @media screen and (max-width: 1201px) {
+    padding: 19px 10.5px;
+    top: 93px;
+  }
 }
 .main-cam {
-  display: flex;
+  // display: flex;
+  // flex-wrap: wrap;
+  // justify-content: flex-end;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 100px;
+  overflow: hidden;
   gap: 40px;
 
   &__video {
-    width: 1064px;
-    height: 599px;
+    // width: 1064px;
+    // height: 599px;
+    max-width: 1064px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    //
+    // flex: 1 1 50%;
+    margin-left: auto;
+    grid-row: 1/3;
+    grid-column: 1/2;
+
+    &::after {
+      padding-top: 56.25%;
+      display: block;
+      content: '';
+    }
 
     iframe {
       width: 100%;
       height: 100%;
       border-radius: 5px;
+      //
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    @media screen and (max-width: 1201px) {
+      max-width: 545px;
     }
   }
 
   &__donate {
-    flex: 0 0 28%;
+    // flex: 0 0 28%;
+    // flex: 0 1 28%;
+    // padding: 0 2px;
+
+    &-container {
+      grid-column: 2/3;
+    }
 
     &-subs {
       display: flex;
@@ -40,18 +82,40 @@
         width: 70px;
         border-radius: 50%;
         overflow: hidden;
+
+        img {
+          object-fit: cover;
+        }
+
+        @media screen and (max-width: 1201px) {
+          height: 54px;
+          width: 54px;
+        }
+      }
+
+      &__info {
+        margin: 10px 0 0 10px;
+
+        @media screen and (max-width: 1201px) {
+          margin: 5px 0 0 18px;
+        }
       }
 
       &__title {
         font-size: 1.333333rem;
         line-height: 28px;
         color: #0b0b0b;
+
+        @media screen and (max-width: 1201px) {
+          font-size: 20px;
+          line-height: 23.7px;
+        }
       }
 
       &__watch {
         display: flex;
         align-items: center;
-        margin-top: 8px;
+        // margin-top: 8px;
         font-size: 18px;
         line-height: 28px;
         color: #747474;
@@ -60,12 +124,28 @@
           height: 20px;
           width: 20px;
           margin-right: 5px;
+
+          @media screen and (max-width: 1201px) {
+            height: 16px;
+            width: 16px;
+          }
         }
+
+        @media screen and (max-width: 1201px) {
+          font-size: 16px;
+        }
+      }
+
+      @media screen and (max-width: 1201px) {
+        border-width: 0;
+        padding-bottom: 0;
       }
     }
 
     &-call {
-      margin-top: 20px;
+      // margin-top: 40px;
+      margin-top: 10px;
+      max-width: 415px;
 
       &__title {
         font-family: Merriweather;
@@ -74,25 +154,67 @@
         font-size: 26px;
         line-height: 38px;
         color: #080029;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
+
+        @media screen and (max-width: 1201px) {
+          font-size: 22px;
+          line-height: 145%;
+          margin-bottom: 16px;
+        }
       }
 
       &__text {
         font-size: 18px;
         line-height: 28px;
         color: #747474;
-        margin-bottom: 30px;
+        margin-bottom: 45px;
         padding-right: 25px;
+
+        @media screen and (max-width: 1201px) {
+          font-size: 16px;
+          line-height: 154%;
+          padding-right: 0;
+          margin-bottom: 21px;
+        }
+      }
+
+      &__btn {
+        padding: 20px 75px;
+      }
+
+      @media screen and (max-width: 1201px) {
+        grid-row: 2/3;
+        margin-top: 0;
       }
     }
+
+    // @media screen and (max-width: 1201px) {
+    //   flex: 0 1 36%;
+    // }
+  }
+
+  @media screen and (max-width: 1201px) {
+    grid-template-columns: 61% 39%;
+    grid-template-rows: 60px 228px;
+    gap: 20px 36px;
   }
 }
 
 .other-cams {
-  margin-top: 40px;
+  width: 90%;
+  margin-left: auto;
+  margin-top: 21px;
+  // padding-left: 5px;
+  grid-column: 1 / -1;
+  grid-row: 3/4;
+  padding-left: 15px;
 
   &__dropdown {
     margin-bottom: 40px;
+
+    @media screen and (max-width: 1201px) {
+      margin-bottom: 30px;
+    }
   }
 
   &__title {
@@ -101,12 +223,27 @@
       height: 13px;
       margin-left: 10px;
       margin-bottom: 3px;
+
+      @media screen and (max-width: 1201px) {
+        width: 13px;
+        height: 9px;
+      }
+    }
+
+    @media screen and (max-width: 1201px) {
+      font-size: 22px;
     }
   }
 
   &__list {
     display: flex;
     gap: 40px;
+
+    @media screen and (max-width: 1201px) {
+      // max-width: 830px;
+      gap: 30px;
+      overflow: hidden;
+    }
   }
 
   &__item {
@@ -165,6 +302,11 @@
         cursor: pointer;
       }
     }
+
+    @media screen and (max-width: 1201px) {
+      flex: 1 0 31%;
+      height: auto;
+    }
   }
 
   &__nav {
@@ -178,30 +320,58 @@
       height: 18px;
       width: 18px;
     }
+
+    @media screen and (max-width: 1201px) {
+      height: 56px;
+      width: 56px;
+    }
+  }
+
+  @media screen and (max-width: 1201px) {
+    width: 87%;
+    padding-left: 0;
   }
 }
 
 .facts {
   margin-top: 60px;
+  padding-bottom: 100px;
 
   .container {
     max-width: 1450px;
     margin: 0 auto;
+    padding: 0 15px;
+
+    @media screen and (max-width: 1201px) {
+      width: 86%;
+      margin: 0 0 0 auto;
+    }
   }
 
   &-desc {
     max-width: 512px;
+
+    &__title {
+      @media screen and (max-width: 1201px) {
+        font-size: 36px;
+      }
+    }
 
     &__text {
       font-size: 18px;
       line-height: 154%;
       color: #747474;
       margin-top: 30px;
+
+      @media screen and (max-width: 1201px) {
+        font-size: 16px;
+      }
     }
   }
 
   &-accordion {
-    margin-top: 50px;
+    // margin-top: 50px;
+    margin-top: 45px;
     flex: 100%;
 
     &__item {
@@ -214,9 +384,14 @@
           color: #609fff;
         }
       }
+
+      &:not(:first-child) {
+        margin-top: 19px;
+      }
     }
 
     &__panel {
+      display: none;
       font-weight: normal;
       font-size: 18px;
       line-height: 28px;
@@ -251,5 +426,17 @@
         height: 18px;
       }
     }
+  }
+
+  @media screen and (max-width: 1201px) {
+    margin-top: 84px;
+    // padding-bottom: 204px;
+  }
+}
+
+.fourth-screen {
+  &.zoos {
+    padding-top: 12px;
+    margin-bottom: 125px;
   }
 }

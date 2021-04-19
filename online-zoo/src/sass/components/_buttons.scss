@@ -1,12 +1,12 @@
 @import '../utils/variables';
 
 .btn {
-  padding: 1rem 4.3333rem;
+  padding: 1.1111rem 4.1667rem;
   border-radius: 5px;
   cursor: pointer;
   font-weight: 500;
-  font-size: 18px;
-  line-height: 21px;
+  font-size: 1rem;
+  line-height: 0.9444rem;
   text-align: center;
 
   &--light {
@@ -22,11 +22,11 @@
   }
 
   @media screen and (max-width: 1201px) {
+    font-size: 0.8889rem;
     padding: 0.8889rem 3.3333rem;
   }
   @media screen and (max-width: 321px) {
-    font-size: 14px;
-    line-height: 17px;
+    font-size: 0.7778rem;
   }
 }
 

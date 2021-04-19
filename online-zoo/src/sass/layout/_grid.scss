@@ -2,15 +2,13 @@
 
 .container {
   display: flex;
-  max-width: 1800px;
+  max-width: 1920px;
   width: 100%;
   flex-wrap: wrap;
   margin: 0 auto;
   padding: 0 60px;
+  overflow: hidden;
 
-  @media screen and (min-width: 1921px) {
-    padding: 0;
-  }
   @media screen and (max-width: 1201px) {
     padding: 0 40px;
   }
@@ -24,11 +22,22 @@
   &-grid {
     display: grid;
     margin: 0 auto;
-    padding: 45px 0;
+    // padding: 45px 10px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 40px;
     gap: 40px;
-    max-width: 1450px;
+    // max-width: 1450px;
+    width: 81%;
+
+    @media screen and (max-width: 1201px) {
+      grid-template-columns: minmax(316px, 723px) minmax(263px, 400px);
+      gap: 77px;
+      width: 100%;
+    }
+    @media screen and (max-width: 641px) {
+      gap: 22px;
+      // padding-top: 40px;
+    }
   }
 }
 
@@ -52,6 +61,9 @@
     // margin: 0 40px;
     column-gap: 20px;
     grid-template-columns: repeat(8, minmax(30px, auto));
+    grid-template-rows:
+      $headHeightM minmax(calc(100vh - 70px - 720px), auto)
+      minmax($footerHeightM, auto);
     grid-template-areas:
       'header header header header header header header header'
       'content content content content content content content content'
@@ -61,6 +73,9 @@
   @media screen and (max-width: 641px) {
     // margin: 0 10px;
     column-gap: 10px;
+    grid-template-rows:
+      $headHeightS minmax(calc(100vh - 65px - 700px), auto)
+      minmax($footerHeightS, auto);
     grid-template-columns: repeat(6, minmax(30px, auto));
     grid-template-areas:
       'header header header header header header'
@@ -68,11 +83,11 @@
       'footer footer footer footer footer footer';
   }
   @media screen and (max-width: 401px) {
-    padding: 15px 0;
+    padding: 15px 0 0;
     grid-template-columns: repeat(4, minmax(30px, auto));
     grid-template-rows:
-      calc(90px - 15px - 30px) minmax(calc(100vh - 90px - 766px), auto)
-      minmax($footerHeight, auto);
+      $headHeightXS minmax(calc(100vh - 59px - 777px), auto)
+      minmax($footerHeightXS, auto);
     grid-template-areas:
       'header header header header'
       'content content content content'

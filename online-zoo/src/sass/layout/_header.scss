@@ -27,7 +27,6 @@
 
   &-logo {
     display: flex;
-    // margin-left: 13px;
     cursor: pointer;
     width: 90px;
     height: 90px;
@@ -35,10 +34,11 @@
     align-items: center;
     margin-left: 0;
     position: fixed;
-    // left: 60px;
+    left: 60px;
     z-index: 2;
 
     @media screen and (max-width: 1201px) {
+      left: auto;
       width: 70px;
       height: 70px;
     }
@@ -94,6 +94,7 @@
   &-burger__svg {
     display: none;
     @media screen and (max-width: 641px) {
+      cursor: pointer;
       display: block;
       width: 55px;
       height: 35px;
@@ -102,5 +103,9 @@
       width: 35px;
       height: 29px;
     }
+  }
+
+  @media screen and (max-width: 641px) {
+    border-bottom: 1px solid $graySoft;
   }
 }

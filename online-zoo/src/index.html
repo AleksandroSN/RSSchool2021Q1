@@ -83,7 +83,7 @@
             </p>
             <div class="first-screen__btns">
               <a href="./map.html" class="first-screen__btn btn btn--dark">Choose zoo</a>
-              <a href="./zoos.html" class="first-screen__btn btn btn--light">Wath online</a>
+              <a href="./zoos.html" class="first-screen__btn btn btn--light">Watch online</a>
             </div>
           </div>
           <picture class="first-screen__photo">
@@ -92,19 +92,22 @@
         </div>
       </section>
       <section class="second-screen" id="second-screen">
-        <div class="container container-grid">
-          <picture class="second-screen__photo">
-            <img src="./assets/img/tiger.jpg" alt="tiny tiger">
-          </picture>
-          <div class="second-screen__right">
-            <h2 class="second-screen__subtitle">How Zoo online works</h2>
-            <h3 class="second-screen__title">Our service will give you an unforgettable experience of observing and
-              interacting with animals remotely</h3>
-            <p class="second-screen__text">Zoo Online is a web application with which you can watch live cages of
-              different animals in nature reserves and zoos online and, if you wish, donate to the needs of the animal
-              you like</p>
-            <div class="second-screen__btns">
-              <a href="./zoos.html" class="second-screen__btn btn btn--dark">Try now</a>
+        <!-- <div class="container container-grid"> -->
+        <div class="container">
+          <div class="second-screen__wrapper">
+            <picture class="second-screen__photo">
+              <img src="./assets/img/tiger.jpg" alt="tiny tiger">
+            </picture>
+            <div class="second-screen__right">
+              <h2 class="second-screen__subtitle">How Zoo online works</h2>
+              <h3 class="second-screen__title">Our service will give you an unforgettable experience of observing and
+                interacting with animals remotely</h3>
+              <p class="second-screen__text">Zoo Online is a web application with which you can watch live cages of
+                different animals in nature reserves and zoos online and, if you wish, donate to the needs of the animal
+                you like</p>
+              <div class="second-screen__btns">
+                <a href="./zoos.html" class="second-screen__btn btn btn--dark">Try now</a>
+              </div>
             </div>
           </div>
         </div>
@@ -113,7 +116,7 @@
         <div class="container container-grid">
           <div class="third-screen__text">
             <h2 class="third-screen__subtitle">Famous pets</h2>
-            <h3 class="third-screen__title">You can choose any animal
+            <h3 class="third-screen__title">You can choose any animal<br>
               you like</h3>
             <div class="third-screen__navigation">
               <button class="navigation-arrow navigation-arrow--dark arrow--left">
@@ -157,6 +160,15 @@
               </div>
             </figure>
             <figure class="carousel-card">
+              <div class="carousel-card__wrapper tiger"></div>
+              <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
+              <figcaption>Tiger</figcaption>
+              <div class="carousel-card--cover">
+                <p>Russia, Amur region</p>
+                <span>Follow -></span>
+              </div>
+            </figure>
+            <figure class="carousel-card">
               <div class="carousel-card__wrapper panda"></div>
               <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
               <figcaption>Panda</figcaption>
@@ -180,6 +192,16 @@
               <figcaption>Gorilla</figcaption>
               <div class="carousel-card--cover">
                 <p>North America, islands near Los Angeles</p>
+                <span>Follow -></span>
+              </div>
+            </figure>
+            <figure class="carousel-card">
+              <div class="carousel-card__wrapper crocy"></div>
+              <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
+              <figcaption>Crocodile</figcaption>
+              <div class="carousel-card--cover">
+                <p>American state
+                  of Florida</p>
                 <span>Follow -></span>
               </div>
             </figure>
@@ -256,12 +278,12 @@
         <div class="container">
           <div class="thifth-screen__wrapper">
             <div class="thifth-screen__testimonials">
-              <h2 class="thifth-screen__title">Testimonials</h2>
+              <h2 class="thifth-screen__testimonials-title">Testimonials</h2>
               <h3 class="thifth-screen__testimonials-subtitle">You can make us smile</h3>
               <p class="thifth-screen__testimonials-text">We want to make animal observation and interaction accessible.
                 You can leave your wishes on how to make the service more convenient, and most importantly, more
                 interesting for you.</p>
-              <button class="thifth-screen__btn btn btn--dark border">Leave feedback</button>
+              <button class="thifth-screen__testimonials-btn btn btn--dark border">Leave feedback</button>
             </div>
             <div class="thifth-screen__reviews">
               <a href="#" class="thifth-screen__reviews-lnk">See more reviews -></a>
@@ -299,40 +321,66 @@
       </section>
       <section class="sixth-screen" id="sixth-screen">
         <div class="container">
-          <div class="sixth-screen__tooltip">
-            <h2 class="sixth-screen__title">Zoogeography</h2>
-            <div class="sixth-screen__tooltip-container">
-              <img src="./assets/img/map-eagle.jpg" alt="eagle" class="sixth-screen__tooltip-image">
-              <h3 class="sixth-screen__tooltip-title">Eagle</h3>
-              <p class="sixth-screen__tooltip-text">The broadcast is from an island near Los Angeles. Watch their real
-                life.</p>
-              <a href="./zoos/eagle.html" class="sixth-screen__tooltip-lnk">Watch now -></a>
+          <div class="sixth-screen__wrapper">
+            <div class="sixth-screen__tooltip">
+              <h2 class="sixth-screen__title">Zoogeography</h2>
+              <div class="sixth-screen__tooltip-container">
+                <img src="./assets/img/map-eagle.jpg" alt="eagle" class="sixth-screen__tooltip-image">
+                <h3 class="sixth-screen__tooltip-title">Eagle</h3>
+                <p class="sixth-screen__tooltip-text">The broadcast is from an island near Los Angeles. Watch their real
+                  life.</p>
+                <a href="./zoos/eagle.html" class="sixth-screen__tooltip-lnk">Watch now -></a>
+              </div>
             </div>
-          </div>
-          <div class="sixth-screen__map">
-            <div class="sixth-screen__map-pin sixth-screen__map-pin--crocy">
-              <svg class="sixth-screen__map-svg sixth-screen__map-svg--crocy">
-                <use xlink:href="#crocy-pin"></use>
+            <div class="sixth-screen__map">
+              <div class="sixth-screen__map-pin sixth-screen__map-pin--crocy">
+                <svg class="sixth-screen__map-svg sixth-screen__map-svg--crocy">
+                  <use xlink:href="#crocy-pin"></use>
+                </svg>
+              </div>
+              <div class="sixth-screen__map-pin sixth-screen__map-pin--eagle">
+                <svg class="sixth-screen__map-svg sixth-screen__map-svg--eagle">
+                  <use xlink:href="#eagle-pin"></use>
+                </svg>
+              </div>
+              <div class="sixth-screen__map-pin sixth-screen__map-pin--gorilla">
+                <svg class="sixth-screen__map-svg sixth-screen__map-svg--gorilla">
+                  <use xlink:href="#gorilla-pin"></use>
+                </svg>
+              </div>
+              <div class="sixth-screen__map-pin sixth-screen__map-pin--panda">
+                <svg class="sixth-screen__map-svg sixth-screen__map-svg--panda">
+                  <use xlink:href="#panda-pin"></use>
+                </svg>
+              </div>
+              <svg class="sixth-screen__map-map">
+                <use xlink:href="#world"></use>
               </svg>
             </div>
-            <div class="sixth-screen__map-pin sixth-screen__map-pin--eagle">
-              <svg class="sixth-screen__map-svg sixth-screen__map-svg--eagle">
-                <use xlink:href="#eagle-pin"></use>
-              </svg>
+            <div class="sixth-screen__slider">
+              <button class="sixth-screen__slider-button sixth-screen__slider-button--left">
+                <svg class="sixth-screen__slider-button-svg">
+                  <use xlink:href="#up"></use>
+                </svg>
+              </button>
+              <div class="sixth-screen__slider-item"><svg class="sixth-screen__slider-item-svg">
+                  <use xlink:href="#panda-pin"></use>
+                </svg></div>
+              <div class="sixth-screen__slider-item"><svg class="sixth-screen__slider-item-svg">
+                  <use xlink:href="#crocy-pin"></use>
+                </svg></div>
+              <div class="sixth-screen__slider-item"><svg class="sixth-screen__slider-item-svg">
+                  <use xlink:href="#eagle-pin"></use>
+                </svg></div>
+              <div class="sixth-screen__slider-item"><svg class="sixth-screen__slider-item-svg">
+                  <use xlink:href="#gorilla-pin"></use>
+                </svg></div>
+              <button class="sixth-screen__slider-button sixth-screen__slider-button--right">
+                <svg class="sixth-screen__slider-button-svg">
+                  <use xlink:href="#down"></use>
+                </svg>
+              </button>
             </div>
-            <div class="sixth-screen__map-pin sixth-screen__map-pin--gorilla">
-              <svg class="sixth-screen__map-svg sixth-screen__map-svg--gorilla">
-                <use xlink:href="#gorilla-pin"></use>
-              </svg>
-            </div>
-            <div class="sixth-screen__map-pin sixth-screen__map-pin--panda">
-              <svg class="sixth-screen__map-svg sixth-screen__map-svg--panda">
-                <use xlink:href="#panda-pin"></use>
-              </svg>
-            </div>
-            <svg class="sixth-screen__map-map">
-              <use xlink:href="#world"></use>
-            </svg>
           </div>
         </div>
       </section>

@@ -17,13 +17,23 @@
     align-items: center;
     flex: 1;
     margin-bottom: 100px;
-    gap: 50px;
-    margin-top: 230px;
+    margin-top: 320px;
+    gap: 46px;
 
     &__svg {
       cursor: pointer;
       width: 24px;
       height: 24px;
+
+      @media screen and (max-width: 1201px) {
+        width: 18px;
+        height: 19px;
+      }
+    }
+    @media screen and (max-width: 1201px) {
+      margin-top: 250px;
+      gap: 40px;
+      margin-bottom: 65px;
     }
   }
 
@@ -42,5 +52,17 @@
       width: 18px;
       height: 18px;
     }
+
+    @media screen and (max-width: 1201px) {
+      margin-bottom: 33px;
+    }
+  }
+
+  @media screen and (max-width: 1201px) {
+    padding: 19px 9px;
+    left: 40px;
+  }
+  @media screen and (max-width: 641px) {
+    display: none;
   }
 }
