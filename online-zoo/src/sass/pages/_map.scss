@@ -1,24 +1,97 @@
 .map {
   background-image: url(../assets/img/map.jpg);
   background-repeat: no-repeat no-repeat;
-  background-size: cover;
-  height: 100vh;
+  // background-size: cover;
+  background-position: -5vw -36.5vw;
+  background-attachment: fixed;
+  background-size: 113%;
+  position: relative;
+  // height: 100vh;
 
   .wrapper {
-    grid-template-rows: 90px minmax(calc(100vh - 90px - 20px - 10px), auto);
+    grid-template-rows: 90px minmax(calc(100vh - 90px - 26px), auto);
+    // grid-template-rows: 90px minmax(100vh, auto);
+
+    @media screen and (max-width: 1201px) {
+      grid-template-columns: repeat(8, 2fr);
+    }
+
+    @media screen and (max-width: 641px) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    @media screen and (max-width: 321px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
+
+  @media screen and (max-width: 1201px) {
+    background-position: 0.2vw -27vw;
+    background-attachment: fixed;
+    background-size: 116%;
+  }
+
+  @media screen and (max-width: 641px) {
+    background-position: -52.9vw -51vw;
+    background-size: 218%;
+  }
+
+  @media screen and (max-width: 321px) {
+    background-position: -62.2vw -62.5vw;
+    background-size: 258%;
+  }
+}
+
+.header {
+  border-width: 0;
+}
+
+// TODO: main relatieve need ???
+.main {
+  position: static;
 }
 
 .bg-white {
   background-color: #fcfcfc;
+
+  @media screen and (max-width: 641px) {
+    background-color: transparent;
+  }
 }
 
 .aside {
+  //TODO : rename on aside--animals and relocate in aside.scss
   &--map {
     background-color: #fcfcfc;
     top: 114px;
     padding: 19px 15.5px;
     z-index: 1;
+
+    @media screen and (max-width: 1201px) {
+      padding: 19px 10.5px;
+      top: 93px;
+    }
+
+    @media screen and (max-width: 641px) {
+      display: flex;
+      flex-direction: row;
+      position: fixed;
+      bottom: 8.6%;
+      left: 0;
+      right: 0;
+      top: auto;
+      border-radius: 15px;
+      background-color: $whiteColor;
+      padding: 18px 0;
+      margin: 0 15px;
+      gap: 20px;
+    }
+
+    @media screen and (max-width: 321px) {
+      padding: 13px 0px;
+      bottom: 11%;
+      margin: 0 10px;
+      gap: 7px;
+    }
   }
 
   &-btn {
@@ -41,6 +114,20 @@
 
     @media screen and (max-width: 1201px) {
       margin-top: 10px;
+    }
+
+    @media screen and (max-width: 641px) {
+      transform: rotate(270deg);
+
+      &:first-child {
+        margin-left: 35px;
+      }
+    }
+
+    @media screen and (max-width: 321px) {
+      &:first-child {
+        margin: 0 0 0 6px;
+      }
     }
   }
 
@@ -88,6 +175,24 @@
       margin: 18px 0;
       gap: 47px;
     }
+
+    &--map {
+      gap: 72px;
+
+      @media screen and (max-width: 1201px) {
+        gap: 78px;
+      }
+
+      @media screen and (max-width: 641px) {
+        flex-direction: row;
+        margin: 0;
+        gap: 94px;
+      }
+
+      @media screen and (max-width: 321px) {
+        gap: 18px;
+      }
+    }
   }
 
   &--additional {
@@ -104,73 +209,194 @@
 
 .map-mode {
   position: absolute;
-  left: 34%;
-  top: 18%;
-  margin-top: 0;
-  margin-left: 0;
+  // left: 34%;
+  // top: 18%;
+  left: 30.3%;
+  top: 19.2%;
+  // margin-top: 0;
+  // margin-left: 0;
+
+  &--container {
+    @media screen and (max-width: 641px) {
+      gap: 20px;
+    }
+  }
+
+  // &--content {
+  //   padding: 0 35px 50px;
+  // }
+
+  &--text {
+    @media screen and (max-width: 641px) {
+      font-size: 0.7778rem;
+    }
+  }
+
+  &--title {
+    @media screen and (max-width: 1201px) {
+      margin-top: 0;
+    }
+  }
+
+  &--link {
+    margin: 0;
+
+    @media screen and (max-width: 1201px) {
+      font-size: 0.8889rem;
+    }
+  }
+
+  &__pin {
+    height: 106px;
+    width: 82px;
+
+    &--svg {
+      width: 47px;
+      height: 56px;
+
+      @media screen and (max-width: 1201px) {
+        height: 35.92px;
+        width: 30.38px;
+      }
+      @media screen and (max-width: 321px) {
+        height: 23.57px;
+        width: 20.63px;
+      }
+    }
+
+    &:hover {
+      height: 124px;
+      width: 96px;
+
+      @media screen and (max-width: 1201px) {
+        height: 82px;
+        width: 64px;
+      }
+      @media screen and (max-width: 321px) {
+        height: 55px;
+        width: 43px;
+      }
+    }
+
+    @media screen and (max-width: 1201px) {
+      height: 68px;
+      width: 53px;
+    }
+    @media screen and (max-width: 321px) {
+      height: 45px;
+      width: 36px;
+    }
+  }
 
   &--gorilla {
     top: 49%;
-    left: 53%;
+    left: 49.67%;
 
     &:hover {
-      top: 44.7%;
-      left: 52.3%;
+      top: 46.3%;
+      left: 49.1%;
+
+      @media screen and (max-width: 1201px) {
+        top: 46.3%;
+        left: 55.7%;
+      }
+
+      @media screen and (max-width: 641px) {
+        left: 51.7%;
+      }
+      @media screen and (max-width: 321px) {
+        top: 43.9%;
+        left: 60.2%;
+      }
+    }
+
+    @media screen and (max-width: 1201px) {
+      top: 48%;
+      left: 56.2%;
+    }
+    @media screen and (max-width: 641px) {
+      top: 47.7%;
+      left: 52.55%;
+    }
+    @media screen and (max-width: 321px) {
+      top: 45.4%;
+      left: 61.3%;
     }
   }
 
   &--crocy {
-    top: 15.1%;
-    left: 13.7%;
+    // top: 22.1%;
+    // left: 13.4%;
+    top: 21.2%;
+    left: 13.1%;
+
+    @media screen and (max-width: 1201px) {
+      top: 30.3%;
+      left: 18.8%;
+    }
+    @media screen and (max-width: 641px) {
+      // visibility: hidden;
+      display: none;
+    }
 
     &:hover {
-      top: 11.3%;
-      left: 13.2%;
+      top: 19.8%;
+      left: 12.7%;
+
+      @media screen and (max-width: 1201px) {
+        top: 28.8%;
+        left: 18.2%;
+      }
     }
   }
 
   &--panda {
-    top: 21.1%;
-    left: 92.3%;
+    // top: 26.7%;
+    // left: 85.2%;
+    top: 25.7%;
+    left: 84.9%;
 
     &:hover {
-      top: 17.6%;
-      left: 91.5%;
+      top: 24.3%;
+      left: 84.5%;
+
+      @media screen and (max-width: 1201px) {
+        top: 31.7%;
+        left: 92.1%;
+      }
+    }
+
+    @media screen and (max-width: 1201px) {
+      top: 33.5%;
+      left: 92.6%;
+    }
+    @media screen and (max-width: 641px) {
+      // visibility: hidden;
+      display: none;
     }
   }
 
-  &--container {
-    margin-top: 0;
+  @media screen and (max-width: 641px) {
+    left: 10.3%;
+    top: 24.5%;
+    margin: 0;
   }
 
-  &--content {
-    padding: 0 35px 50px;
-  }
-
-  &--text {
-    margin: 20px 0;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 28px;
-    color: #747474;
-    text-align: center;
-  }
-
-  &--link {
-    margin: 50px 0 0;
+  @media screen and (max-width: 321px) {
+    opacity: 0;
+    z-index: -5;
   }
 }
 
-.active {
-  width: calc(113px * 1.3);
-  height: calc(113px * 1.3);
-  background-image: url(../assets/img/pinborder.svg);
-  top: 44.7%;
-  left: 52.3%;
+// .active {
+//   width: calc(113px * 1.3);
+//   height: calc(113px * 1.3);
+//   background-image: url(../assets/img/pinborder.svg);
+//   top: 44.7%;
+//   left: 52.3%;
 
-  svg {
-    left: 34%;
-    top: 17%;
-  }
-}
+//   svg {
+//     left: 34%;
+//     top: 17%;
+//   }
+// }

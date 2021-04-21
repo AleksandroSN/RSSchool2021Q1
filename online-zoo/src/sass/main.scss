@@ -8,9 +8,6 @@
 @import './utils/variables';
 @import './utils/helpers';
 @import './components/buttons';
-@import './pages/404';
-@import './pages/map';
-@import './pages/zoos';
 
 html {
   scroll-behavior: smooth;
@@ -1307,6 +1304,7 @@ img {
       display: flex;
       justify-content: center;
       align-items: center;
+      
 
       &--crocy {
         top: 29.6%;
@@ -1483,3 +1481,7 @@ img {
     }
   }
 }
+
+@import './pages/map';
+@import './pages/zoos';
+@import './pages/404';

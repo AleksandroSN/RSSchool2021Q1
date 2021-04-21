@@ -44,12 +44,12 @@
       </div>
     </header>
     <aside class="aside aside--map">
-      <button class="aside-btn">
+      <button class="aside-btn aside-btn--map">
         <svg class="aside-btn--up">
           <use xlink:href="#up"></use>
         </svg>
       </button>
-      <ul class="aside-animals">
+      <ul class="aside-animals aside-animals--map">
         <li class="aside-animals_item aside-animals--panda">
           <svg class="">
             <use xlink:href="#panda-pin"></use>
@@ -76,7 +76,7 @@
           </svg>
         </li> -->
       </ul>
-      <button class="aside-btn">
+      <button class="aside-btn aside-btn--map">
         <svg class="aside-btn--down">
           <use xlink:href="#down"></use>
         </svg>
@@ -87,27 +87,28 @@
         <div class="sixth-screen__tooltip map-mode">
           <div class="sixth-screen__tooltip-container map-mode--container">
             <img src="./assets/img/map-gorilla.jpg" alt="gorilla" class="sixth-screen__tooltip-image">
-            <div class="sixth-screen__tooltip-content map-mode--content">
-              <h3 class="sixth-screen__tooltip-title">Gorilla</h3>
-              <p class="sixth-screen__tooltip-text map-mode--text">The broadcast comes from the Democratic Republic of
-                the Congo in a
-                forest area. Watch their life and life together</p>
-              <a href="#" class="sixth-screen__tooltip-lnk map-mode--link">Watch now -></a>
-            </div>
+            <!-- TODO: add containter for text ??  -->
+            <!-- <div class="sixth-screen__tooltip-content map-mode--content"> -->
+            <h3 class="sixth-screen__tooltip-title map-mode--title">Gorilla</h3>
+            <p class="sixth-screen__tooltip-text map-mode--text">The broadcast comes from the Democratic Republic of
+              the Congo in a
+              forest area. Watch their life and life together</p>
+            <a href="#" class="sixth-screen__tooltip-lnk map-mode--link">Watch now -></a>
+            <!-- </div> -->
           </div>
         </div>
-        <div class="sixth-screen__map-pin sixth-screen__map-pin--crocy map-mode--crocy">
-          <svg class="sixth-screen__map-svg sixth-screen__map-svg--crocy">
+        <div class="sixth-screen__map-pin sixth-screen__map-pin--crocy map-mode__pin map-mode--crocy">
+          <svg class="sixth-screen__map-svg map-mode__pin--svg sixth-screen__map-svg--crocy">
             <use xlink:href="#crocy-pin"></use>
           </svg>
         </div>
-        <div class="sixth-screen__map-pin sixth-screen__map-pin--gorilla map-mode--gorilla active">
-          <svg class="sixth-screen__map-svg sixth-screen__map-svg--gorilla">
+        <div class="sixth-screen__map-pin sixth-screen__map-pin--gorilla map-mode__pin map-mode--gorilla active">
+          <svg class="sixth-screen__map-svg map-mode__pin--svg sixth-screen__map-svg--gorilla">
             <use xlink:href="#gorilla-pin"></use>
           </svg>
         </div>
-        <div class="sixth-screen__map-pin sixth-screen__map-pin--panda map-mode--panda">
-          <svg class="sixth-screen__map-svg sixth-screen__map-svg--panda">
+        <div class="sixth-screen__map-pin sixth-screen__map-pin--panda map-mode__pin map-mode--panda">
+          <svg class="sixth-screen__map-svg map-mode__pin--svg sixth-screen__map-svg--panda">
             <use xlink:href="#panda-pin"></use>
           </svg>
         </div>
