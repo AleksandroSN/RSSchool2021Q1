@@ -42,7 +42,11 @@
 }
 
 .header {
-  border-width: 0;
+  &--br-bot_0 {
+    @media screen and (max-width: 750px) {
+      border-width: 0;
+    }
+  }
 }
 
 // TODO: main relatieve need ???
@@ -53,7 +57,7 @@
 .bg-white {
   background-color: #fcfcfc;
 
-  @media screen and (max-width: 641px) {
+  @media screen and (max-width: 750px) {
     background-color: transparent;
   }
 }
@@ -71,11 +75,11 @@
       top: 93px;
     }
 
-    @media screen and (max-width: 641px) {
+    @media screen and (max-width: 750px) {
       display: flex;
       flex-direction: row;
       position: fixed;
-      bottom: 8.6%;
+      bottom: 2%;
       left: 0;
       right: 0;
       top: auto;
@@ -116,7 +120,7 @@
       margin-top: 10px;
     }
 
-    @media screen and (max-width: 641px) {
+    @media screen and (max-width: 750px) {
       transform: rotate(270deg);
 
       &:first-child {
@@ -183,15 +187,18 @@
         gap: 78px;
       }
 
-      @media screen and (max-width: 641px) {
+      @media screen and (max-width: 750px) {
         flex-direction: row;
         margin: 0;
-        gap: 94px;
-      }
-
-      @media screen and (max-width: 321px) {
+        // gap: 94px;
+        width: 100%;
+        justify-content: space-around;
         gap: 18px;
       }
+
+      // @media screen and (max-width: 321px) {
+      //   gap: 18px;
+      // }
     }
   }
 

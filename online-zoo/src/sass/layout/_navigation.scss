@@ -6,7 +6,8 @@
     align-items: center;
     flex: 1;
     // margin-left: 113px;
-    margin-left: 184px; //отступ от левого края header
+    // margin-left: 184px; //отступ от левого края header
+    margin-left: 10.5%;
 
     &__list {
       display: flex;
@@ -16,7 +17,7 @@
         gap: 94px;
       }
 
-      @media screen and (max-width: 950px) {
+      @media screen and (max-width: 995px) {
         gap: 40px;
       }
     }
@@ -52,16 +53,16 @@
       line-height: 28px;
     }
 
-    @media screen and (max-width: 1200px) {
-      // margin-left: 88px;
-      margin-left: 140px; //ширина лого + отступ от левого края
-    }
+    // @media screen and (max-width: 1200px) {
+    //   // margin-left: 88px;
+    //   margin-left: 140px; //ширина лого + отступ от левого края
+    // }
 
-    @media screen and (max-width: 950px) {
-      margin-left: 40px;
-    }
+    // @media screen and (max-width: 950px) {
+    //   margin-left: 40px;
+    // }
 
-    @media screen and (max-width: 640px) {
+    @media screen and (max-width: 750px) {
       display: none;
     }
   }

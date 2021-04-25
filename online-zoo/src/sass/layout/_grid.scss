@@ -21,13 +21,15 @@
 
   &-grid {
     display: grid;
-    margin: 0 auto;
+    // margin: 0 auto;
     // padding: 45px 10px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 40px;
     gap: 40px;
     // max-width: 1450px;
-    width: 81%;
+    // width: 81%;
+    grid-template-columns: 8% repeat(2, minmax(300px, 1fr)) 8%;
+    width: 100%;
 
     @media screen and (max-width: 1201px) {
       grid-template-columns: minmax(316px, 723px) minmax(263px, 400px);
@@ -70,6 +72,10 @@
       'footer footer footer footer footer footer footer footer';
   }
 
+  @media screen and (max-width: 750px) {
+    padding-top: 0;
+  }
+
   @media screen and (max-width: 641px) {
     // margin: 0 10px;
     column-gap: 10px;
@@ -83,7 +89,7 @@
       'footer footer footer footer footer footer';
   }
   @media screen and (max-width: 401px) {
-    padding: 15px 0 0;
+    // padding: 15px 0 0;
     grid-template-columns: repeat(4, minmax(30px, auto));
     grid-template-rows:
       $headHeightXS minmax(calc(100vh - 59px - 777px), auto)

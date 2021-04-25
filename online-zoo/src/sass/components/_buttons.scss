@@ -21,7 +21,7 @@
     color: $whiteColor;
   }
 
-  @media screen and (max-width: 1201px) {
+  @media screen and (max-width: 1701px) {
     font-size: 0.8889rem;
     padding: 0.8889rem 3.3333rem;
   }
@@ -54,6 +54,11 @@
       height: 18px;
       fill: #181818;
     }
+  }
+
+  @media screen and (max-width: 750px) {
+    height: 56px;
+    width: 56px;
   }
 }
 

@@ -60,14 +60,15 @@
   }
   &-profile {
     display: flex;
-    margin-right: 5.1111rem;
+    // margin-right: 5.1111rem;
+    margin-right: 5.3%;
     cursor: pointer;
 
     @media screen and (max-width: 1201px) {
       margin-right: 72px;
     }
 
-    @media screen and (max-width: 641px) {
+    @media screen and (max-width: 750px) {
       margin-right: 0;
       margin-left: auto;
     }
@@ -81,7 +82,7 @@
         height: 42px;
       }
 
-      @media screen and (max-width: 641px) {
+      @media screen and (max-width: 750px) {
         display: none;
       }
     }
@@ -93,7 +94,7 @@
 
   &-burger__svg {
     display: none;
-    @media screen and (max-width: 641px) {
+    @media screen and (max-width: 750px) {
       cursor: pointer;
       display: block;
       width: 55px;
@@ -105,7 +106,13 @@
     }
   }
 
-  @media screen and (max-width: 641px) {
+  @media screen and (max-width: 750px) {
     border-bottom: 1px solid $graySoft;
+    padding-top: 25px;
+    height: 90px;
+  }
+
+  @media screen and (max-width: 401px) {
+    padding-top: 15px;
   }
 }
