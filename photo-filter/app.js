@@ -1,6 +1,4 @@
 const fullScreenBtn = document.querySelector('.fullscreen');
-const inputs = document.querySelectorAll('input[type=range]');
-
 const toggleFullScreen = () => {
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen();
@@ -10,9 +8,9 @@ const toggleFullScreen = () => {
     }
   }
 };
-
 fullScreenBtn.addEventListener('click', toggleFullScreen);
 
+const inputs = document.querySelectorAll('input[type=range]');
 function inputValue() {
   this.nextElementSibling.value = this.value;
   document.documentElement.style.setProperty(
@@ -20,26 +18,22 @@ function inputValue() {
     `${this.value}${this.dataset.sizing}`
   );
 }
-
 inputs.forEach((input) => input.addEventListener('input', inputValue));
 
 const btnReset = document.querySelector('.btn-reset');
-
-function reset() {
+const reset = () => {
   inputs.forEach((input) => {
     input.value = input.defaultValue;
     input.nextElementSibling.value = input.value;
   });
   document.documentElement.style = '';
-}
-
+};
 btnReset.addEventListener('click', reset);
 
 const buttonLoadPicture = document.querySelector('input[type=file]');
 const editor = document.querySelector('.editor');
 const imageContainer = editor.lastElementChild;
-
-function loadImg() {
+const loadImg = () => {
   const file = buttonLoadPicture.files[0];
   const reader = new FileReader();
   reader.onload = () => {
@@ -47,16 +41,14 @@ function loadImg() {
   };
   reader.readAsDataURL(file);
   buttonLoadPicture.value = null;
-}
-
+};
 buttonLoadPicture.addEventListener('change', loadImg);
 
 const nextImg = document.querySelector('.btn-next');
 const baseURL =
   'https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/';
 let startNumber = 0;
-
-function newUrl() {
+const newUrl = () => {
   imageContainer.src = '';
   const date = new Date();
   const hours = date.getHours();
@@ -77,22 +69,41 @@ function newUrl() {
     : (urlResult = urlOnTime + `0${startNumber}.jpg`);
 
   imageContainer.src = urlResult;
-}
-
+};
 nextImg.addEventListener('click', newUrl);
 
 const savePictureBtn = document.querySelector('.btn-save');
+const getInputValue = () => {
+  const objInputValue = {};
+  inputs.forEach((input) => {
+    objInputValue[input.name] = input.value;
+  });
 
-function downloadImg() {
+  return objInputValue;
+};
+const downloadImg = () => {
+  let multiplierBlur = 0;
+  imageContainer.naturalWidth >= imageContainer.naturalHeight
+    ? (multiplierBlur = imageContainer.naturalWidth / imageContainer.width)
+    : (multiplierBlur = imageContainer.naturalHeight / imageContainer.height);
+
   const img = new Image();
   img.setAttribute('crossOrigin', 'anonymous');
   img.src = imageContainer.src;
+
   img.onload = function () {
+    const filters = getInputValue();
+    console.log(filters);
     const canvas = document.createElement('canvas');
-    canvas.width = img.width;
-    canvas.height = img.height;
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
     const ctx = canvas.getContext('2d');
-    ctx.filter = getComputedStyle(imageContainer).filter;
+    ctx.filter = `blur(${filters.blur * multiplierBlur}px)
+                  invert(${filters.invert}%)
+                  sepia(${filters.sepia}%)
+                  saturate(${filters.saturate}%)
+                  hue-rotate(${filters.hue}deg)`;
+    console.log(ctx.filter);
     ctx.drawImage(img, 0, 0);
 
     const link = document.createElement('a');
@@ -101,6 +112,6 @@ function downloadImg() {
     link.click();
     link.delete;
   };
-}
+};
 
 savePictureBtn.addEventListener('click', downloadImg);
