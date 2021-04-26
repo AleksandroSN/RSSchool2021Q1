@@ -93,7 +93,6 @@ const downloadImg = () => {
 
   img.onload = function () {
     const filters = getInputValue();
-    console.log(filters);
     const canvas = document.createElement('canvas');
     canvas.width = img.naturalWidth;
     canvas.height = img.naturalHeight;
@@ -103,7 +102,6 @@ const downloadImg = () => {
                   sepia(${filters.sepia}%)
                   saturate(${filters.saturate}%)
                   hue-rotate(${filters.hue}deg)`;
-    console.log(ctx.filter);
     ctx.drawImage(img, 0, 0);
 
     const link = document.createElement('a');
