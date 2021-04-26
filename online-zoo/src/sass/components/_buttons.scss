@@ -1,0 +1,71 @@
+@import '../utils/variables';
+
+.btn {
+  padding: 1.1111rem 4.1667rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 0.9444rem;
+  text-align: center;
+
+  &--light {
+    border: 2px solid $mainColor;
+    color: $mainColor;
+    background-color: transparent;
+  }
+
+  &--dark {
+    border-width: 0;
+    background-color: $mainColor;
+    color: $whiteColor;
+  }
+
+  @media screen and (max-width: 1701px) {
+    font-size: 0.8889rem;
+    padding: 0.8889rem 3.3333rem;
+  }
+  @media screen and (max-width: 321px) {
+    font-size: 0.7778rem;
+  }
+}
+
+.navigation-arrow {
+  height: 65px;
+  width: 65px;
+  border-width: 0;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &--dark {
+    background-color: #181818;
+
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: #fcfcfc;
+    }
+  }
+
+  &--light {
+    background-color: #fcfcfc;
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: #181818;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    height: 56px;
+    width: 56px;
+  }
+}
+
+.arrow--left {
+  transform: rotate(270deg);
+}
+
+.arrow--right {
+  transform: rotate(90deg);
+}

@@ -1,0 +1,32 @@
+'use strict';
+
+import '../sass/main.scss';
+import '../assets/ico/logo.svg';
+import '../assets/ico/header-logo.svg';
+import '../assets/ico/profile.svg';
+import '../assets/ico/burger_menu.svg';
+import '../assets/ico/rs_school_js.svg';
+import '../assets/ico/yem_digital.svg';
+import '../assets/ico/arrow.svg';
+import '../assets/ico/fb.svg';
+import '../assets/ico/insta.svg';
+import '../assets/ico/twitter.svg';
+import '../assets/ico/plus.svg';
+import '../assets/ico/minus.svg';
+import '../assets/ico/arrow-left-right.svg';
+import '../assets/ico/arrow-right-left.svg';
+import '../assets/ico/delivery.svg';
+import '../assets/ico/safe.svg';
+import '../assets/ico/beavers.svg';
+import '../assets/ico/world.svg';
+import '../assets/ico/crocy-pin.svg';
+import '../assets/ico/eagle-pin.svg';
+import '../assets/ico/panda-pin.svg';
+import '../assets/ico/gorilla-pin.svg';
+import '../assets/ico/up.svg';
+import '../assets/ico/down.svg';
+import '../assets/ico/eye.svg';
+import '../assets/ico/dropdown.svg';
+import '../assets/ico/question.svg';
+
+console.log('Work');

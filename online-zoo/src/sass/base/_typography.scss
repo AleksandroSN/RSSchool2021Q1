@@ -1,0 +1,94 @@
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''), url('../assets/fonts/merriweather-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''), url('../assets/fonts/roboto-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''), url('../assets/fonts/roboto-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''), url('../assets/fonts/rubik-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''), url('../assets/fonts/rubik-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''), url('../assets/fonts/rubik-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 300;
+  src: local(''), url('../assets/fonts/rubik-300.woff2') format('woff2');
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: 0.115em;
+
+  @media screen and (max-width: 639px) {
+    font-size: 18px;
+    line-height: 21px;
+  }
+}
+
+h3 {
+  font-family: Merriweather;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 145%;
+
+  @media screen and (max-width: 1601px) {
+    font-size: 28px;
+  }
+  @media screen and (max-width: 641px) {
+    font-size: 26px;
+  }
+  @media screen and (max-width: 321px) {
+    font-size: 20px;
+  }
+}
+
+h4 {
+  font-family: Merriweather;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 38px;
+  color: #080029;
+}
+
+.text-bold {
+  font-family: Merriweather;
+  font-weight: 700;
+  font-size: 144px;
+  line-height: 181px;
+
+  @media screen and (max-width: 1601px) {
+    font-size: 120px;
+  }
+  @media screen and (max-width: 641px) {
+    font-size: 96px;
+    line-height: 121px;
+  }
+}
