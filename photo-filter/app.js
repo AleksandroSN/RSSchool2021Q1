@@ -19,7 +19,12 @@ fullScreenBtn.addEventListener('click', toggleFullScreen);
 function inputValue() {
   console.log(this.value);
   console.log(this.nextElementSibling);
+  console.log(this.dataset);
   this.nextElementSibling.value = this.value;
+  document.documentElement.style.setProperty(
+    `--${this.name}`,
+    `${this.value}${this.dataset.sizing}`
+  );
 }
 
 inputs.forEach((input) => input.addEventListener('input', inputValue));
@@ -36,9 +41,29 @@ function reset() {
       input.nextElementSibling.value = input.value;
     }
   });
+  document.documentElement.style = '';
 }
 
 btnReset.addEventListener('click', reset);
+
+const buttonLoadPicture = document.querySelector('input[type=file]');
+const editor = document.querySelector('.editor');
+const imageContainer = editor.children[1];
+
+function loadImg() {
+  const file = buttonLoadPicture.files[0];
+  const reader = new FileReader();
+  // console.log(buttonLoadPicture.files);
+  reader.onload = () => {
+    const img = new Image();
+    img.src = reader.result;
+    editor.replaceChild(img, imageContainer);
+    editor.append(img);
+  };
+  reader.readAsDataURL(file);
+}
+
+buttonLoadPicture.addEventListener('change', loadImg);
 
 // function renderCanvas() {
 //   const canvas = document.createElement('canvas');
