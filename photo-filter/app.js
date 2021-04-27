@@ -55,11 +55,11 @@ const newUrl = () => {
 
   let urlResult = '';
   let urlOnTime = '';
-  if (hours >= 6 && hours <= 12) {
+  if (hours >= 6 && hours < 12) {
     urlOnTime = baseURL + 'morning/';
-  } else if (hours >= 12 && hours <= 18) {
+  } else if (hours >= 12 && hours < 18) {
     urlOnTime = baseURL + 'day/';
-  } else if (hours >= 18 && hours <= 24) {
+  } else if (hours >= 18 && hours <= 23) {
     urlOnTime = baseURL + 'evening/';
   } else urlOnTime = baseURL + 'nigth/';
 
