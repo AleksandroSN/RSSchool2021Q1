@@ -594,13 +594,10 @@
 
     &__item {
       border-bottom: 1px solid #d3d3d3;
+      overflow: hidden;
 
       &--active {
-        border-bottom: 1px solid #609fff;
-
-        .facts-accordion__btn {
-          color: #609fff;
-        }
+        border-bottom: 1px solid $lightBlueColor;
       }
 
       &:not(:first-child) {
@@ -609,15 +606,25 @@
     }
 
     &__panel {
-      display: none;
+      // display: none;
+      max-height: 0;
       font-weight: normal;
       font-size: 18px;
       line-height: 28px;
       color: #747474;
+      transition: 0.3s;
+
+      &--active {
+        max-height: 500px;
+      }
+    }
+
+    &__text {
+      margin-bottom: 40px;
     }
 
     &__details {
-      margin: 40px 0;
+      margin-bottom: 40px;
     }
 
     &__link {
@@ -638,6 +645,26 @@
       padding: 19px 0;
       cursor: pointer;
       outline: none;
+
+      &--active {
+        color: $lightBlueColor;
+      }
+
+      &-plus {
+        display: block;
+
+        &--active {
+          display: none;
+        }
+      }
+
+      &-minus {
+        display: none;
+
+        &--active {
+          display: block;
+        }
+      }
 
       svg {
         width: 18px;

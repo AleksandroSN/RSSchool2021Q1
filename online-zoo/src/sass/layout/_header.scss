@@ -48,10 +48,11 @@
       height: 40px;
     }
 
-    @media screen and (max-width: 641px) {
+    @media screen and (max-width: 750px) {
       // flex: 1;
       width: 49px;
       height: 38px;
+      z-index: 20;
     }
     @media screen and (max-width: 321px) {
       width: 38px;
@@ -95,6 +96,7 @@
   &-burger__svg {
     display: none;
     @media screen and (max-width: 750px) {
+      z-index: 20;
       cursor: pointer;
       display: block;
       width: 55px;

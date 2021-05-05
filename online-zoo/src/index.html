@@ -12,6 +12,27 @@
 
 <body>
   <h1 class="visually-hidden">Online-Zoo</h1>
+  <div class="overlay"></div>
+  <div class="feedback">
+    <form class="feedback-form" id="feedback-form">
+      <div class="feedback-title">Your feedback</div>
+      <div class="feedback-name">
+        <label class="feedback-name__label" for="feedback-name__input" class="feedback-name--top-row">Your name:</label>
+        <input type="text" class="feedback-name__input" id="feedback-name__input" required placeholder="Ellie Coward">
+      </div>
+      <div class="feedback-email">
+        <label class="feedback-email__label" for="feedback-email__input" class="feedback-name--top-row">Your
+          e-mail:</label>
+        <input type="email" class="feedback-email__input" id="feedback-email__input" required
+          placeholder="example@gmail.com">
+      </div>
+      <div class="feedback-text">
+        <label class="feedback-text__label" for="feedback-text__input">Your review:</label>
+        <textarea class="feedback-text__input" id="feedback-text__input" required></textarea>
+      </div>
+      <button class="feedback-btn" type="submit">Send for moderation</button>
+    </form>
+  </div>
   <div class="wrapper">
     <header class="header">
       <div class="container">
@@ -29,6 +50,7 @@
               <li class="header-nav__item"><a href="./404.html" class="header-nav__link">Contact us</a></li>
               <li class="header-nav__item"><a href="https://www.figma.com/file/74wXlorl9mZQP0uhqDg83j/Online-Zoo"
                   class="header-nav__link">Design</a></li>
+              <li class="header-nav__item"><a href="#" class="header-nav__link">Profile</a></li>
             </ul>
           </nav>
           <div class="header-profile">
@@ -103,7 +125,8 @@
               <h3 class="second-screen__title">Our service will give you an unforgettable experience of observing and
                 interacting with animals remotely</h3>
               <p class="second-screen__text">Zoo Online is a web application with which you can watch live cages of
-                different animals in nature reserves and zoos online and, if you wish, donate to the needs of the animal
+                different animals in nature reserves and zoos online and, if you wish, donate to the needs of the
+                animal
                 you like</p>
               <div class="second-screen__btns">
                 <a href="./zoos.html" class="second-screen__btn btn btn--dark">Try now</a>
@@ -131,100 +154,101 @@
               </button>
             </div>
           </div>
-          <div class="third-screen__carousel">
-            <figure class="carousel-card">
-              <div class="carousel-card__wrapper little-panda"></div>
-              <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
-              <figcaption>Little panda</figcaption>
-              <div class="carousel-card--cover">
-                <p>North America, islands near Los Angeles</p>
-                <span>Follow -></span>
-              </div>
-            </figure>
-            <figure class="carousel-card">
-              <div class="carousel-card__wrapper penguin"></div>
-              <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
-              <figcaption>Penguin</figcaption>
-              <div class="carousel-card--cover">
-                <p>North America, islands near Los Angeles</p>
-                <span>Follow -></span>
-              </div>
-            </figure>
-            <figure class="carousel-card">
-              <div class="carousel-card__wrapper squarrel"></div>
-              <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
-              <figcaption>Squarrel</figcaption>
-              <div class="carousel-card--cover">
-                <p>North America, islands near Los Angeles</p>
-                <span>Follow -></span>
-              </div>
-            </figure>
-            <figure class="carousel-card">
-              <div class="carousel-card__wrapper tiger"></div>
-              <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
-              <figcaption>Tiger</figcaption>
-              <div class="carousel-card--cover">
-                <p>Russia, Amur region</p>
-                <span>Follow -></span>
-              </div>
-            </figure>
-            <figure class="carousel-card">
-              <div class="carousel-card__wrapper panda"></div>
-              <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
-              <figcaption>Panda</figcaption>
-              <div class="carousel-card--cover">
-                <p>North America, islands near Los Angeles</p>
-                <span>Follow -></span>
-              </div>
-            </figure>
-            <figure class="carousel-card">
-              <div class="carousel-card__wrapper eagle"></div>
-              <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
-              <figcaption>Eagle</figcaption>
-              <div class="carousel-card--cover">
-                <p>North America, islands near Los Angeles</p>
-                <span>Follow -></span>
-              </div>
-            </figure>
-            <figure class="carousel-card">
-              <div class="carousel-card__wrapper gorilla"></div>
-              <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
-              <figcaption>Gorilla</figcaption>
-              <div class="carousel-card--cover">
-                <p>North America, islands near Los Angeles</p>
-                <span>Follow -></span>
-              </div>
-            </figure>
-            <figure class="carousel-card">
-              <div class="carousel-card__wrapper crocy"></div>
-              <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
-              <figcaption>Crocodile</figcaption>
-              <div class="carousel-card--cover">
-                <p>American state
-                  of Florida</p>
-                <span>Follow -></span>
-              </div>
-            </figure>
-            <!-- <figure class="carousel-card">
-              <img src="./assets/img/slider-item2.jpg" alt="item2">
-              <figcaption>Penguin</figcaption>
-            </figure>
-            <figure class="carousel-card">
-              <img src="./assets/img/slider-item3.jpg" alt="item3">
-              <figcaption>Squarrel</figcaption>
-            </figure>
-            <figure class="carousel-card">
-              <img src="./assets/img/slider-item4.jpg" alt="item4">
-              <figcaption>panda</figcaption>
-            </figure>
-            <figure class="carousel-card">
-              <img src="./assets/img/slider-item5.jpg" alt="item5">
-              <figcaption>Eagle</figcaption>
-            </figure>
-            <figure class="carousel-card">
-              <img src="./assets/img/slider-item6.jpg" alt="item6">
-              <figcaption>Gorilla</figcaption>
-            </figure> -->
+          <div class="third-screen__wrapper">
+            <div class="third-screen__carousel">
+              <figure class="carousel-card">
+                <div class="carousel-card__wrapper tiger"></div>
+                <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
+                <figcaption>Tiger</figcaption>
+                <div class="carousel-card--cover">
+                  <p>Russia, Amur region</p>
+                  <span>Follow -></span>
+                </div>
+              </figure>
+              <figure class="carousel-card">
+                <div class="carousel-card__wrapper little-panda"></div>
+                <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
+                <figcaption>Little panda</figcaption>
+                <div class="carousel-card--cover">
+                  <p>North America, islands near Los Angeles</p>
+                  <span>Follow -></span>
+                </div>
+              </figure>
+              <figure class="carousel-card">
+                <div class="carousel-card__wrapper penguin"></div>
+                <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
+                <figcaption>Penguin</figcaption>
+                <div class="carousel-card--cover">
+                  <p>North America, islands near Los Angeles</p>
+                  <span>Follow -></span>
+                </div>
+              </figure>
+              <figure class="carousel-card">
+                <div class="carousel-card__wrapper squarrel"></div>
+                <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
+                <figcaption>Squarrel</figcaption>
+                <div class="carousel-card--cover">
+                  <p>North America, islands near Los Angeles</p>
+                  <span>Follow -></span>
+                </div>
+              </figure>
+              <figure class="carousel-card">
+                <div class="carousel-card__wrapper tiger"></div>
+                <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
+                <figcaption>Tiger</figcaption>
+                <div class="carousel-card--cover">
+                  <p>Russia, Amur region</p>
+                  <span>Follow -></span>
+                </div>
+              </figure>
+              <figure class="carousel-card">
+                <div class="carousel-card__wrapper crocy"></div>
+                <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
+                <figcaption>Crocodile</figcaption>
+                <div class="carousel-card--cover">
+                  <p>American state
+                    of Florida</p>
+                  <span>Follow -></span>
+                </div>
+              </figure>
+              <figure class="carousel-card">
+                <div class="carousel-card__wrapper panda"></div>
+                <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
+                <figcaption>Panda</figcaption>
+                <div class="carousel-card--cover">
+                  <p>North America, islands near Los Angeles</p>
+                  <span>Follow -></span>
+                </div>
+              </figure>
+              <figure class="carousel-card">
+                <div class="carousel-card__wrapper eagle"></div>
+                <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
+                <figcaption>Eagle</figcaption>
+                <div class="carousel-card--cover">
+                  <p>North America, islands near Los Angeles</p>
+                  <span>Follow -></span>
+                </div>
+              </figure>
+              <figure class="carousel-card">
+                <div class="carousel-card__wrapper gorilla"></div>
+                <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
+                <figcaption>Gorilla</figcaption>
+                <div class="carousel-card--cover">
+                  <p>North America, islands near Los Angeles</p>
+                  <span>Follow -></span>
+                </div>
+              </figure>
+              <figure class="carousel-card">
+                <div class="carousel-card__wrapper crocy"></div>
+                <!-- <img src="./assets/img/slider-item1.jpg" alt="item1"> -->
+                <figcaption>Crocodile</figcaption>
+                <div class="carousel-card--cover">
+                  <p>American state
+                    of Florida</p>
+                  <span>Follow -></span>
+                </div>
+              </figure>
+            </div>
           </div>
         </div>
       </section>
@@ -280,7 +304,8 @@
             <div class="thifth-screen__testimonials">
               <h2 class="thifth-screen__testimonials-title">Testimonials</h2>
               <h3 class="thifth-screen__testimonials-subtitle">You can make us smile</h3>
-              <p class="thifth-screen__testimonials-text">We want to make animal observation and interaction accessible.
+              <p class="thifth-screen__testimonials-text">We want to make animal observation and interaction
+                accessible.
                 You can leave your wishes on how to make the service more convenient, and most importantly, more
                 interesting for you.</p>
               <button class="thifth-screen__testimonials-btn btn btn--dark border">Leave feedback</button>
@@ -291,7 +316,8 @@
                 <div class="thifth-screen__reviews-slider__item">
                   <img src="./assets/img/avatar.jpg" alt="head" class="thifth-screen__reviews-slider__item-avatar">
                   <p class="thifth-screen__reviews-slider__item-fullname">Alena Andreeva</p>
-                  <p class="thifth-screen__reviews-slider__item-review">“Had a great time with my kids and made the cute
+                  <p class="thifth-screen__reviews-slider__item-review">“Had a great time with my kids and made the
+                    cute
                     pandas happy with delicious treats. I think I will use your service more than once, thanks!”</p>
                 </div>
                 <div class="thifth-screen__reviews-slider__item">
@@ -302,14 +328,38 @@
                     broadcasts
                     with animals while working in the background, it relaxes and cheers up”</p>
                 </div>
+                <div class="thifth-screen__reviews-slider__item">
+                  <img src="./assets/img/avatar.jpg" alt="head" class="thifth-screen__reviews-slider__item-avatar">
+                  <p class="thifth-screen__reviews-slider__item-fullname">Alena Andreeva</p>
+                  <p class="thifth-screen__reviews-slider__item-review">“Had a great time with my kids and made the
+                    cute
+                    pandas happy with delicious treats. I think I will use your service more than once, thanks!”</p>
+                </div>
+                <div class="thifth-screen__reviews-slider__item">
+                  <img src="./assets/img/penguin-avatar.svg" alt="head"
+                    class="thifth-screen__reviews-slider__item-avatar">
+                  <p class="thifth-screen__reviews-slider__item-fullname">Alena Andreeva</p>
+                  <p class="thifth-screen__reviews-slider__item-review">“Had a great time with my kids and made the
+                    cute
+                    pandas happy with delicious treats. I think I will use your service more than once, thanks!”</p>
+                </div>
+                <div class="thifth-screen__reviews-slider__item">
+                  <img src="./assets/img/avatar.jpg" alt="head" class="thifth-screen__reviews-slider__item-avatar">
+                  <p class="thifth-screen__reviews-slider__item-fullname">Alena Andreeva</p>
+                  <p class="thifth-screen__reviews-slider__item-review">“Had a great time with my kids and made the
+                    cute
+                    pandas happy with delicious treats. I think I will use your service more than once, thanks!”</p>
+                </div>
               </div>
               <div class="thifth-screen__reviews-slider-nav">
-                <button class="navigation-arrow navigation-arrow--light arrow--left">
+                <button id="thifth-screen__reviews-slider-btn"
+                  class="navigation-arrow navigation-arrow--light arrow--left">
                   <svg class="aside-totop__svg">
                     <use xlink:href="#arrow"></use>
                   </svg>
                 </button>
-                <button class="navigation-arrow navigation-arrow--light arrow--right">
+                <button id="thifth-screen__reviews-slider-btn"
+                  class="navigation-arrow navigation-arrow--light arrow--right">
                   <svg class="aside-totop__svg">
                     <use xlink:href="#arrow"></use>
                   </svg>
@@ -327,29 +377,30 @@
               <div class="sixth-screen__tooltip-container">
                 <img src="./assets/img/map-eagle.jpg" alt="eagle" class="sixth-screen__tooltip-image">
                 <h3 class="sixth-screen__tooltip-title">Eagle</h3>
-                <p class="sixth-screen__tooltip-text">The broadcast is from an island near Los Angeles. Watch their real
+                <p class="sixth-screen__tooltip-text">The broadcast is from an island near Los Angeles. Watch their
+                  real
                   life.</p>
                 <a href="./zoos/eagle.html" class="sixth-screen__tooltip-lnk">Watch now -></a>
               </div>
             </div>
             <div class="sixth-screen__map">
-              <div class="sixth-screen__map-pin sixth-screen__map-pin--crocy">
-                <svg class="sixth-screen__map-svg sixth-screen__map-svg--crocy">
+              <div id='crocodile' class="sixth-screen__map-pin sixth-screen__map-pin--crocy">
+                <svg id='crocodile' class="sixth-screen__map-svg sixth-screen__map-svg--crocy">
                   <use xlink:href="#crocy-pin"></use>
                 </svg>
               </div>
-              <div class="sixth-screen__map-pin sixth-screen__map-pin--eagle">
-                <svg class="sixth-screen__map-svg sixth-screen__map-svg--eagle">
+              <div id='eagle' class="sixth-screen__map-pin sixth-screen__map-pin--eagle">
+                <svg id='eagle' class="sixth-screen__map-svg sixth-screen__map-svg--eagle">
                   <use xlink:href="#eagle-pin"></use>
                 </svg>
               </div>
-              <div class="sixth-screen__map-pin sixth-screen__map-pin--gorilla">
-                <svg class="sixth-screen__map-svg sixth-screen__map-svg--gorilla">
+              <div id='gorilla' class="sixth-screen__map-pin sixth-screen__map-pin--gorilla">
+                <svg id='gorilla' class="sixth-screen__map-svg sixth-screen__map-svg--gorilla">
                   <use xlink:href="#gorilla-pin"></use>
                 </svg>
               </div>
-              <div class="sixth-screen__map-pin sixth-screen__map-pin--panda">
-                <svg class="sixth-screen__map-svg sixth-screen__map-svg--panda">
+              <div id='panda' class="sixth-screen__map-pin sixth-screen__map-pin--panda">
+                <svg id='panda' class="sixth-screen__map-svg sixth-screen__map-svg--panda">
                   <use xlink:href="#panda-pin"></use>
                 </svg>
               </div>
@@ -363,16 +414,18 @@
                   <use xlink:href="#up"></use>
                 </svg>
               </button>
-              <div class="sixth-screen__slider-item"><svg class="sixth-screen__slider-item-svg">
+              <div id="panda" class="sixth-screen__slider-item"><svg id="panda" class="sixth-screen__slider-item-svg">
                   <use xlink:href="#panda-pin"></use>
                 </svg></div>
-              <div class="sixth-screen__slider-item"><svg class="sixth-screen__slider-item-svg">
+              <div id="crocodile" class="sixth-screen__slider-item"><svg id="crocodile"
+                  class="sixth-screen__slider-item-svg">
                   <use xlink:href="#crocy-pin"></use>
                 </svg></div>
-              <div class="sixth-screen__slider-item"><svg class="sixth-screen__slider-item-svg">
+              <div id="eagle" class="sixth-screen__slider-item"><svg id="eagle" class="sixth-screen__slider-item-svg">
                   <use xlink:href="#eagle-pin"></use>
                 </svg></div>
-              <div class="sixth-screen__slider-item"><svg class="sixth-screen__slider-item-svg">
+              <div id="gorilla" class="sixth-screen__slider-item"><svg id="gorilla"
+                  class="sixth-screen__slider-item-svg">
                   <use xlink:href="#gorilla-pin"></use>
                 </svg></div>
               <button class="sixth-screen__slider-button sixth-screen__slider-button--right">

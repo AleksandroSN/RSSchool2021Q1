@@ -220,10 +220,12 @@
   // top: 18%;
   left: 30.3%;
   top: 19.2%;
+  z-index: 10;
   // margin-top: 0;
   // margin-left: 0;
 
   &--container {
+    transition: 0.3s;
     @media screen and (max-width: 641px) {
       gap: 20px;
     }
@@ -256,6 +258,8 @@
   &__pin {
     height: 106px;
     width: 82px;
+    // cursor: pointer;
+    // filter: drop-shadow(0.643087px 7.71704px 14.1479px rgba(0, 0, 0, 0.19));
 
     &--svg {
       width: 47px;
@@ -271,7 +275,7 @@
       }
     }
 
-    &:hover {
+    &.active {
       height: 124px;
       width: 96px;
 
@@ -295,11 +299,26 @@
     }
   }
 
+  &--eagle {
+    opacity: 0;
+
+    @media screen and (max-width: 1201px) {
+      opacity: 1;
+      top: 11.5%;
+      left: 0;
+
+      &.active {
+        top: 10.2%;
+        left: -6px;
+      }
+    }
+  }
+
   &--gorilla {
     top: 49%;
     left: 49.67%;
 
-    &:hover {
+    &.active {
       top: 46.3%;
       left: 49.1%;
 
@@ -346,7 +365,7 @@
       display: none;
     }
 
-    &:hover {
+    &.active {
       top: 19.8%;
       left: 12.7%;
 
@@ -363,7 +382,7 @@
     top: 25.7%;
     left: 84.9%;
 
-    &:hover {
+    &.active {
       top: 24.3%;
       left: 84.5%;
 

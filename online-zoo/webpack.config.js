@@ -20,10 +20,7 @@ const optimization = () => {
   };
 
   if (isProd) {
-    config.minimizer = [
-      new OptimizeCssAssetWebpackPlugin(),
-      new TerserPlugin(),
-    ];
+    config.minimizer = [new OptimizeCssAssetWebpackPlugin(), new TerserPlugin()];
   }
 
   return config;
@@ -34,6 +31,9 @@ const jsLoaders = () => {
     const loaders = [
       {
         loader: 'eslint-loader',
+        options: {
+          fix: true,
+        },
       },
     ];
     return loaders;
@@ -44,12 +44,15 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
 
   entry: {
-    main: '/js/app.js',
+    styles: '/js/utils/imports.js',
+    index: '/js/index.js',
+    map: '/js/map.js',
+    zoo: '/js/zoo.js',
   },
 
   output: {
     path: path.resolve(__dirname, './dist/'),
-    filename: '[name].bundle.js',
+    filename: 'js/[name].js',
   },
   optimization: optimization(),
   devtool: isDev ? 'source-map' : 'eval',
@@ -63,38 +66,52 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      chunks: ['styles', 'index'],
       title: 'Online-Zoo',
       template: './index.html',
+      inject: 'body',
     }),
     new HtmlWebpackPlugin({
       title: '404',
+      chunks: ['styles'],
       template: './404.html',
       filename: '404.html',
+      inject: 'body',
     }),
     new HtmlWebpackPlugin({
       title: 'Map',
+      chunks: ['styles', 'map'],
       template: './map.html',
       filename: 'map.html',
+      inject: 'body',
     }),
     new HtmlWebpackPlugin({
       title: 'Zoos-Panda',
+      chunks: ['styles', 'zoo'],
       template: './zoos.html',
       filename: 'zoos.html',
+      inject: 'body',
     }),
     new HtmlWebpackPlugin({
       title: 'Zoos-Crocy',
+      chunks: ['styles', 'zoo'],
       template: './zoos/crocy.html',
       filename: 'zoos/crocy.html',
+      inject: 'body',
     }),
     new HtmlWebpackPlugin({
       title: 'Zoos-Gorilla',
+      chunks: ['styles', 'zoo'],
       template: './zoos/gorilla.html',
       filename: 'zoos/gorilla.html',
+      inject: 'body',
     }),
     new HtmlWebpackPlugin({
       title: 'Zoos-Eagle',
+      chunks: ['styles', 'zoo'],
       template: './zoos/eagle.html',
       filename: 'zoos/eagle.html',
+      inject: 'body',
     }),
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(),
@@ -147,12 +164,7 @@ module.exports = {
       },
       {
         test: /\.scss|css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-          'sass-loader',
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
       },
       //Fonts
       {
