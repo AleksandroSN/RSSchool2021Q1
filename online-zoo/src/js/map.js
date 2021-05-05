@@ -8,9 +8,10 @@ const pins = document.querySelectorAll('.map-mode__pin');
 main.addEventListener('click', (evt) => {
   if (!evt.target.id) {
     tooltipContainer.style.opacity = '0';
+    tooltip.style.zIndex = '-10';
+    tooltipContainer.id = '';
     pins.forEach((pin) => pin.classList.remove('active'));
   }
-  console.log(evt);
   if (evt.target.id || evt.target.tagName === 'use') {
     if (tooltipContainer.id === evt.target.id) return;
     pins.forEach((pin) => pin.classList.remove('active'));
@@ -25,12 +26,12 @@ main.addEventListener('click', (evt) => {
     // find coords tooltip
     const tooltipWidth = tooltipContainer.offsetWidth;
     // find click coords
-    const clickX = evt.screenX;
-    if (clickX > 2800) {
+    const clickX = evt.clientX;
+    if (clickX >= 900) {
       tooltip.style.left = `${LeftCoordsTopParent - tooltipWidth - widthTopParent / 2}px`;
       tooltip.style.top = `${topCoordsTopParent - heigthTopParent}px`;
-    } else if (clickX < 2800) {
-      if (evt.clientX < 60) {
+    } else if (clickX < 900) {
+      if (clickX < 60) {
         // 90px width aside and heigth header
         tooltip.style.left = `${LeftCoordsTopParent + widthTopParent + 90}px`;
         tooltip.style.top = `${topCoordsTopParent - heigthTopParent + 90}px`;
@@ -40,8 +41,9 @@ main.addEventListener('click', (evt) => {
       }
     }
     tooltipContainer.style.opacity = '1';
+    tooltip.style.zIndex = '10';
     const animal = topParent.id;
-    // console.log(evt);
+    //
     tooltipContainer.id = animal;
     tooltipContainer.innerHTML = '';
 
