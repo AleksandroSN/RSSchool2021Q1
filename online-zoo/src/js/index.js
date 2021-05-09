@@ -105,7 +105,7 @@ function shuffle(array) {
   }
 }
 
-function cloneSliderItemInTheEnd(container) {
+function cloneSliderItem(container) {
   const navItemsTemp = Array(...navItems);
   shuffle(navItemsTemp);
   const fragment = document.createDocumentFragment();
@@ -115,39 +115,42 @@ function cloneSliderItemInTheEnd(container) {
   });
   container.append(fragment);
 }
-function cloneSliderItemInTheBegin(container) {
-  const navItemsTemp = Array(...navItems);
-  shuffle(navItemsTemp);
-  const fragment = document.createDocumentFragment();
-  navItemsTemp.forEach((x) => {
-    const clone = x.cloneNode(true);
-    fragment.appendChild(clone);
-  });
-  container.prepend(fragment);
+// function cloneSliderItemInTheBegin(container) {
+//   const navItemsTemp = Array(...navItems);
+//   shuffle(navItemsTemp);
+//   const fragment = document.createDocumentFragment();
+//   navItemsTemp.forEach((x) => {
+//     const clone = x.cloneNode(true);
+//     fragment.appendChild(clone);
+//   });
+//   container.prepend(fragment);
+// }
+
+for (let i = 0; i < 3; i += 1) {
+  cloneSliderItem(sliderContainer);
 }
 
-cloneSliderItemInTheBegin(sliderContainer);
-cloneSliderItemInTheEnd(sliderContainer);
-
 const navItemsModify = document.querySelectorAll('.carousel-card');
-sliderContainer.style.width = `${17 * 328}px`; // width for 30 slide-items
+// sliderContainer.style.width = `${17 * 328}px`; // width for 30 slide-items
 // 368px -> width slider item + gap
 navSlider.addEventListener('click', (evt) => {
   const navArrow = evt.target.closest('.navigation-arrow');
   if (navArrow.classList.contains('arrow--left')) {
-    step += 3;
-    navItemsModify.forEach((card) => {
-      const item = card;
-      item.style.transform = `translateX(${368 * step}px)`;
-    });
     if (step >= 0) {
-      step = 0;
+      step = -15;
       navItemsModify.forEach((card) => {
         const item = card;
         item.style.transform = 'translateX(0px)';
       });
     }
+    console.log(step);
+    step += 3;
+    navItemsModify.forEach((card) => {
+      const item = card;
+      item.style.transform = `translateX(${368 * step}px)`;
+    });
   } else if (navArrow.classList.contains('arrow--right')) {
+    console.log(step);
     step -= 3;
     navItemsModify.forEach((card) => {
       const item = card;
