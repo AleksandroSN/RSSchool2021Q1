@@ -1,0 +1,59 @@
+@import '../utils/variables';
+
+.best__score {
+  &-result {
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid rgba(33, 33, 33, 0.08);
+    padding-bottom: 5px;
+    align-items: center;
+    margin: 2rem 0;
+  }
+
+  &-avatar {
+    display: flex;
+
+    img {
+      border-radius: 50%;
+      object-fit: contain;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &-player {
+    color: #333333;
+    &-name {
+      margin: 0;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 21px;
+      letter-spacing: 0.1px;
+    }
+
+    &-e-mail {
+      margin: 0;
+      font-size: 12px;
+      line-height: 15px;
+      letter-spacing: 0.4px;
+      margin-top: 3px;
+    }
+  }
+
+  &-score {
+    margin-left: auto;
+  }
+
+  &-text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    color: rgba(0, 0, 0, 0.87);
+    margin: 0;
+  }
+
+  &-numbers {
+    color: $main-color;
+  }
+}
