@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <head>
+    <title>
+      <%= htmlWebpackPlugin.options.title %>
+    </title>
+  </head>
+</head>
+
+<body id='app'>
+  <div class="overlay"></div>
+  <div class="register">
+    <h2 class="register__title">Register new Player</h2>
+    <div class="register__wrapper">
+      <div class="register__wrapper--left">
+        <div class="register__first-name">
+          <label class="register__label-form" for="reg-first-name">First Name</label>
+          <input class="register__input" type="text" name="reg-first-name" id="reg-first-name" placeholder="First Name">
+          <label class="register__input-wrapper">
+            <input class="register__input-checkbox" type="checkbox" id="reg-first-name-checkbox" checked="checked"
+              disabled>
+            <span class="register__input-checkbox-checkmark"></span>
+          </label>
+        </div>
+        <div class="register__last-name">
+          <label class="register__label-form" for="reg-last-name">Last Name</label>
+          <input class="register__input" type="text" name="reg-last-name" id="reg-last-name" placeholder="last Name">
+          <label class="register__input-wrapper">
+            <input class="register__input-checkbox" type="checkbox" id="reg-last-name-checkbox" checked="checked"
+              disabled>
+            <span class="register__input-checkbox-checkmark"></span>
+          </label>
+        </div>
+        <div class="register__e-mail">
+          <label class="register__label-form" for="reg-e-mail">E-mail</label>
+          <input class="register__input" type="text" name="reg-e-mail" id="reg-e-mail" placeholder="E-mail">
+          <label class="register__input-wrapper">
+            <input class="register__input-checkbox" type="checkbox" id="reg-e-mail-checkbox" checked="checked" disabled>
+            <span class="register__input-checkbox-checkmark"></span>
+          </label>
+        </div>
+      </div>
+      <div class="register__wrapper--right">
+        <picture class="register__avt-conainer">
+          <img src="./assets/img/avatar.png" alt="avatar">
+        </picture>
+        <div class="register__btn-container">
+          <button class="btn btn--blue">Add User</button>
+          <button class="btn btn--lightblue">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <header id="header" class="header">
+    <div class="header__wrapper">
+      <div class="header__container">
+        <a href="/" class="header__logo"><span class="header__logo-item">Match</span><span
+            class="header__logo-item">Match</span></a>
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li class="header__nav-list-item header__nav-list-item--active">
+              <picture class="header__nav-list-item-img"><img src="./assets/icons/question.svg" alt="about game">
+              </picture>
+              About Game
+            </li>
+            <li class="header__nav-list-item">
+              <picture class="header__nav-list-item-img header__nav-list-item-img--score"><img
+                  src="./assets/icons/star.svg" alt="best score"></picture>Best
+              Score
+            </li>
+            <li class="header__nav-list-item">
+              <picture class="header__nav-list-item-img"><img src="./assets/icons/settings.svg" alt="game Settings">
+              </picture>
+              Game Settings
+            </li>
+          </ul>
+        </nav>
+        <button id="playerReg" class="header__btn-register btn btn--light">Register new player</button>
+        <picture class="header__avatar">
+          <img src="./assets/img/avatar-login.jpg" alt="avatar">
+        </picture>
+        <!-- if register 'Start game' + avatar -->
+      </div>
+    </div>
+  </header>
+  <main id="main" class="main">
+    <div class="main__wrapper">
+      <div class="main__container">
+        <div class="about__game">
+          <h2 class="about__game-title">How to play?</h2>
+          <div class="about__game-grid">
+            <div class="about__game-register--left">
+              <span class="about__game-number">1</span>
+              <p class="about__game-text">Register new player in game</p>
+            </div>
+            <div class="about__game-register--right">
+              <picture class="about__game-picture">
+                <img src="./assets/img/register-form.jpg" alt="form example">
+              </picture>
+            </div>
+            <div class="about__game-settings--left">
+              <span class="about__game-number">2</span>
+              <p class="about__game-text">Configure your game settings</p>
+            </div>
+            <div class="about__game-settings--right">
+              <picture class="about__game-picture">
+                <img src="./assets/img/game-settings.jpg" alt="form example">
+              </picture>
+            </div>
+            <div class="about__game-start--left">
+              <span class="about__game-number">3</span>
+              <p class="about__game-text">Start you new game! Remember card positions and match it before times up.</p>
+            </div>
+            <div class="about__game-start--right">
+              <picture class="about__game-picture">
+                <img src="./assets/img/cards-example.jpg" alt="form example">
+              </picture>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

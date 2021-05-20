@@ -1,15 +1,19 @@
 const path = require('path');
-const CopyPlugin = require('copy-webpack-plugin'); // для копирования файлов
-const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // очищение папки перед сборкой
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin'); // минификация картинок
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // основной плагин для работы с HTML-файлами
-const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // вывод отдельного css файла
+const CopyPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 // need add prod variable or prod.webback
 
 module.exports = {
+  devtool: 'source-map',
   devServer: {
+    historyApiFallback: {
+      index: '/app.html'
+    },
     contentBase: path.join(__dirname, 'dist'),
     hot: true,
     compress: true,
@@ -26,12 +30,13 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist/'),
     filename: 'js/[name].js',
-    assetModuleFilename: 'assets/[name].[ext]',
+    assetModuleFilename: '[path]/[name][ext]',
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Match match game',
-      filename: '[name].html',
+      template: './app.html',
+      filename: 'app.html',
       inject: 'body',
     }),
     new ESLintPlugin({ extensions: ['ts', 'js'] }),
@@ -49,7 +54,7 @@ module.exports = {
       },
     }),
     new CopyPlugin({
-      patterns: [{ from: 'public', to: 'assets/[path]/[name].[ext]' }],
+      patterns: [{ from: '../public', to: 'assets/[path]/[name].[ext]' }],
     }),
   ],
   module: {

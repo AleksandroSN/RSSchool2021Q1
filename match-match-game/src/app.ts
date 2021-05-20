@@ -1,3 +1,9 @@
 import "./app.scss";
-
-console.log("Work");
+import "./assets/icons/question.svg";
+import "./assets/icons/settings.svg";
+import "./assets/icons/star.svg";
+import "./assets/img/cards-example.jpg";
+import "./assets/img/game-settings.jpg";
+import "./assets/img/register-form.jpg";
+import "./assets/img/avatar.png";
+import "./assets/img/avatar-login.jpg";

@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "webpack",
-    "watch": "webpack serve",
+    "watch": "webpack serve --mode=development",
     "lint": "eslint src"
   },
   "devDependencies": {
