@@ -30,7 +30,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist/'),
     filename: 'js/[name].js',
-    assetModuleFilename: '[path]/[name][ext]',
+    assetModuleFilename: '[path][name][ext]',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -54,7 +54,7 @@ module.exports = {
       },
     }),
     new CopyPlugin({
-      patterns: [{ from: '../public', to: 'assets/[path]/[name].[ext]' }],
+      patterns: [{ from: './assets/img/kitty', to: './assets/img/kitty/[name][ext]' }],
     }),
   ],
   module: {
