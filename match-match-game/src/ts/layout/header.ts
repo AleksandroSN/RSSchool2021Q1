@@ -10,6 +10,8 @@ export class Header extends BaseComponent {
 
   btnReg: Btn;
 
+  isRegister = false;
+
   private readonly overlay: Overlay;
 
   private readonly modalReg: ModalReg;
@@ -30,14 +32,15 @@ export class Header extends BaseComponent {
     this.btnReg.element.addEventListener(
       "click",
       () => {
+        if (!this.isRegister) {
         this.modalReg.element.append(this.overlay.element);
         this.modalReg.createModal();
         this.modalReg.modalReg?.addEventListener("submit", () => {
           this.btnReg.element.textContent = "Start Game";
           this.createAvatar();
+          this.isRegister = true;
         });
-      },
-      { once: true }
+      }}
     );
     this.headerNavListItem = this.element.querySelectorAll(
       ".header__nav-list-item"

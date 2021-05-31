@@ -71,6 +71,7 @@ export class IndexedDB {
     const store = tx.objectStore(storage);
     const storeIndex = store.index(index);
     const req = storeIndex.openCursor(null, "prev");
+    this.allRecors = [];
     let topTen = 10;
     req.onsuccess = () => {
       const cursor = req.result as IDBCursorWithValue;
