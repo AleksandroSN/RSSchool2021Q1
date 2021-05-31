@@ -12,3 +12,63 @@ import "./assets/img/avatar.png";
 import "./assets/img/avatar-login.jpg";
 import "./assets/img/player1.jpg";
 import "./assets/img/shirt.jpg";
+import { Render } from "./ts/render/render";
+import { GameSettings } from "./ts/pages/gameSettings";
+import { Game } from "./ts/pages/game";
+import { ImageCategory } from "./ts/api/api";
+import { IndexedDB } from "./ts/database/indexedDB";
+import { Router } from "./ts/router/router";
+import { routing } from "./ts/shared/routes";
+import { Header } from "./ts/layout/header";
+
+const database = IndexedDB.getInstance();
+database.openDB();
+setTimeout(() => {
+  database.getAllRecords("user", "rating");
+}, 200);
+
+const header = Header.getInstance();
+const gamePage = Game.getInstance();
+const gameSettingsPage = GameSettings.getInstance();
+
+async function start(index: number) {
+  const res = await fetch("./images.json");
+  const categories: ImageCategory[] = await res.json();
+  const cat = categories[index];
+  const images = cat.images.map((name: string) => `${cat.category}/${name}`);
+  gamePage.newGame(images, gameSettingsPage.difficultGameValue as number);
+}
+
+const render = Render.getInstance();
+render.render();
+
+const router = Router.getInstance();
+router.addRoute(routing);
+
+window.onload = (): void => {
+  router.onloadRoute();
+};
+
+window.onhashchange = (): void => {
+  router.navigate();
+};
+
+header.btnReg.element.addEventListener("click", () => {
+  if (header.btnReg.element.textContent === "Start Game") {
+    if (gameSettingsPage.cardShirtValue) {
+      window.location.hash = "game";
+      gameSettingsPage.clearSelects();
+      start(gameSettingsPage.cardShirtValue - 1);
+      setTimeout(() => {
+        header.btnReg.element.textContent = "Stop Game";
+      }, 100);
+    }
+  }
+
+  if (header.btnReg.element.textContent === "Stop Game") {
+    gameSettingsPage.cardShirtValue = undefined;
+    gameSettingsPage.difficultGameValue = undefined;
+    router.onloadRoute();
+    header.btnReg.element.textContent = "Start Game";
+  }
+});

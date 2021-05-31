@@ -19,7 +19,8 @@ module.exports = {
     'prettier/prettier': 'warn',
     'no-plusplus': 'off',
     'no-console': 'warn',
-    'max-len': ['warn', { code: 120 }],
+    'no-restricted-syntax': 'off',
+    'max-len': ['warn', { code: 160 }],
     indent: [
       'warn',
       2,

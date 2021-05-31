@@ -12,18 +12,19 @@ body {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 
-@import './assets/sass/layout/header';
-@import './assets/sass/components/buttons';
-@import './assets/sass/components/overlay';
-@import './assets/sass/layout/nav';
-@import './assets/sass/layout/main';
-@import './assets/sass/layout/forms';
-@import './assets/sass/pages/about';
-@import './assets/sass/pages/game';
-@import './assets/sass/pages/best-score';
-@import './assets/sass/pages/game-settings';
-@import './assets/sass/utils/variables';
-@import './fonts';
+@import './sass/layout/header';
+@import './sass/components/buttons';
+@import './sass/components/overlay';
+@import './sass/layout/nav';
+@import './sass/layout/main';
+@import './sass/layout/forms';
+@import './sass/pages/about';
+@import './sass/pages/game';
+@import './sass/pages/best-score';
+@import './sass/pages/game-settings';
+@import './sass/utils/variables';
+@import './sass/base/fonts';

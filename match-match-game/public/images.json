@@ -1,0 +1,74 @@
+[
+  {
+    "category": "kitty",
+    "images" : [
+      "kitty0.png",
+      "kitty1.png",
+      "kitty2.png",
+      "kitty3.png",
+      "kitty4.png",
+      "kitty5.png",
+      "kitty6.png",
+      "kitty7.png",
+      "kitty8.png",
+      "kitty9.png",
+      "kitty10.png",
+      "kitty11.png",
+      "kitty12.png",
+      "kitty13.png",
+      "kitty14.png",
+      "kitty15.png",
+      "kitty16.png",
+      "kitty17.png",
+      "kitty18.png"
+    ]
+  },
+  {
+    "category": "sport",
+    "images" : [
+      "sport0.png",
+      "sport1.png",
+      "sport2.png",
+      "sport3.png",
+      "sport4.png",
+      "sport5.png",
+      "sport6.png",
+      "sport7.png",
+      "sport8.png",
+      "sport9.png",
+      "sport10.png",
+      "sport11.png",
+      "sport12.png",
+      "sport13.png",
+      "sport14.png",
+      "sport15.png",
+      "sport16.png",
+      "sport17.png",
+      "sport18.png"
+    ]
+  },
+  {
+    "category": "computer",
+    "images" : [
+      "computer0.png",
+      "computer1.png",
+      "computer2.png",
+      "computer3.png",
+      "computer4.png",
+      "computer5.png",
+      "computer6.png",
+      "computer7.png",
+      "computer8.png",
+      "computer9.png",
+      "computer10.png",
+      "computer11.png",
+      "computer12.png",
+      "computer13.png",
+      "computer14.png",
+      "computer15.png",
+      "computer16.png",
+      "computer17.png",
+      "computer18.png"
+    ]
+  }
+]

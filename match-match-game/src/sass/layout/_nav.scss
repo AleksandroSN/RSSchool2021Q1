@@ -1,0 +1,60 @@
+@import '../utils/variables';
+
+.header {
+  &__nav {  
+    margin-left: 120px;
+
+    &-link {
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      display: flex;
+      gap: 10px;
+    }
+
+    &-list {   
+      margin: 0; 
+      list-style: none;
+      display: flex;
+
+    &-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      width: 96px;      
+      height: 64px;      
+      line-height: 15px;
+      font-size: 12px;
+      letter-spacing: 0.4px;      
+      color: #FFFFFF;
+      opacity: .7;
+
+        &--active {
+          background-color: $main-color-active;
+          opacity: 1;
+        }
+
+        &:hover {
+          background-color: $main-color-active;
+          opacity: 1;
+        }
+
+        &-img {
+          height: 24px;
+          width: 24px;
+          background-color: #FFF;
+          display: flex;
+          border-radius: 50%;
+          justify-content: center;
+          align-items: center;
+
+          &--score {
+            background-color: $main-color;
+          }
+        }
+      }
+    }
+  }
+}

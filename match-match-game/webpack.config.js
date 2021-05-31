@@ -54,7 +54,10 @@ module.exports = {
       },
     }),
     new CopyPlugin({
-      patterns: [{ from: './assets/img/kitty', to: './assets/img/kitty/[name][ext]' }],
+      patterns: [{ from: './assets/img/kitty', to: './assets/img/kitty/[name][ext]' },
+      { from: './assets/img/computer', to: './assets/img/computer/[name][ext]' },
+      { from: './assets/img/sport', to: './assets/img/sport/[name][ext]' },
+    {from: '../public'}],
     }),
   ],
   module: {
