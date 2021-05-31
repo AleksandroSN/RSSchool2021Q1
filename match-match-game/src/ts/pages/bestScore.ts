@@ -4,7 +4,7 @@ import { IndexedDB } from "../database/indexedDB";
 export class BestScore extends BaseComponent {
   private indexedDB: IndexedDB;
 
-  private bestScoreWrapper: HTMLDivElement | undefined;
+  private bestScoreWrapper!: HTMLDivElement;
 
   private players: Array<{
     name: string;
@@ -34,6 +34,7 @@ export class BestScore extends BaseComponent {
       `
     <h2 class="best__score-title">Best players</h2>`
     );
+    this.createWrapper();
   }
 
   async getPlayerData() {
@@ -44,7 +45,7 @@ export class BestScore extends BaseComponent {
   }
 
   fillData() {
-    this.element.innerHTML = "";
+    this.bestScoreWrapper.innerHTML = "";
     this.players.forEach((player) => {
       this.name = player.name;
       this.lastName = player.lastName;
@@ -54,12 +55,18 @@ export class BestScore extends BaseComponent {
     });
   }
 
-  createPlayer() {
-    this.bestScoreWrapper = document.createElement("div");
-    this.bestScoreWrapper.classList.add("best__score-result");
+  createWrapper() {
+    this.bestScoreWrapper = document.createElement("div") as HTMLDivElement;
+    this.bestScoreWrapper.classList.add("best__score-wrapper");
     this.element.append(this.bestScoreWrapper);
+  }
 
-    this.bestScoreWrapper.insertAdjacentHTML(
+  createPlayer() {
+    const bestScoreResult = document.createElement('div');
+    bestScoreResult.classList.add("best__score-result");
+    this.bestScoreWrapper.append(bestScoreResult);
+
+    bestScoreResult.insertAdjacentHTML(
       "afterbegin",
       `<picture class="best__score-avatar">
     <img src="./assets/img/player1.jpg" alt="player1">

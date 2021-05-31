@@ -121,6 +121,7 @@ export class Game extends BaseComponent {
         const playerData = this.indexedDB.data;
         playerData.score = this.outputResult();
         this.indexedDB.updateRecord("user", playerData);
+        this.indexedDB.getAllRecords('user','rating');
         this.createModal(this.timer.minutes, this.timer.seconds);
         this.successMatch = 0;
         this.wrongMatch = 0;
