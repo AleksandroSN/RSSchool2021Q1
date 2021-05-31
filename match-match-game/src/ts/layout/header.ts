@@ -65,7 +65,7 @@ export class Header extends BaseComponent {
   createLogo(): void {
     const logoLink = document.createElement("a");
     logoLink.classList.add("header__logo");
-    logoLink.href = "/";
+    logoLink.href = "./app.html";
     this.headerContainer?.append(logoLink);
 
     logoLink.insertAdjacentHTML(
