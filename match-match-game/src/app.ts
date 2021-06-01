@@ -25,7 +25,7 @@ const database = IndexedDB.getInstance();
 database.openDB();
 setTimeout(() => {
   database.getAllRecords("user", "rating");
-}, 200);
+}, 500);
 
 const header = Header.getInstance();
 const gamePage = Game.getInstance();
@@ -36,7 +36,10 @@ async function start(index: number) {
   const categories: ImageCategory[] = await res.json();
   const cat = categories[index];
   const images = cat.images.map((name: string) => `${cat.category}/${name}`);
-  gamePage.newGame(images, gameSettingsPage.difficultGameValue as number);
+  gamePage.newGame(
+    images,
+    (gameSettingsPage.difficultGameValue as number) || 16
+  );
 }
 
 const render = Render.getInstance();
@@ -55,14 +58,12 @@ window.onhashchange = (): void => {
 
 header.btnReg.element.addEventListener("click", () => {
   if (header.btnReg.element.textContent === "Start Game") {
-    if (gameSettingsPage.cardShirtValue) {
-      window.location.hash = "game";
-      gameSettingsPage.clearSelects();
-      start(gameSettingsPage.cardShirtValue - 1);
-      setTimeout(() => {
-        header.btnReg.element.textContent = "Stop Game";
-      }, 100);
-    }
+    window.location.hash = "game";
+    gameSettingsPage.clearSelects();
+    start((gameSettingsPage.cardShirtValue as number) - 1 || 0);
+    setTimeout(() => {
+      header.btnReg.element.textContent = "Stop Game";
+    }, 100);
   }
 
   if (header.btnReg.element.textContent === "Stop Game") {

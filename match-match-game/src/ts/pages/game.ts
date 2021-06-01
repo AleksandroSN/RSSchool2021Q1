@@ -32,6 +32,8 @@ export class Game extends BaseComponent {
 
   private wrongMatch: number;
 
+  private windowModal!: HTMLDivElement;
+
   constructor() {
     super("div", ["game"]);
     this.indexedDB = IndexedDB.getInstance();
@@ -64,10 +66,13 @@ export class Game extends BaseComponent {
   }
 
   newGame(images: string[], size: number) {
+    this.clearModal();
     this.cardsField.clear();
     this.timer.stopTimer();
     this.timer.clearTimer();
-    this.indexedDB.getRecord("user");
+    setTimeout(() => {
+      this.indexedDB.getRecord("user");
+    }, 500);
     const root = document.documentElement;
     root.style.setProperty("--grid-rows", `${size / Math.sqrt(size)}`);
     root.style.setProperty("--grid-cols", `${size / Math.sqrt(size)}`);
@@ -80,7 +85,7 @@ export class Game extends BaseComponent {
         indexHelper = 0;
       }
     }
-    
+
     const cards = gameFieldSize
       .concat(gameFieldSize)
       .map((url) => new Card(url))
@@ -96,7 +101,7 @@ export class Game extends BaseComponent {
     this.cardsField.addCards(cards);
     setTimeout(() => {
       this.timer.startTimer();
-    }, 3000);
+    }, 30000);
   }
 
   private async cardHandler(card: Card) {
@@ -121,7 +126,9 @@ export class Game extends BaseComponent {
         const playerData = this.indexedDB.data;
         playerData.score = this.outputResult();
         this.indexedDB.updateRecord("user", playerData);
-        this.indexedDB.getAllRecords('user','rating');
+        setTimeout(() => {
+          this.indexedDB.getAllRecords("user", "rating");
+        }, 500);
         this.createModal(this.timer.minutes, this.timer.seconds);
         this.successMatch = 0;
         this.wrongMatch = 0;
@@ -144,21 +151,23 @@ export class Game extends BaseComponent {
   }
 
   createModal(min: number, sec: number) {
-    const gameCongrats = document.createElement("div");
-    gameCongrats.classList.add("game__congrats");
-    this.element.append(gameCongrats);
+    this.windowModal = document.createElement("div");
+    this.windowModal.classList.add("game__congrats");
+    this.element.append(this.windowModal);
 
-    gameCongrats.insertAdjacentHTML(
+    this.windowModal.insertAdjacentHTML(
       "afterbegin",
       `
       <p class="game__congrats-text">Congratulations! You successfully found all matches on <span
       class="game__congrats-timer">${min} minutes ${sec} seconds </span>.</p> Your score ${this.outputResult()}`
     );
-    gameCongrats.append(this.BtnSubmit.element);
+    this.windowModal.append(this.BtnSubmit.element);
   }
 
   clearModal() {
-    this.element.lastElementChild?.remove();
+    if (this.element.lastElementChild?.contains(this.windowModal)) {
+      this.element.lastElementChild?.remove();
+    }
   }
 
   outputResult() {

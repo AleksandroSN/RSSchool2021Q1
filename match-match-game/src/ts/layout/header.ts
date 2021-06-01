@@ -29,10 +29,8 @@ export class Header extends BaseComponent {
     ]);
     this.btnReg.element.id = "playerReg";
     this.btnReg.element.textContent = "Register new player";
-    this.btnReg.element.addEventListener(
-      "click",
-      () => {
-        if (!this.isRegister) {
+    this.btnReg.element.addEventListener("click", () => {
+      if (!this.isRegister) {
         this.modalReg.element.append(this.overlay.element);
         this.modalReg.createModal();
         this.modalReg.modalReg?.addEventListener("submit", () => {
@@ -40,8 +38,8 @@ export class Header extends BaseComponent {
           this.createAvatar();
           this.isRegister = true;
         });
-      }}
-    );
+      }
+    });
     this.headerNavListItem = this.element.querySelectorAll(
       ".header__nav-list-item"
     );

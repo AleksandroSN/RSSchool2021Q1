@@ -13,8 +13,8 @@ export class GameSettings extends BaseComponent {
 
   constructor() {
     super("div", ["game__settings"]);
-    this.cardShirtValue = 0;
-    this.difficultGameValue = 0;
+    this.cardShirtValue = undefined;
+    this.difficultGameValue = undefined;
     this.element.insertAdjacentHTML(
       "afterbegin",
       `<div class="game__settings-wrapper">

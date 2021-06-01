@@ -20,6 +20,6 @@ export class CardsField extends BaseComponent {
     this.cards.forEach((card) => this.element.append(card.element));
     setTimeout(() => {
       this.cards.forEach((card) => card.flipToFront());
-    }, SHOW_TIME * 100);
+    }, SHOW_TIME * 1000);
   }
 }

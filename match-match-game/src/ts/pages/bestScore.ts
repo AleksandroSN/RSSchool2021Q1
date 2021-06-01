@@ -62,7 +62,7 @@ export class BestScore extends BaseComponent {
   }
 
   createPlayer() {
-    const bestScoreResult = document.createElement('div');
+    const bestScoreResult = document.createElement("div");
     bestScoreResult.classList.add("best__score-result");
     this.bestScoreWrapper.append(bestScoreResult);
 
