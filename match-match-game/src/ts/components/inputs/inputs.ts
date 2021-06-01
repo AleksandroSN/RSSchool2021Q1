@@ -5,24 +5,23 @@ export class InputForm extends BaseComponent {
 
   inputField: HTMLInputElement;
 
-  private inputCheckbox: HTMLInputElement;
+  inputCheckbox: HTMLInputElement;
 
   constructor(
     public readonly className: string,
-    public regExp: RegExp,
-    labelClass: string,
-    labelFor = "",
-    labelText = "",
-    inputName: string,
-    inputType = "text",
-    inputPlaceholder = ""
+    private readonly regExp: RegExp,
+    private readonly labelClass: string,
+    private readonly labelFor = "",
+    private readonly labelText = "",
+    private readonly inputName: string,
+    private readonly inputType = "text",
+    private readonly inputPlaceholder = ""
   ) {
     super("div", [className]);
-    this.regExp = regExp;
-    this.createLabel(labelClass, labelFor, labelText);
+    this.createLabel(this.labelClass, this.labelFor, this.labelText);
     this.inputField = document.createElement("input") as HTMLInputElement;
     this.inputCheckbox = document.createElement("input") as HTMLInputElement;
-    this.createInput(inputName, inputType, inputPlaceholder);
+    this.createInput(this.inputName, this.inputType, this.inputPlaceholder);
     this.createLabel("register__input-wrapper");
     this.inputCheckboxWrapper = this.element.querySelector(
       ".register__input-wrapper"

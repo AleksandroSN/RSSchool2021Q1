@@ -27,4 +27,8 @@
     color: $main-color;
     background-color: #E3F2FD;  
   }
+
+  &:disabled {
+    background-color: #e9e9e9;
+  }
 }

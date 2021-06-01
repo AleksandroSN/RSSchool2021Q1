@@ -10,6 +10,7 @@ export class BestScore extends BaseComponent {
     name: string;
     lastName: string;
     email: string;
+    image: string | ArrayBuffer | null;
     score: number;
   }>;
 
@@ -18,6 +19,8 @@ export class BestScore extends BaseComponent {
   private lastName: string;
 
   private email: string;
+
+  private image: string;
 
   private score: number;
 
@@ -28,6 +31,7 @@ export class BestScore extends BaseComponent {
     this.name = "";
     this.lastName = "";
     this.email = "";
+    this.image = "";
     this.score = 0;
     this.element.insertAdjacentHTML(
       "afterbegin",
@@ -50,6 +54,7 @@ export class BestScore extends BaseComponent {
       this.name = player.name;
       this.lastName = player.lastName;
       this.email = player.email;
+      this.image = player.image as string;
       this.score = player.score;
       this.createPlayer();
     });
@@ -66,10 +71,14 @@ export class BestScore extends BaseComponent {
     bestScoreResult.classList.add("best__score-result");
     this.bestScoreWrapper.append(bestScoreResult);
 
+    if (!this.image) {
+      this.image = "./assets/img/player1.jpg";
+    }
+
     bestScoreResult.insertAdjacentHTML(
       "afterbegin",
       `<picture class="best__score-avatar">
-    <img src="./assets/img/player1.jpg" alt="player1">
+    <img src="${this.image}" alt="player">
   </picture>
   <div class="best__score-player">
     <p class="best__score-player-name">${this.name} ${this.lastName}</p>

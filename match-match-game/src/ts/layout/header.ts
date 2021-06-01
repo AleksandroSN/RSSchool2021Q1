@@ -2,6 +2,7 @@ import { BaseComponent } from "../components/base-components";
 import { Btn } from "../components/buttons/buttons";
 import { ModalReg } from "../components/modal-register/modal-register";
 import { Overlay } from "../components/overlay/overlay";
+import { IndexedDB } from "../database/indexedDB";
 
 export class Header extends BaseComponent {
   headerContainer: HTMLDivElement | undefined;
@@ -16,17 +17,16 @@ export class Header extends BaseComponent {
 
   private readonly modalReg: ModalReg;
 
+  private readonly indexedDB: IndexedDB;
+
   private static instance: Header;
 
   constructor() {
     super("header", ["header"], "header");
     this.overlay = new Overlay();
+    this.indexedDB = IndexedDB.getInstance();
     this.modalReg = ModalReg.getInstance();
-    this.btnReg = new Btn("button", [
-      "header__btn-register",
-      "btn",
-      "btn--light",
-    ]);
+    this.btnReg = new Btn(["header__btn-register", "btn", "btn--light"]);
     this.btnReg.element.id = "playerReg";
     this.btnReg.element.textContent = "Register new player";
     this.btnReg.element.addEventListener("click", () => {
@@ -35,7 +35,10 @@ export class Header extends BaseComponent {
         this.modalReg.createModal();
         this.modalReg.modalReg?.addEventListener("submit", () => {
           this.btnReg.element.textContent = "Start Game";
-          this.createAvatar();
+          // FIX
+          setTimeout(() => {
+            this.createAvatar(this.indexedDB.data.image as string);
+          }, 1500);
           this.isRegister = true;
         });
       }
@@ -117,11 +120,11 @@ export class Header extends BaseComponent {
     this.headerContainer?.append(this.btnReg.element);
   }
 
-  createAvatar() {
+  createAvatar(IDBImage: string | ArrayBuffer | null) {
     this.headerContainer?.insertAdjacentHTML(
       "beforeend",
       `<picture class="header__avatar">
-    <img src="./assets/img/avatar-login.jpg" alt="avatar">
+    <img src="${IDBImage}" alt="avatar">
   </picture>
     `
     );

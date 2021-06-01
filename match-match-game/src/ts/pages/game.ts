@@ -34,17 +34,15 @@ export class Game extends BaseComponent {
 
   private windowModal!: HTMLDivElement;
 
+  private gameTimers!: ReturnType<typeof setTimeout>;
+
   constructor() {
     super("div", ["game"]);
     this.indexedDB = IndexedDB.getInstance();
     this.timer = new Timer();
     this.router = Router.getInstance();
     this.cardsField = new CardsField();
-    this.BtnSubmit = new Btn("button", [
-      "game__congrats-btn",
-      "btn",
-      "btn--blue",
-    ]);
+    this.BtnSubmit = new Btn(["game__congrats-btn", "btn", "btn--blue"]);
     this.BtnSubmit.element.textContent = "OK";
     this.BtnSubmit.element.addEventListener("click", () => {
       this.clearModal();
@@ -67,9 +65,11 @@ export class Game extends BaseComponent {
 
   newGame(images: string[], size: number) {
     this.clearModal();
+    clearTimeout(this.gameTimers);
     this.cardsField.clear();
     this.timer.stopTimer();
     this.timer.clearTimer();
+    this.timer.countDownTimer();
     setTimeout(() => {
       this.indexedDB.getRecord("user");
     }, 500);
@@ -99,7 +99,8 @@ export class Game extends BaseComponent {
     );
 
     this.cardsField.addCards(cards);
-    setTimeout(() => {
+    this.gameTimers = setTimeout(() => {
+      this.timer.stopTimer();
       this.timer.startTimer();
     }, 30000);
   }

@@ -14,6 +14,8 @@ export class Timer extends BaseComponent {
 
   private updatedTime: number;
 
+  private countDownTime: number;
+
   seconsForScore: number;
 
   seconds: number;
@@ -30,14 +32,15 @@ export class Timer extends BaseComponent {
     this.seconsForScore = 0;
     this.seconds = 0;
     this.minutes = 0;
+    this.countDownTime = 30;
     this.element.insertAdjacentHTML(
       "afterbegin",
-      `<span class="game__timer-minutes">00</span>:<span class="game__timer-seconds">00</span>`
+      `<span class="game__timer-minutes">00</span>:<span class="game__timer-seconds">30</span>`
     );
   }
 
   clearTimer() {
-    this.element.innerHTML = `<span class="game__timer-minutes">00</span>:<span class="game__timer-seconds">00</span>`;
+    this.element.innerHTML = `<span class="game__timer-minutes">00</span>:<span class="game__timer-seconds">30</span>`;
   }
 
   startTimer() {
@@ -58,6 +61,21 @@ export class Timer extends BaseComponent {
     this.seconds = 0;
     this.minutes = 0;
     this.seconsForScore = 0;
+    this.countDownTime = 30;
+  }
+
+  countDownTimer() {
+    this.intervalTimer = setInterval(() => {
+      this.countDownTime -= 1;
+      this.countDownTimerRender();
+    }, 1000);
+  }
+
+  countDownTimerRender() {
+    this.element.innerHTML = `<span class="game__timer-minutes">00</span>:
+    <span class="game__timer-seconds">${devideZeros(
+    this.countDownTime
+  )}</span>`;
   }
 
   updateTimer() {

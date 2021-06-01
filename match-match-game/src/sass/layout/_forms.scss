@@ -1,10 +1,5 @@
-// .modal {
-//   display: none;
-// }
-
 .register {
   display: flex;
-  // display: none;
   flex-direction: column;
   position: fixed;
   max-width: 639px;
@@ -89,7 +84,8 @@
     user-select: none;
   }
 
-  &__input-checkbox {
+  &__input-checkbox,
+  &__input-file {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -149,6 +145,31 @@
         transform: rotate(45deg);
         transition: 0.5s;
       }
+    }
+  }
+
+  &__avt-cotnainer{
+    height: 200px;
+    width: 200px;
+    position: relative;
+    border-radius: 50%;
+    background-image: url(./assets/img/avatar.png);
+    background-position: center;
+    background-size: cover;
+
+    &:hover:after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+      border-radius: 50%;
+      background-image: url(./assets/icons/cross.svg);
+      background-color: rgba(0,0,0,.3);
+      background-position: center;
+      background-repeat: no-repeat;
+      content: "";
     }
   }
 

@@ -9,6 +9,7 @@ export class IndexedDB {
     name: string;
     lastName: string;
     email: string;
+    image: string | ArrayBuffer | null;
     score: number;
   }>;
 
@@ -43,7 +44,6 @@ export class IndexedDB {
     dbrequest.onsuccess = () => {
       this.db = dbrequest.result;
     };
-    dbrequest.onerror = () => {};
   }
 
   addRecord(storage: string, data: unknown) {
@@ -53,7 +53,6 @@ export class IndexedDB {
     req.onsuccess = () => {
       this.key = req.result;
     };
-    req.onerror = () => {};
   }
 
   getRecord(storage: string) {
@@ -63,7 +62,6 @@ export class IndexedDB {
     req.onsuccess = () => {
       this.data = req.result;
     };
-    req.onerror = () => {};
   }
 
   getAllRecords(storage: string, index: string) {
@@ -81,14 +79,15 @@ export class IndexedDB {
         cursor.continue();
       }
     };
-    req.onerror = () => {};
   }
 
   updateRecord(storage: string, data: unknown) {
     const tx = this.db.transaction(storage, "readwrite");
     const store = tx.objectStore(storage);
     const req = store.put(data);
-    req.onsuccess = () => {};
+    req.onsuccess = () => {
+      console.log('SUCESS');  
+    };
     req.onerror = () => {};
   }
 }

@@ -1,11 +1,12 @@
 export class Btn {
-  readonly element: HTMLElement;
+  readonly element: HTMLButtonElement;
 
   constructor(
-    btnTag: keyof HTMLElementTagNameMap = "button",
-    classes: string[] = []
+    private readonly classes: string[] = [],
+    private readonly type: string = "button"
   ) {
-    this.element = document.createElement(btnTag);
-    this.element.classList.add(...classes);
+    this.element = document.createElement("button");
+    this.element.classList.add(...this.classes);
+    this.element.type = this.type;
   }
 }

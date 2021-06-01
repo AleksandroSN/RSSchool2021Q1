@@ -1,6 +1,7 @@
 import { IndexedDB } from "../../database/indexedDB";
 import { BaseComponent } from "../base-components";
 import { Btn } from "../buttons/buttons";
+import { InputFile } from "../inputs/inputFile";
 import { InputForm } from "../inputs/inputs";
 import { User } from "../user/user";
 
@@ -14,6 +15,8 @@ export class ModalReg extends BaseComponent {
   private readonly inputLastName: InputForm;
 
   private readonly inputEmail: InputForm;
+
+  private readonly inputFile: InputFile;
 
   modalReg: HTMLFormElement | undefined;
 
@@ -55,13 +58,22 @@ export class ModalReg extends BaseComponent {
       "email",
       "Enter a E-mail"
     );
-    this.btnSubmit = new Btn("button", ["btn", "btn--blue"]);
-    this.btnCancel = new Btn("button", ["btn", "btn--light"]);
+
+    this.inputFile = new InputFile("register__avt-cotnainer");
+    this.inputFile.addListener();
+    this.btnSubmit = new Btn(["btn", "btn--blue"], "submit");
+    this.btnSubmit.element.disabled = true;
+    this.btnCancel = new Btn(["btn", "btn--light"]);
     this.btnCancel.element.addEventListener("click", () => {
       this.clearModal();
     });
+    this.inputEmail.inputField.addEventListener("input", () => {
+      if (this.inputEmail.inputCheckbox.checked) {
+        this.btnSubmit.element.disabled = false;
+      } else this.btnSubmit.element.disabled = true;
+    });
     this.indexedDB = IndexedDB.getInstance();
-    this.userData = new User("", "", "", 0);
+    this.userData = new User("", "", "", "", 0);
   }
 
   public static getInstance(): ModalReg {
@@ -82,9 +94,13 @@ export class ModalReg extends BaseComponent {
         this.inputFirstName.inputField.value,
         this.inputLastName.inputField.value,
         this.inputEmail.inputField.value,
+        this.inputFile.inputFileReaderResult,
         0
       );
       this.indexedDB.addRecord("user", this.userData.getUser());
+      setTimeout(() => {
+        this.indexedDB.getRecord("user");
+      }, 500);
       e.preventDefault();
       this.clearModal();
     });
@@ -112,18 +128,9 @@ export class ModalReg extends BaseComponent {
     regWrapperRight.classList.add("register__wrapper--right");
     regWrapper.append(regWrapperRight);
 
-    const avatarContainer = document.createElement("picture");
-    avatarContainer.classList.add("register__avt-conainer");
-    regWrapperRight.append(avatarContainer);
-
-    const avatarImg = document.createElement("img");
-    avatarImg.src = "./assets/img/avatar.png";
-    avatarImg.alt = "avatar";
-    avatarContainer.append(avatarImg);
-
     const regBtnContainer = document.createElement("div");
     regBtnContainer.classList.add("register__btn-container");
-    regWrapperRight.append(regBtnContainer);
+    regWrapperRight.append(this.inputFile.inputLabel, regBtnContainer);
 
     this.btnSubmit.element.textContent = "Add User";
     this.btnCancel.element.textContent = "Cancel";
