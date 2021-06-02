@@ -121,10 +121,14 @@ export class Header extends BaseComponent {
   }
 
   createAvatar(IDBImage: string | ArrayBuffer | null) {
+    let image: string | ArrayBuffer = "./assets/img/avatar.png";
+    if (IDBImage) {
+      image = IDBImage
+    }
     this.headerContainer?.insertAdjacentHTML(
       "beforeend",
       `<picture class="header__avatar">
-    <img src="${IDBImage}" alt="avatar">
+    <img src="${image}" alt="avatar">
   </picture>
     `
     );
