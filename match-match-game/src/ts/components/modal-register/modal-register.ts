@@ -101,7 +101,7 @@ export class ModalReg extends BaseComponent {
         this.indexedDB.updateRecord("user", this.userData.getUser());
       } else {
         this.indexedDB.addRecord("user", this.userData.getUser());
-      }  
+      }
       setTimeout(() => {
         this.indexedDB.getRecord("user");
       }, 500);
@@ -146,11 +146,11 @@ export class ModalReg extends BaseComponent {
     this.element.innerHTML = "";
   }
 
-  checkExhistUser(){
-    const existKey = this.indexedDB.allRecors.find(item => {
-      return item.email === this.inputEmail.inputField.value
-    })
+  checkExhistUser() {
+    const existKey = this.indexedDB.allRecors.find((item) => {
+      return item.email === this.inputEmail.inputField.value;
+    });
 
-    return existKey?.email === this.inputEmail.inputField.value
+    return existKey?.email === this.inputEmail.inputField.value;
   }
 }

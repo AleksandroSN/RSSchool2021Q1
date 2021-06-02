@@ -3,7 +3,7 @@ export class IndexedDB {
 
   private key: IDBValidKey;
 
-  data: Record<string,unknown>;
+  data!: Record<string, unknown>;
 
   allRecors: Array<{
     name: string;
@@ -20,7 +20,6 @@ export class IndexedDB {
     public readonly dbVersion: number
   ) {
     this.key = "";
-    this.data = {};
     this.allRecors = [];
   }
 
@@ -60,7 +59,7 @@ export class IndexedDB {
     const store = tx.objectStore(storage);
     const req = store.get(this.key);
     req.onsuccess = () => {
-      if(!this.data) {
+      if (!this.data) {
         this.data = req.result;
       }
     };
@@ -88,7 +87,9 @@ export class IndexedDB {
     const store = tx.objectStore(storage);
     const req = store.put(data);
     req.onsuccess = () => {
-      this.data = data as Record<string,unknown>; 
+      if (!this.data) {
+        this.data = data as Record<string, unknown>;
+      }
     };
   }
 }

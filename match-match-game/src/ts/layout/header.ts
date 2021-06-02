@@ -123,7 +123,7 @@ export class Header extends BaseComponent {
   createAvatar(IDBImage: string | ArrayBuffer | null) {
     let image: string | ArrayBuffer = "./assets/img/avatar.png";
     if (IDBImage) {
-      image = IDBImage
+      image = IDBImage;
     }
     this.headerContainer?.insertAdjacentHTML(
       "beforeend",
