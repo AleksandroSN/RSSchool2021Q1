@@ -89,26 +89,6 @@ export class ModalReg extends BaseComponent {
     this.modalReg.classList.add("register");
     this.element.append(this.modalReg);
 
-    this.modalReg?.addEventListener("submit", (e: Event) => {
-      this.userData = new User(
-        this.inputFirstName.inputField.value,
-        this.inputLastName.inputField.value,
-        this.inputEmail.inputField.value,
-        this.inputFile.inputFileReaderResult,
-        0
-      );
-      if (this.checkExhistUser()) {
-        this.indexedDB.updateRecord("user", this.userData.getUser());
-      } else {
-        this.indexedDB.addRecord("user", this.userData.getUser());
-      }
-      setTimeout(() => {
-        this.indexedDB.getRecord("user");
-      }, 500);
-      e.preventDefault();
-      this.clearModal();
-    });
-
     const h2 = document.createElement("h2");
     h2.classList.add("register__title");
     h2.textContent = "Register new Player";
@@ -139,6 +119,28 @@ export class ModalReg extends BaseComponent {
     this.btnSubmit.element.textContent = "Add User";
     this.btnCancel.element.textContent = "Cancel";
     regBtnContainer.append(this.btnSubmit.element, this.btnCancel.element);
+  }
+
+  addListenerOnModal() {
+    this.modalReg?.addEventListener("submit", (e: Event) => {
+      this.userData = new User(
+        this.inputFirstName.inputField.value,
+        this.inputLastName.inputField.value,
+        this.inputEmail.inputField.value,
+        this.inputFile.inputFileReaderResult,
+        0
+      );
+      if (this.checkExhistUser()) {
+        this.indexedDB.updateRecord("user", this.userData.getUser());
+      } else {
+        this.indexedDB.addRecord("user", this.userData.getUser());
+      }
+      setTimeout(() => {
+        this.indexedDB.getRecord("user");
+      }, 500);
+      e.preventDefault();
+      this.clearModal();
+    });
   }
 
   clearModal() {

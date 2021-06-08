@@ -1,10 +1,9 @@
 import { BaseComponent } from "../components/base-components";
-import { Btn } from "../components/buttons/buttons";
 import { CardsField } from "../components/cards-field/cards-field";
 import { Card } from "../components/cards/cards";
+import { ModalCongrat } from "../components/modal-register/modal-congrat";
 import { Timer } from "../components/timer/timer";
 import { IndexedDB } from "../database/indexedDB";
-import { Router } from "../router/router";
 import { delay } from "../shared/delay";
 
 const FLIP_DELAY = 1000;
@@ -18,9 +17,7 @@ export class Game extends BaseComponent {
 
   private readonly cardsField: CardsField;
 
-  private readonly BtnSubmit: Btn;
-
-  private readonly router: Router;
+  private readonly modalCongrat: ModalCongrat;
 
   private activeCard?: Card;
 
@@ -32,23 +29,14 @@ export class Game extends BaseComponent {
 
   private wrongMatch: number;
 
-  private windowModal!: HTMLDivElement;
-
   private gameTimers!: ReturnType<typeof setTimeout>;
 
   constructor() {
     super("div", ["game"]);
     this.indexedDB = IndexedDB.getInstance();
     this.timer = new Timer();
-    this.router = Router.getInstance();
     this.cardsField = new CardsField();
-    this.BtnSubmit = new Btn(["game__congrats-btn", "btn", "btn--blue"]);
-    this.BtnSubmit.element.textContent = "OK";
-    this.BtnSubmit.element.addEventListener("click", () => {
-      this.clearModal();
-      window.location.hash = "best-score";
-      this.router.navigate();
-    });
+    this.modalCongrat = new ModalCongrat();
     this.countCards = 0;
     this.successMatch = 0;
     this.wrongMatch = 0;
@@ -64,7 +52,6 @@ export class Game extends BaseComponent {
   }
 
   newGame(images: string[], size: number) {
-    this.clearModal();
     clearTimeout(this.gameTimers);
     this.cardsField.clear();
     this.timer.stopTimer();
@@ -105,6 +92,24 @@ export class Game extends BaseComponent {
     }, 30000);
   }
 
+  stopGame() {
+    const playerData = this.indexedDB.data;
+    playerData.score = this.outputResult();
+    this.indexedDB.updateRecord("user", playerData);
+    setTimeout(() => {
+      this.indexedDB.getAllRecords("user", "rating");
+    }, 500);
+    this.element.append(this.modalCongrat.element);
+    this.modalCongrat.createModal(
+      this.timer.minutes,
+      this.timer.seconds,
+      this.outputResult()
+    );
+    this.successMatch = 0;
+    this.wrongMatch = 0;
+    this.timer.stopTimer();
+  }
+
   private async cardHandler(card: Card) {
     if (this.isAnimation) return;
     if (!card.isFlipped) return;
@@ -119,56 +124,35 @@ export class Game extends BaseComponent {
     }
 
     if (this.activeCard.image === card.image) {
-      this.activeCard.element.classList.add("card--success");
-      card.element.classList.add("card--success");
-      this.countCards -= 2;
-      this.successMatch += 1;
+      this.matchingCard(card);
       if (this.countCards === 0) {
-        const playerData = this.indexedDB.data;
-        playerData.score = this.outputResult();
-        this.indexedDB.updateRecord("user", playerData);
-        setTimeout(() => {
-          this.indexedDB.getAllRecords("user", "rating");
-        }, 500);
-        this.createModal(this.timer.minutes, this.timer.seconds);
-        this.successMatch = 0;
-        this.wrongMatch = 0;
-        this.timer.stopTimer();
+        this.stopGame();
       }
     }
 
     if (this.activeCard.image !== card.image) {
-      this.wrongMatch += 1;
-      this.activeCard.element.classList.add("card--wrong");
-      card.element.classList.add("card--wrong");
-      await delay(FLIP_DELAY);
-      this.activeCard.element.classList.remove("card--wrong");
-      card.element.classList.remove("card--wrong");
-      await Promise.all([this.activeCard.flipToFront(), card.flipToFront()]);
+      await this.dismatchingCard(card);
     }
 
     this.activeCard = undefined;
     this.isAnimation = false;
   }
 
-  createModal(min: number, sec: number) {
-    this.windowModal = document.createElement("div");
-    this.windowModal.classList.add("game__congrats");
-    this.element.append(this.windowModal);
-
-    this.windowModal.insertAdjacentHTML(
-      "afterbegin",
-      `
-      <p class="game__congrats-text">Congratulations! You successfully found all matches on <span
-      class="game__congrats-timer">${min} minutes ${sec} seconds </span>.</p> Your score ${this.outputResult()}`
-    );
-    this.windowModal.append(this.BtnSubmit.element);
+  matchingCard(card: Card) {
+    this.activeCard!.element.classList.add("card--success");
+    card.element.classList.add("card--success");
+    this.countCards -= 2;
+    this.successMatch += 1;
   }
 
-  clearModal() {
-    if (this.element.lastElementChild?.contains(this.windowModal)) {
-      this.element.lastElementChild?.remove();
-    }
+  async dismatchingCard(card: Card) {
+    this.wrongMatch += 1;
+    this.activeCard!.element.classList.add("card--wrong");
+    card.element.classList.add("card--wrong");
+    await delay(FLIP_DELAY);
+    this.activeCard!.element.classList.remove("card--wrong");
+    card.element.classList.remove("card--wrong");
+    await Promise.all([this.activeCard!.flipToFront(), card.flipToFront()]);
   }
 
   outputResult() {

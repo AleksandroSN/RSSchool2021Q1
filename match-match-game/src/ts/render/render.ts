@@ -18,6 +18,10 @@ export class Render {
 
   private static bodyContainer = document.body;
 
+  private arrNavListItems: [number, Node][] = [];
+
+  private filteredArr: HTMLElement[] = [];
+
   constructor(private readonly rootElement: HTMLElement) {
     this.fragment = document.createDocumentFragment();
 
@@ -32,6 +36,15 @@ export class Render {
     this.main = new Main();
 
     this.gameSettings = GameSettings.getInstance();
+
+    for (const entry of this.header.headerNavListItem.entries()) {
+      this.arrNavListItems.push(entry);
+    }
+
+    this.filteredArr = this.arrNavListItems
+      .reduce((ac: unknown[], cur) => ac.concat(cur), [])
+      .filter((y) => typeof y !== "number")
+      .map((x) => x as HTMLElement);
   }
 
   public static getInstance(): Render {
@@ -57,17 +70,11 @@ export class Render {
       this.gameSettings.difficultGameValue = undefined;
     }
     this.main.mainContainer.append(page);
-    for (const entry of this.header.headerNavListItem.entries()) {
-      entry
-        .map((x) => x as HTMLElement)
-        .forEach((item, i) => {
-          if (i === 1) {
-            item.classList.remove("header__nav-list-item--active");
-            if (item.dataset.link === nameRoute) {
-              item.classList.add("header__nav-list-item--active");
-            }
-          }
-        });
-    }
+    this.filteredArr.forEach((item) => {
+      item.classList.remove("header__nav-list-item--active");
+      if (item.dataset.link === nameRoute) {
+        item.classList.add("header__nav-list-item--active");
+      }
+    });
   }
 }

@@ -32,14 +32,18 @@ const gamePage = Game.getInstance();
 const gameSettingsPage = GameSettings.getInstance();
 
 async function start(index: number) {
-  const res = await fetch("./images.json");
-  const categories: ImageCategory[] = await res.json();
-  const cat = categories[index];
-  const images = cat.images.map((name: string) => `${cat.category}/${name}`);
-  gamePage.newGame(
-    images,
-    (gameSettingsPage.difficultGameValue as number) || 16
-  );
+  try {
+    const res = await fetch("./images.json");
+    const categories: ImageCategory[] = await res.json();
+    const cat = categories[index];
+    const images = cat.images.map((name: string) => `${cat.category}/${name}`);
+    gamePage.newGame(
+      images,
+      (gameSettingsPage.difficultGameValue as number) || 16
+    );
+  } catch (evt: unknown) {
+    throw new Error(`${evt}`);
+  }
 }
 
 const render = Render.getInstance();

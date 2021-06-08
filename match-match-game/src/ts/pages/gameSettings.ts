@@ -1,4 +1,5 @@
 import { BaseComponent } from "../components/base-components";
+import { gameSelectors } from "../templates/template";
 
 export class GameSettings extends BaseComponent {
   private static instance: GameSettings;
@@ -15,27 +16,7 @@ export class GameSettings extends BaseComponent {
     super("div", ["game__settings"]);
     this.cardShirtValue = undefined;
     this.difficultGameValue = undefined;
-    this.element.insertAdjacentHTML(
-      "afterbegin",
-      `<div class="game__settings-wrapper">
-    <label for="game-cards" class="game__settings-title">Game Cards</label>
-    <select name="game-cards" id="game-cards-select" class="game__settings-select-cards">
-      <option value="" disabled selected>Select game cards type</option>
-      <option value="0">kitty</option>
-      <option value="1">sport</option>
-      <option value="2">computer</option>
-    </select>
-  </div>
-  <div class="game__settings-wrapper">
-    <label for="game-difficult" class="game__settings-title">Difficulty</label>
-    <select name="game-difficult" id="game-difficult-select" class="game__settings-select-difficult">
-      <option value="" disabled selected>Select field size</option>
-      <option value="4">2 x 2</option>
-      <option value="16">4 x 4</option>
-      <option value="36">6 x 6</option>
-    </select>
-  </div>`
-    );
+    this.element.insertAdjacentHTML("afterbegin", gameSelectors);
     this.cardShirt = this.element.querySelector(
       "#game-cards-select"
     ) as HTMLSelectElement;

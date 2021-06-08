@@ -1,3 +1,4 @@
+import { IPlayer } from "../api/api";
 import { BaseComponent } from "../components/base-components";
 import { IndexedDB } from "../database/indexedDB";
 
@@ -6,13 +7,7 @@ export class BestScore extends BaseComponent {
 
   private bestScoreWrapper!: HTMLDivElement;
 
-  private players: Array<{
-    name: string;
-    lastName: string;
-    email: string;
-    image: string | ArrayBuffer | null;
-    score: number;
-  }>;
+  private players: IPlayer[];
 
   private name: string;
 
@@ -41,7 +36,7 @@ export class BestScore extends BaseComponent {
     this.createWrapper();
   }
 
-  async getPlayerData() {
+  getPlayerData() {
     return new Promise((res) => {
       this.players = this.indexedDB.allRecors;
       res(this.fillData());

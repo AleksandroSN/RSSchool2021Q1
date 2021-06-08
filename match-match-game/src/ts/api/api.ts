@@ -10,3 +10,11 @@ export interface IUser {
   image: string | ArrayBuffer | null;
   score: number;
 }
+
+export interface IPlayer {
+  name: string;
+  lastName: string;
+  email: string;
+  image: string | ArrayBuffer | null;
+  score: number;
+}

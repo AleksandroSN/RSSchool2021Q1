@@ -3,6 +3,7 @@ import { Btn } from "../components/buttons/buttons";
 import { ModalReg } from "../components/modal-register/modal-register";
 import { Overlay } from "../components/overlay/overlay";
 import { IndexedDB } from "../database/indexedDB";
+import { navListTemplate } from "../templates/template";
 
 export class Header extends BaseComponent {
   headerContainer: HTMLDivElement | undefined;
@@ -33,14 +34,8 @@ export class Header extends BaseComponent {
       if (!this.isRegister) {
         this.modalReg.element.append(this.overlay.element);
         this.modalReg.createModal();
-        this.modalReg.modalReg?.addEventListener("submit", () => {
-          this.btnReg.element.textContent = "Start Game";
-          // FIX
-          setTimeout(() => {
-            this.createAvatar(this.indexedDB.data.image as string);
-          }, 1500);
-          this.isRegister = true;
-        });
+        this.modalReg.addListenerOnModal();
+        this.listenForm();
       }
     });
     this.headerNavListItem = this.element.querySelectorAll(
@@ -52,8 +47,18 @@ export class Header extends BaseComponent {
     if (!Header.instance) {
       Header.instance = new Header();
     }
-
     return Header.instance;
+  }
+
+  listenForm(): void {
+    this.modalReg.modalReg?.addEventListener("submit", () => {
+      this.btnReg.element.textContent = "Start Game";
+      // FIX
+      setTimeout(() => {
+        this.createAvatar(this.indexedDB.data.image as string);
+      }, 1500);
+      this.isRegister = true;
+    });
   }
 
   createHeader(): void {
@@ -88,29 +93,7 @@ export class Header extends BaseComponent {
     navList.classList.add("header__nav-list");
     nav.append(navList);
 
-    navList.insertAdjacentHTML(
-      "afterbegin",
-      `
-    <li class="header__nav-list-item" data-link="about">
-              <a href="#about" class="header__nav-link">
-                <picture class="header__nav-list-item-img"><img src="./assets/icons/question.svg" alt="about game">
-                </picture>About Game
-              </a>
-            </li>
-            <li class="header__nav-list-item" data-link="best-score">
-              <a href="#best-score" class="header__nav-link">
-                <picture class="header__nav-list-item-img header__nav-list-item-img--score"><img src="./assets/icons/star.svg" alt="best score"></picture>Best
-                Score
-              </a>
-            </li>
-            <li class="header__nav-list-item" data-link="game-settings">
-              <a href="#game-settings" class="header__nav-link">
-                <picture class="header__nav-list-item-img"><img src="./assets/icons/settings.svg" alt="game Settings">
-                </picture>
-                Game Settings
-              </a>
-            </li>`
-    );
+    navList.insertAdjacentHTML("afterbegin", navListTemplate);
     this.headerNavListItem = this.element.querySelectorAll(
       ".header__nav-list-item"
     );
@@ -120,6 +103,7 @@ export class Header extends BaseComponent {
     this.headerContainer?.append(this.btnReg.element);
   }
 
+  // maybe separate ??
   createAvatar(IDBImage: string | ArrayBuffer | null) {
     let image: string | ArrayBuffer = "./assets/img/avatar.png";
     if (IDBImage) {
