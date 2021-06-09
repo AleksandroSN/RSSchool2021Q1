@@ -1,18 +1,17 @@
 const path = require('path');
-const CopyPlugin = require('copy-webpack-plugin');
+// const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
-// need add prod variable or prod.webback
-
-module.exports = {
-  devtool: 'source-map',
+module.exports = ({ development }) => ({
+  mode: development ? 'development' : 'production',
+  devtool: development ? 'source-map' : 'eval',
   devServer: {
     historyApiFallback: {
-      index: '/app.html'
+      index: '/index.html',
     },
     contentBase: path.join(__dirname, 'dist'),
     hot: true,
@@ -33,14 +32,14 @@ module.exports = {
     assetModuleFilename: '[path][name][ext]',
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Match match game',
-      template: './app.html',
-      filename: 'app.html',
+      template: './index.html',
+      filename: 'index.html',
       inject: 'body',
     }),
     new ESLintPlugin({ extensions: ['ts', 'js'] }),
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
@@ -53,12 +52,12 @@ module.exports = {
         ],
       },
     }),
-    new CopyPlugin({
-      patterns: [{ from: './assets/img/kitty', to: './assets/img/kitty/[name][ext]' },
-      { from: './assets/img/computer', to: './assets/img/computer/[name][ext]' },
-      { from: './assets/img/sport', to: './assets/img/sport/[name][ext]' },
-    {from: '../public'}],
-    }),
+    // new CopyPlugin({
+    //   patterns: [{ from: './assets/img/kitty', to: './assets/img/kitty/[name][ext]' },
+    //   { from: './assets/img/computer', to: './assets/img/computer/[name][ext]' },
+    //   { from: './assets/img/sport', to: './assets/img/sport/[name][ext]' },
+    // {from: '../public'}],
+    // }),
   ],
   module: {
     rules: [
@@ -84,4 +83,4 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.ts'],
   },
-};
+});

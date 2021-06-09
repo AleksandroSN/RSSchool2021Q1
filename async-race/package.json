@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --mode=production",
     "watch": "webpack serve --mode=development",
     "lint": "eslint src"
   },

@@ -1,0 +1,180 @@
+body {
+  background-color: #000;
+}
+
+input {
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+input[type='color'] {
+  cursor: pointer;
+}
+
+.flag {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 5%;
+  right: 10%;
+}
+
+.btn {
+  background-color: hsl(110deg 40% 60%);
+  border-width: 0;
+  border-radius: 10px;
+  text-transform: uppercase;
+  padding: 0;
+  outline-offset: 4px;
+
+  &__nav {
+    background-color: hsl(198deg 100% 46%);
+    display: block;
+    padding: 12px 42px;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    transform: translateY(-6px);
+  }
+
+  &__other {
+    background-color: hsl(110deg 100% 87%);
+    display: block;
+    padding: 8px 30px;
+    border-radius: 10px;
+    font-size: 1rem;
+    transform: translateY(-6px);
+  }
+
+  &__reset {
+    background-color: hsl(0deg 100% 84%);
+    display: block;
+    padding: 8px 30px;
+    border-radius: 10px;
+    font-size: 1rem;
+    transform: translateY(-6px);
+  }
+
+  &__start {
+    color: green;
+    background-color: transparent;
+    border: 3px solid green;
+    border-radius: 3px;
+    padding: 5px 10px;
+    font-size: 1.5rem;
+  }
+
+  &__stop {
+    color: tomato;
+    background-color: transparent;
+    border: 3px solid tomato;
+    border-radius: 3px;
+    padding: 5px 10px;
+    font-size: 1.5rem;
+
+    &:disabled {
+      cursor: auto;
+      color: grey;
+      border: 3px solid grey;
+    }
+  }
+
+  &--bold {
+    font-weight: 800;
+  }
+
+  &:active &__nav,
+  &:active &__other,
+  &:active &__reset {
+    transform: translateY(-2px);
+  }
+}
+
+.navigate {
+  padding: 1rem 0;
+
+  &__garage,
+  &__winners {
+    background-color: hsl(198deg 100% 36%);
+    color: #f6511d;
+    text-shadow: 0 -1px 0 #4a8a65, 0 1px 1px #c2dece;
+  }
+
+  &__winners {
+    margin-left: 1rem;
+  }
+}
+
+.generate {
+  padding: 1rem 0;
+
+  &__btns {
+    padding: 1rem 0;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+
+  &__reset {
+    background-color: hsl(0deg 700% 74%);
+  }
+}
+
+.create-car,
+.update-car {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+
+  &__name {
+    border-radius: 5px;
+    border-width: 0;
+    height: 23px;
+    width: 240px;
+  }
+}
+
+.garage {
+  color: #ffffff;
+  font-size: 1.5rem;
+
+  &__select,
+  &__remove {
+    margin-right: 0.5rem;
+
+    & > span {
+      padding: 8px;
+    }
+  }
+
+  &__cars {
+    margin-bottom: 5rem;
+  }
+
+  &__car {
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    position: relative;
+    border-bottom: 2px dashed;
+
+    &-name {
+      color: tomato;
+    }
+  }
+
+  &__track {
+    margin-top: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+// .car {
+//   position: absolute;
+//   bottom: 0;
+//   left: 10%;
+// }
