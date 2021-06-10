@@ -128,13 +128,14 @@ input[type='color'] {
   display: flex;
   gap: 15px;
   align-items: center;
+}
 
-  &__name {
-    border-radius: 5px;
-    border-width: 0;
-    height: 23px;
-    width: 240px;
-  }
+#create-car__name,
+#update-car__name {
+  border-radius: 5px;
+  border-width: 0;
+  height: 23px;
+  width: 240px;
 }
 
 .garage {
@@ -171,6 +172,11 @@ input[type='color'] {
     align-items: flex-start;
     gap: 10px;
   }
+}
+
+.pagination {
+  display: flex;
+  gap: 10px;
 }
 
 // .car {
