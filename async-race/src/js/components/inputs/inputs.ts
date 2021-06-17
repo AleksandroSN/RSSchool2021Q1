@@ -4,18 +4,14 @@ export class Inputs {
   constructor(
     private readonly type: string,
     private readonly name: string,
-    private readonly id: string
+    private readonly id: string,
+    private readonly disabled = false
   ) {
     this.element = document.createElement("input");
     this.element.type = this.type;
     this.element.name = this.name;
     this.element.id = this.id;
-    this.addListener();
-  }
-
-  private addListener() {
-    this.element.addEventListener("change", () => {
-      console.log(this.element.value);
-    });
+    this.element.disabled = this.disabled;
+    this.element.required = true;
   }
 }

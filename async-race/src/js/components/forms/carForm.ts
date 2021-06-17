@@ -1,18 +1,24 @@
-import { BaseComponent } from "../base-components";
 import { Button } from "../buttons/buttons";
 import { Inputs } from "../inputs/inputs";
 
-export class CarForm extends BaseComponent {
-  private textInput: Inputs;
+export class CarForm {
+  readonly element: HTMLFormElement;
 
-  private colorInput: Inputs;
+  textInput: Inputs;
+
+  colorInput: Inputs;
 
   private btnForm: Button;
+
+  textInputValue!: string;
+
+  colorInputValue!: string;
 
   constructor(
     formClass: string[],
     private readonly textInputName: string,
     private readonly textInputId: string,
+    private readonly textInputDisabled: boolean,
     private readonly colorInputName: string,
     private readonly colorInputId: string,
     private readonly btnClass: string[],
@@ -20,9 +26,16 @@ export class CarForm extends BaseComponent {
     private readonly spanClass: string,
     private readonly spanText: string
   ) {
-    super("form", formClass);
+    this.element = document.createElement("form");
+    this.element.classList.add(...formClass);
 
-    this.textInput = new Inputs("text", this.textInputName, this.textInputId);
+    this.textInput = new Inputs(
+      "text",
+      this.textInputName,
+      this.textInputId,
+      this.textInputDisabled
+    );
+    this.textInput.element.value = "KOPEIKA";
     this.colorInput = new Inputs(
       "color",
       this.colorInputName,
@@ -34,11 +47,19 @@ export class CarForm extends BaseComponent {
       this.spanClass,
       this.spanText
     );
-
     this.element.append(
       this.textInput.element,
       this.colorInput.element,
       this.btnForm.element
     );
+  }
+
+  getInputsValue() {
+    this.textInputValue = this.textInput.element.value;
+    this.colorInputValue = this.colorInput.element.value;
+    return {
+      name: this.textInputValue,
+      color: this.colorInputValue,
+    };
   }
 }

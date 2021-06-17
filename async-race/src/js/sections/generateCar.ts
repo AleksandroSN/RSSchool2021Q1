@@ -2,18 +2,20 @@ import { BaseComponent } from "../components/base-components";
 import { Button } from "../components/buttons/buttons";
 import { CarForm } from "../components/forms/carForm";
 
-export class GenerateCar extends BaseComponent {
-  private readonly createCarForm: CarForm;
+export class GenerateCarForm extends BaseComponent {
+  readonly createCarForm: CarForm;
 
-  private readonly updateCarForm: CarForm;
+  readonly updateCarForm: CarForm;
 
-  private readonly generateCarBtn: Button;
+  readonly generateCarBtn: Button;
 
-  private readonly raceBtn: Button;
+  readonly raceBtn: Button;
 
-  private readonly resetBtn: Button;
+  readonly resetBtn: Button;
 
   private generateBtnDiv!: HTMLElement;
+
+  private static instance: GenerateCarForm;
 
   constructor() {
     super("section", ["generate"]);
@@ -21,6 +23,7 @@ export class GenerateCar extends BaseComponent {
       ["create-car"],
       "create-car__name",
       "create-car__name",
+      false,
       "create-car__color",
       "create-car__color",
       ["btn"],
@@ -32,6 +35,7 @@ export class GenerateCar extends BaseComponent {
       ["update-car"],
       "update-car__name",
       "update-car__name",
+      true,
       "update-car__color",
       "update-car__color",
       ["btn"],
@@ -57,12 +61,21 @@ export class GenerateCar extends BaseComponent {
       "btn__reset",
       "Reset"
     );
+    this.resetBtn.element.disabled = true;
     this.createDiv();
     this.element.append(
       this.createCarForm.element,
       this.updateCarForm.element,
       this.generateBtnDiv
     );
+  }
+
+  public static getInstance(): GenerateCarForm {
+    if (!GenerateCarForm.instance) {
+      GenerateCarForm.instance = new GenerateCarForm();
+    }
+
+    return GenerateCarForm.instance;
   }
 
   private createDiv() {

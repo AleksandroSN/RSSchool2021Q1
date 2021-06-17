@@ -4,15 +4,18 @@ export class Button {
   constructor(
     private readonly classes: string[] = [],
     private readonly type = "submit",
-    private readonly spanClass: string,
-    private readonly spanText: string
+    private readonly spanClass = "",
+    private readonly spanText = ""
   ) {
     this.element = document.createElement("button");
     this.element.classList.add(...this.classes);
     this.element.type = this.type;
-    this.element.insertAdjacentHTML(
-      "afterbegin",
-      `<span class=${this.spanClass}>${this.spanText}</span>`
-    );
+
+    if (this.spanClass.length && this.spanText.length) {
+      this.element.insertAdjacentHTML(
+        "afterbegin",
+        `<span class=${this.spanClass}>${this.spanText}</span>`
+      );
+    }
   }
 }
