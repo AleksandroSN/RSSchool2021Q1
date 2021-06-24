@@ -1,14 +1,14 @@
-import { createCar, GetCars } from "../api/car-api";
-import { Button } from "../components/buttons/buttons";
-import { ICar } from "../interfaces/interfaces";
-import { carBrands } from "./carBrands";
-import { carModels } from "./carModels";
+import { createCar, GetCars } from '../api/car-api';
+import { Button } from '../components/buttons/buttons';
+import { ParamCar } from '../interfaces/interfaces';
+import { carBrands } from './carBrands';
+import { carModels } from './carModels';
 
 const TO_16_BIT = 16;
 
 export const generateRandomColor = (): string => {
-  const letters = "0123456789ABCDEF";
-  let color = "#";
+  const letters = '0123456789ABCDEF';
+  let color = '#';
   for (let i = 0; i < 6; i++) {
     color += letters[Math.floor(Math.random() * TO_16_BIT)];
   }
@@ -32,7 +32,7 @@ export const generateRandomCar = (count = 100) => {
 
 export const createRandomCars = async () => {
   const randomCars = generateRandomCar();
-  const promiseArr: Promise<ICar>[] = [];
+  const promiseArr: Promise<ParamCar>[] = [];
   for (let i = 0; i < randomCars.length; i += 1) {
     promiseArr.push(createCar(randomCars[i]));
   }
@@ -45,10 +45,10 @@ export const LIMIT_CARS = 7;
 export const LIMIT_WINNERS = 10;
 
 export const countAllCars = async () => {
-  const { carArray, countCars } = await GetCars(BASE_PAGE, LIMIT_CARS);
+  const { resultArray, count } = await GetCars(BASE_PAGE, LIMIT_CARS);
   return {
-    items: carArray,
-    count: countCars,
+    items: resultArray,
+    count,
   };
 };
 

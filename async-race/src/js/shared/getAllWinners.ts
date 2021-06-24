@@ -1,38 +1,31 @@
-import { getCar } from "../api/car-api";
-import { GetWinners } from "../api/winner-api";
-import { ICar, IWinner, tableWinners } from "../interfaces/interfaces";
-import { LIMIT_WINNERS } from "../utils/utils";
+import { getCar } from '../api/car-api';
+import { GetWinners } from '../api/winner-api';
+import { ParamCar, Winner, tableWinners } from '../interfaces/interfaces';
+import { LIMIT_WINNERS } from '../utils/utils';
 
-export const getAllWinners = async (
-  winnersPage: number,
-  sortBy: string,
-  order: string
-) => {
+export const getAllWinners = async (winnersPage: number, sortBy: string, order: string) => {
   let numberPage = winnersPage;
-  numberPage = Number(localStorage.getItem("winnersPage"));
+  numberPage = Number(localStorage.getItem('winnersPage'));
   let allWinnersIds: number[] = [];
-  let allWinners: IWinner[] = [];
-  let count = "";
+  let allWinners: Winner[] = [];
+  let count = '';
   await GetWinners(numberPage, LIMIT_WINNERS, sortBy, order).then((winners) => {
-    allWinnersIds = winners.winnersArray.map((x) => x.id);
-    allWinners = winners.winnersArray;
-    count = winners.countWinners as string;
+    const resArr = winners.resultArray as Winner[];
+    allWinnersIds = resArr.map((x) => x.id);
+    allWinners = winners.resultArray as Winner[];
+    count = winners.count as string;
   });
 
-  const promiseCars: Promise<ICar>[] = allWinnersIds.map((x) => getCar(x));
+  const promiseCars: Promise<ParamCar>[] = allWinnersIds.map((x) => getCar(x));
   const winnerCars = await Promise.all(promiseCars);
 
   return { winnerCars, allWinners, count };
 };
 
-export const createResultArr = async (
-  winnersPage: number,
-  sortBy: string,
-  order: string
-) => {
+export const createResultArr = async (winnersPage: number, sortBy: string, order: string) => {
   const resArr: tableWinners[] = [];
 
-  let count = "";
+  let count = '';
   await getAllWinners(winnersPage, sortBy, order).then((elem) => {
     count = elem.count;
     elem.allWinners.forEach((x, i) => {

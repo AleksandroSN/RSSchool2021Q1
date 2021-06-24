@@ -1,8 +1,8 @@
-import { CarTrack, carsOnPage } from "../components/car/carTrack";
-import { IRace } from "../interfaces/interfaces";
+import { CarTrack, carsOnPage } from '../components/car/carTrack';
+import { RaceResult } from '../interfaces/interfaces';
 
 export const driveAll = async (
-  promises: Promise<IRace>[],
+  promises: Promise<RaceResult>[],
   ids: number[]
 ): Promise<CarTrack> => {
   const { success, time, id } = await Promise.race(promises);
@@ -21,9 +21,7 @@ export const driveAll = async (
 };
 
 export const race = async () => {
-  const promises: Promise<IRace>[] = carsOnPage.map((x) =>
-    x.carInstance.startDriving(x.id)
-  );
+  const promises: Promise<RaceResult>[] = carsOnPage.map((x) => x.carInstance.startDriving(x.id));
 
   const arrIds: number[] = carsOnPage.map((x) => x.id);
 

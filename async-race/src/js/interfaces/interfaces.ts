@@ -1,17 +1,28 @@
-export interface ICar {
+export interface ParamCar {
   name: string;
   color: string;
   id: number;
 }
 
-export interface IBodyCar {
+export interface BodyCar {
   name: string;
   color: string;
 }
 
-export interface Result {
-  carArray: ICar[];
-  countCars: string | null;
+export interface Winner {
+  id: number;
+  wins: number;
+  time: number;
+}
+
+export interface BodyWinner {
+  wins: number;
+  time: number;
+}
+
+export interface baseFetchResult {
+  resultArray: ParamCar[] | Winner[];
+  count: string;
 }
 
 export interface Engine {
@@ -19,30 +30,14 @@ export interface Engine {
   distance: number;
 }
 
-export interface IDrive {
+export interface Drive {
   success: boolean;
 }
 
-export interface IRace {
+export interface RaceResult {
   success: boolean;
   time: number;
   id: number;
-}
-
-export interface IWinner {
-  id: number;
-  wins: number;
-  time: number;
-}
-
-export interface IBodyWinner {
-  wins: number;
-  time: number;
-}
-
-export interface ResultsWinners {
-  winnersArray: IWinner[];
-  countWinners: string | null;
 }
 
 export interface fullInfWinners {

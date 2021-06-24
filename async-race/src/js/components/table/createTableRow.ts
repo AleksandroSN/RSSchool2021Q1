@@ -1,6 +1,6 @@
 import { BaseComponent } from "../base-components";
 
-export class CreateTr extends BaseComponent {
+export class CreateTableRow extends BaseComponent {
   constructor() {
     super("tr");
   }

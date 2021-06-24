@@ -2,19 +2,16 @@ import { createCar, updateCar } from '../api/car-api';
 import { BaseComponent } from '../components/base-components';
 import { carsOnPage } from '../components/car/carTrack';
 import { GenerateCarForm } from '../sections/generateCar';
-import { paginationButtons } from '../sections/pagination';
 import { Race } from '../sections/raceSection';
 import { updateAndCreateWinner } from '../shared/updateAndCreateWinner';
 import { announcWinner } from '../templates/template';
 import { race } from '../utils/race';
-import { countAllCars, createRandomCars, handlerPaginationBtn } from '../utils/utils';
+import { countAllCars, createRandomCars } from '../utils/utils';
 
 export class Garage extends BaseComponent {
   private readonly generateSection: GenerateCarForm;
 
   private readonly raceSection: Race;
-
-  private garagePage = localStorage.getItem('garagePage');
 
   constructor() {
     super('main', ['main']);
@@ -35,15 +32,7 @@ export class Garage extends BaseComponent {
       this.generateSection.createCarForm.element.reset();
       await createCar(inputsValue);
       this.raceSection.removeCars();
-      const totalCars = await this.raceSection.addCars();
-
-      // handlerPaginationBtn(
-      //   Number(this.garagePage),
-      //   totalCars,
-      //   paginationButtons[1],
-      //   paginationButtons[0],
-      //   7
-      // );
+      await this.raceSection.addCars();
     });
   }
 
@@ -68,14 +57,7 @@ export class Garage extends BaseComponent {
         this.raceSection.countCars.textContent = response.count;
       });
       this.raceSection.removeCars();
-      const totalCars = await this.raceSection.addCars();
-      // handlerPaginationBtn(
-      //   Number(this.garagePage),
-      //   totalCars,
-      //   paginationButtons[1],
-      //   paginationButtons[0],
-      //   7
-      // );
+      await this.raceSection.addCars();
     });
   }
 
