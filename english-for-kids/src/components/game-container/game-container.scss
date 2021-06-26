@@ -1,0 +1,6 @@
+.game-container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  padding: 0 50px;
+}

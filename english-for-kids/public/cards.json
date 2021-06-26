@@ -1,0 +1,114 @@
+[
+  {
+    "category": {
+      "name": "Action (set A)",
+      "image": "img/cry.jpg"
+    },
+    "cards": [
+      {
+        "word": "cry",
+        "translation": "плакать",
+        "image": "img/cry.jpg",
+        "audioSrc": "audio/cry.mp3"
+      }
+    ]
+  },
+  {
+    "category": {
+      "name": "Action (set B)",
+      "image": "img/point.jpg"
+    },
+    "cards": [
+      {
+        "word": "dance",
+        "translation": "танцевать",
+        "image": "img/dance.jpg",
+        "audioSrc": "audio/dance.mp3"
+      }
+    ]
+  },
+  {
+    "category": {
+      "name": "Animal (set A)",
+      "image": "img/cat.jpg"
+    },
+    "cards": [
+      {
+        "word": "cry",
+        "translation": "плакать",
+        "image": "img/cry.jpg",
+        "audioSrc": "audio/cry.mp3"
+      }
+    ]
+  },
+  {
+    "category": {
+      "name": "Animal (set B)",
+      "image": "img/chicken.jpg"
+    },
+    "cards": [
+      {
+        "word": "cry",
+        "translation": "плакать",
+        "image": "img/cry.jpg",
+        "audioSrc": "audio/cry.mp3"
+      }
+    ]
+  },
+  {
+    "category": {
+      "name": "Clothes",
+      "image": "img/fish.jpg"
+    },
+    "cards": [
+      {
+        "word": "cry",
+        "translation": "плакать",
+        "image": "img/cry.jpg",
+        "audioSrc": "audio/cry.mp3"
+      }
+    ]
+  },
+  {
+    "category": {
+      "name": "Emotions",
+      "image": "img/fly.jpg"
+    },
+    "cards": [
+      {
+        "word": "cry",
+        "translation": "плакать",
+        "image": "img/cry.jpg",
+        "audioSrc": "audio/cry.mp3"
+      }
+    ]
+  },
+  {
+    "category": {
+      "name": "Berries",
+      "image": "img/hug.jpg"
+    },
+    "cards": [
+      {
+        "word": "cry",
+        "translation": "плакать",
+        "image": "img/cry.jpg",
+        "audioSrc": "audio/cry.mp3"
+      }
+    ]
+  },
+  {
+    "category": {
+      "name": "Dishes",
+      "image": "img/jump.jpg"
+    },
+    "cards": [
+      {
+        "word": "cry",
+        "translation": "плакать",
+        "image": "img/cry.jpg",
+        "audioSrc": "audio/cry.mp3"
+      }
+    ]
+  }
+]

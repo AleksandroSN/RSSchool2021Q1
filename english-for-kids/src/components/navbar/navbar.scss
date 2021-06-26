@@ -1,0 +1,34 @@
+.app-header__nav {
+  width: 30%;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100vh;
+  background-color: burlywood;
+  transition: left 0.5s cubic-bezier(0.72, 0.86, 1, 0.99);
+
+  &-list {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    left: calc(50% - 180px);
+    top: calc(50vh - 180px);
+
+    &__item {
+      list-style: none;
+      font-size: 2rem;
+      border-bottom: 1px dashed;
+    }
+
+    &__link {
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
+
+.open {
+  left: 0;
+}

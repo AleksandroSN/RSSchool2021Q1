@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.scss';
+import React from "react";
+import "./App.scss";
+import Burger from "./components/burger-menu/Burger-menu";
+import Switcher from "./components/switcher/Switcher";
+import GameContainer from "./components/game-container/game-container";
 
-function App() {
+function App(): JSX.Element {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="app-container">
+      <header className="app-header">
+        <Burger />
+        <Switcher />
       </header>
+      <main className="app-main">
+        <GameContainer />
+      </main>
+      <footer className="app-footer">
+        <a href="https://rs.school/js/">
+          <img
+            className="rsschool-logo"
+            src="./rs_school_js.svg"
+            alt="RSSCHOOL"
+          />
+        </a>
+        <p>2021 © English for Kids</p>
+      </footer>
     </div>
   );
 }

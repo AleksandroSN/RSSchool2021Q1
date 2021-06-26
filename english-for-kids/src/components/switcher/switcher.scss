@@ -1,0 +1,67 @@
+.toggle-switch {
+  &__checkbox {
+    opacity: 0;
+    visibility: hidden;
+
+    &:checked ~ .toggle-switch__train {
+      opacity: 1;
+    }
+    &:checked ~ .toggle-switch__play {
+      opacity: 0;
+    }
+
+    &:checked ~ .toggle-switch__tumbler {
+      transform: translate3d(70px, 0, 0);
+    }
+  }
+
+  &__label {
+    display: block;
+    cursor: pointer;
+    width: 120px;
+    height: 50px;
+    position: relative;
+    font-size: 1.5rem;
+  }
+
+  &__tumbler {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: lightBlue;
+    transition: transform 200ms, background-color 200ms;
+    box-shadow: -3px 3px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  &__train,
+  &__play {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+  }
+
+  &__play {
+    opacity: 1;
+    transition: opacity 0.2s;
+    background-color: grey;
+    justify-content: flex-end;
+    padding-right: 15px;
+  }
+
+  &__train {
+    opacity: 0;
+    transition: opacity 0.2s;
+    background-color: indianred;
+    justify-content: flex-start;
+    padding-left: 15px;
+  }
+}
