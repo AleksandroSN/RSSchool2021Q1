@@ -1,15 +1,17 @@
 import React from "react";
-import { Category } from "../cards/cards-props-interfaces";
+import { NavLink } from "react-router-dom";
+import { Category } from "../../api/interfaces";
+
 import "./categories.scss";
 
-const Categories = ({ img, name }: Category) => {
+const Categories = ({ image, name, id }: Category) => {
   return (
-    <div className="category-container">
+    <NavLink className="category-container" to={`/game/${id}`}>
       <div className="category-container__img">
-        <img src={img} alt={`Category ${name}`} />
+        <img src={image} alt={`Category ${name}`} />
       </div>
       <div className="category-container__text">{name}</div>
-    </div>
+    </NavLink>
   );
 };
 

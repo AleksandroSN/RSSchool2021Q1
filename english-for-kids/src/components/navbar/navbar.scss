@@ -6,29 +6,34 @@
   height: 100vh;
   background-color: burlywood;
   transition: left 0.5s cubic-bezier(0.72, 0.86, 1, 0.99);
+  z-index: 10;
 
   &-list {
-    width: 30%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     gap: 15px;
     position: absolute;
     left: calc(50% - 180px);
-    top: calc(50vh - 180px);
+    top: calc(50vh - 282px);
 
     &__item {
       list-style: none;
       font-size: 2rem;
-      border-bottom: 1px dashed;
     }
 
     &__link {
       text-decoration: none;
-      color: black;
+      color: grey;
+      border-bottom: 1px dashed;
+
+      &.active {
+        color: black;
+      }
     }
   }
-}
 
-.open {
-  left: 0;
+  &.open {
+    left: 0;
+  }
 }

@@ -62,7 +62,7 @@ $b-pad-top: (
   transition: $b-transition;
   user-select: none;
   width: $b-height;
-  z-index: 12;
+  z-index: 100;
 
   &:hover {
     border: color(complement) solid $b-border-width;
