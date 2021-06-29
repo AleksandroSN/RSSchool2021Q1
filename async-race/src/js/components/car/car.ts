@@ -2,7 +2,7 @@ import { BaseComponent } from "../base-components";
 import { Button } from "../buttons/buttons";
 import { carMarkup } from "../../templates/template";
 import { carRoute } from "../../utils/utils";
-import { animationState } from "../../interfaces/interfaces";
+import { animationState } from "../../interfaces-and-types/interfaces";
 import { drive, startEngine, stopEngine } from "../../api/car-api";
 
 export class Car extends BaseComponent {

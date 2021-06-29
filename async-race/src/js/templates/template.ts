@@ -49,5 +49,5 @@ export const carMarkup = (color: string): string => {
 };
 
 export const announcWinner = (carName: string, time: number): string => {
-  return `<p class="garage__winners">${carName} win in ${time}'s time</p>`;
+  return `<p class="garage__winners">${carName} win in ${time}"s time</p>`;
 };

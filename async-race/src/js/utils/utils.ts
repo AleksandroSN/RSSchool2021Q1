@@ -1,14 +1,14 @@
-import { createCar, GetCars } from '../api/car-api';
-import { Button } from '../components/buttons/buttons';
-import { ParamCar } from '../interfaces/interfaces';
-import { carBrands } from './carBrands';
-import { carModels } from './carModels';
+import { createCar, GetCars } from "../api/car-api";
+import { Button } from "../components/buttons/buttons";
+import { ParamCar } from "../interfaces-and-types/interfaces";
+import { carBrands } from "./carBrands";
+import { carModels } from "./carModels";
 
 const TO_16_BIT = 16;
 
 export const generateRandomColor = (): string => {
-  const letters = '0123456789ABCDEF';
-  let color = '#';
+  const letters = "0123456789ABCDEF";
+  let color = "#";
   for (let i = 0; i < 6; i++) {
     color += letters[Math.floor(Math.random() * TO_16_BIT)];
   }

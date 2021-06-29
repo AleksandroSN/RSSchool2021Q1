@@ -1,5 +1,5 @@
-import { CarTrack, carsOnPage } from '../components/car/carTrack';
-import { RaceResult } from '../interfaces/interfaces';
+import { CarTrack, carsOnPage } from "../components/car/carTrack";
+import { RaceResult } from "../interfaces-and-types/interfaces";
 
 export const driveAll = async (
   promises: Promise<RaceResult>[],

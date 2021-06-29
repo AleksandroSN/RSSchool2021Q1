@@ -1,5 +1,5 @@
-import { Winner, BodyWinner } from '../interfaces/interfaces';
-import { BASE, createData, deleteData, GetAllData, GetData, updateData } from './base-api';
+import { Winner, BodyWinner } from "../interfaces-and-types/interfaces";
+import { BASE, createData, deleteData, GetAllData, GetData, updateData } from "./base-api";
 
 const urlWinners = `${BASE}/winners`;
 

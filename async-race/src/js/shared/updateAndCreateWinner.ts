@@ -1,6 +1,7 @@
-import { createWinner, GetWinners, updateWinner } from '../api/winner-api';
-import { CarTrack } from '../components/car/carTrack';
-import { fullInfWinners, Winner } from '../interfaces/interfaces';
+import { createWinner, GetWinners, updateWinner } from "../api/winner-api";
+import { CarTrack } from "../components/car/carTrack";
+import { fullInfWinners, Winner } from "../interfaces-and-types/interfaces";
+import { ASC, Order } from "../interfaces-and-types/types";
 
 export const updateAndCreateWinner = async (
   id: number,
@@ -8,7 +9,7 @@ export const updateAndCreateWinner = async (
 ): Promise<fullInfWinners> => {
   let allWinnersIds: number[] = [];
   let allWinners: Winner[] = [];
-  await GetWinners(1, 10, 'wins', 'ASC').then((winners) => {
+  await GetWinners(1, 10, "wins", ASC as Order).then((winners) => {
     const resArr = winners.resultArray as Winner[];
     allWinnersIds = resArr.map((x) => x.id);
     allWinners = winners.resultArray as Winner[];

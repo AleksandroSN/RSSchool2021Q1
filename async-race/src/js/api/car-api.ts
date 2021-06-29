@@ -1,5 +1,5 @@
-import { Engine, BodyCar, ParamCar, Drive } from '../interfaces/interfaces';
-import { BASE, createData, deleteData, GetAllData, GetData, updateData } from './base-api';
+import { Engine, BodyCar, ParamCar, Drive } from "../interfaces-and-types/interfaces";
+import { BASE, createData, deleteData, GetAllData, GetData, updateData } from "./base-api";
 
 const urlGarage = `${BASE}/garage`;
 

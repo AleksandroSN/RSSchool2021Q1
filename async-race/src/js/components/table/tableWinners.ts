@@ -1,6 +1,6 @@
-import { BaseComponent } from '../base-components';
-import { TableHeaderItem } from './createTableHeaderItem';
-import { CreateTableRow } from './createTableRow';
+import { BaseComponent } from "../base-components";
+import { TableHeaderItem } from "./createTableHeaderItem";
+import { CreateTableRow } from "./createTableRow";
 
 export class TableWinners extends BaseComponent {
   private tHead!: HTMLTableSectionElement;
@@ -20,14 +20,14 @@ export class TableWinners extends BaseComponent {
   readonly thTime: TableHeaderItem;
 
   constructor() {
-    super('table', ['table']);
+    super("table", ["table"]);
     this.createThead();
     this.createTbody();
-    this.thId = new TableHeaderItem(['order-by-id'], 'Number');
-    this.thCar = new TableHeaderItem(['order-by-car'], 'Car');
-    this.thName = new TableHeaderItem(['order-by-carname'], 'Name');
-    this.thWins = new TableHeaderItem(['order-by-wins'], 'Wins');
-    this.thTime = new TableHeaderItem(['order-by-time'], 'Best time (seconds)');
+    this.thId = new TableHeaderItem(["order-by-id"], "Number");
+    this.thCar = new TableHeaderItem(["order-by-car"], "Car");
+    this.thName = new TableHeaderItem(["order-by-carname"], "Name");
+    this.thWins = new TableHeaderItem(["order-by-wins"], "Wins");
+    this.thTime = new TableHeaderItem(["order-by-time"], "Best time (seconds)");
     this.tr = new CreateTableRow();
     this.tr.element.append(
       this.thId.element,
@@ -40,13 +40,13 @@ export class TableWinners extends BaseComponent {
   }
 
   createThead() {
-    this.tHead = document.createElement('thead');
+    this.tHead = document.createElement("thead");
     this.element.append(this.tHead);
     return this.tHead;
   }
 
   createTbody() {
-    this.tBody = document.createElement('tbody');
+    this.tBody = document.createElement("tbody");
     this.element.append(this.tBody);
     return this.tBody;
   }
