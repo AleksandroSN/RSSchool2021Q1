@@ -6,9 +6,19 @@ import Cards from "../cards/cards";
 import "./game-container.scss";
 
 const GameContainer = ({ id }: PropsGamePage): JSX.Element => {
-  const [result, loading] = DummyServer();
-  console.log(result);
+  const [gamesMode, setGamesMode] = useState("TRAIN");
+  // setGameMode(sessionStorage.getItem("gameMode") as string)
+  // console.log(gameMode);
 
+  // useEffect(() => {
+  //   setGamesMode(sessionStorage.getItem("gameMode") as string)
+  // },[])
+
+  // console.log(gamesMode);
+  
+  
+
+  const [result, loading] = DummyServer();
   const index = Number(id) - 1;
   const curArrCards: Data = result[index] as Data;
   return (
@@ -23,6 +33,7 @@ const GameContainer = ({ id }: PropsGamePage): JSX.Element => {
               translation={card.translation}
               image={card.image}
               audioSrc={card.audioSrc}
+              // gameMode = {gameMode}
             />
           );
         })

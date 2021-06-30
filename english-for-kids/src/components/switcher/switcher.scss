@@ -3,10 +3,10 @@
     opacity: 0;
     visibility: hidden;
 
-    &:checked ~ .toggle-switch__train {
+    &:checked ~ .toggle-switch__play {
       opacity: 1;
     }
-    &:checked ~ .toggle-switch__play {
+    &:checked ~ .toggle-switch__train {
       opacity: 0;
     }
 
@@ -50,18 +50,18 @@
   }
 
   &__play {
-    opacity: 1;
-    transition: opacity 0.2s;
-    background-color: grey;
-    justify-content: flex-end;
-    padding-right: 15px;
-  }
-
-  &__train {
     opacity: 0;
     transition: opacity 0.2s;
     background-color: indianred;
     justify-content: flex-start;
     padding-left: 15px;
+  }
+
+  &__train {
+    opacity: 1;
+    transition: opacity 0.2s;
+    background-color: grey;
+    justify-content: flex-end;
+    padding-right: 15px;
   }
 }

@@ -3,6 +3,7 @@ export interface Card {
   translation: string;
   image: string;
   audioSrc: string;
+  // gameMode: string;
 }
 
 export interface Category {
