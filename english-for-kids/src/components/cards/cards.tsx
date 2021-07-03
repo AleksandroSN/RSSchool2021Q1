@@ -1,26 +1,31 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Card } from "../../api/interfaces";
 import { gameModeContext } from "../game-mode/game-mode-context";
 import "./cards.scss";
 
-const Cards = ({ word, translation, image, audioSrc }: Card) => {
-  const [isClick, setIsClick] = useState(false);
-  
+const Cards = ({
+  word,
+  translation,
+  image,
+  audioSrc,
+  activeSound,
+  NextAudio,
+  gameArrIndex,
+}: Card) => {
+  const [isClick, setIsClick] = useState<boolean>(false);
+  const [isCorrect, setIsCorrect] = useState<boolean>(false);
+
   const context = useContext(gameModeContext);
-  
-  // setGamesMode((x) => {
-  //   let y = x;
-  //   y = sessionStorage.getItem("gameMode") as string;
-  //   return y;
-  // })
-  console.log(context);
-  
+
   let cardClasses = "card";
   let cardContainerClasses = "card-container";
-  // const gameMode = "PLAY";
 
   if (context.gameMode === "PLAY") {
-    cardContainerClasses += " collapse"
+    cardContainerClasses += " collapse";
+  }
+
+  if (isCorrect) {
+    cardContainerClasses += " disable";
   }
 
   if (isClick) {
@@ -41,10 +46,28 @@ const Cards = ({ word, translation, image, audioSrc }: Card) => {
     audio.play();
   };
 
+  const onCardClick = (elem: string) => {
+    if (activeSound?.word === elem) {
+      setIsCorrect(true);
+      const audio = new Audio("../audio/correct.mp3");
+      audio.play();
+      audio.addEventListener("ended", () => {
+        NextAudio(gameArrIndex);
+      });
+    } else {
+      const audio = new Audio("../audio/error.mp3");
+      audio.play();
+    }
+  };
+
+  const onClickHandler = context.gameMode === "PLAY" ? onCardClick : playAudio;
+  const paramOnClickHandler = context.gameMode === "PLAY" ? word : audioSrc;
   return (
     <div
       className={cardContainerClasses}
-      onClick={() => playAudio(audioSrc)}
+      onClick={() => {
+        onClickHandler(paramOnClickHandler);
+      }}
       onMouseLeave={() => removeClass()}
       role="none"
     >

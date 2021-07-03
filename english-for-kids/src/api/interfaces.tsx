@@ -3,7 +3,9 @@ export interface Card {
   translation: string;
   image: string;
   audioSrc: string;
-  // gameMode: string;
+  activeSound: gameSound;
+  NextAudio: (idx: number) => void;
+  gameArrIndex: number;
 }
 
 export interface Category {
@@ -15,4 +17,9 @@ export interface Category {
 export interface Data {
   category: Category;
   cards: Card[];
+}
+
+export interface gameSound {
+  audio: HTMLAudioElement;
+  word: string;
 }

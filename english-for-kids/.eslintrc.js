@@ -21,6 +21,8 @@ module.exports = {
     'prettier/prettier': 'warn',
     'no-console': 'warn',
     'jsx-quotes': [1, 'prefer-double'],
-    "react/self-closing-comp": "off"
+    "react/self-closing-comp": "off",
+    "react/react-in-jsx-scope": "off",
+    "import/prefer-default-export": "off"
   },
 };
