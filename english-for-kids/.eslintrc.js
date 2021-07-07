@@ -23,6 +23,7 @@ module.exports = {
     'jsx-quotes': [1, 'prefer-double'],
     "react/self-closing-comp": "off",
     "react/react-in-jsx-scope": "off",
+    "react/no-array-index-key": "off",
     "import/prefer-default-export": "off"
   },
 };

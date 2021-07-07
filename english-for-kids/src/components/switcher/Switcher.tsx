@@ -1,11 +1,12 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { GameMode, PLAY, TRAIN } from "../../api/types";
 import { gameModeContext } from "../game-mode/game-mode-context";
 import "./switcher.scss";
 
-const Switcher = () => {
+const Switcher = (): JSX.Element => {
   const [gameMode, setGameMode] = useState(TRAIN as GameMode);
   const { setMode } = useContext(gameModeContext);
+
   let checked = false;
 
   if (gameMode === (PLAY as GameMode)) {
@@ -13,20 +14,12 @@ const Switcher = () => {
   }
 
   const changeGameMode = (): void => {
-    setGameMode((mode) => {
-      let game = mode;
-      if (game === (PLAY as GameMode)) {
-        game = TRAIN as GameMode;
-        // sessionStorage.setItem("gameMode", game);
-        setMode(game);
-        return game;
-      }
-      game = PLAY as GameMode;
-      // sessionStorage.setItem("gameMode", game);
-      setMode(game);
-      return game;
-    });
+    setGameMode(gameMode === TRAIN ? PLAY : TRAIN);
   };
+
+  useEffect(() => {
+    setMode(gameMode);
+  }, [setMode, gameMode]);
 
   return (
     <div className="toggle-switch">
@@ -36,13 +29,15 @@ const Switcher = () => {
           className="toggle-switch__checkbox"
           name="toggleSwitch"
           id="toggleSwitch"
-          checked={checked}
+          defaultChecked={checked}
         />
 
         <span className="toggle-switch__train">Train</span>
         <span
           className="toggle-switch__play"
-          onClick={() => changeGameMode()}
+          onClick={() => {
+            changeGameMode();
+          }}
           role="none"
         >
           Play

@@ -41,7 +41,7 @@ export const ArrLinks: LinkData[] = [
     linkName: "Furniture",
   },
   {
-    link: "statistics",
+    link: "/statistics",
     linkName: "Statistics",
   },
 ];

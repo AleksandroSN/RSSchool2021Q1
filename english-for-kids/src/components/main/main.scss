@@ -1,0 +1,11 @@
+$height-footer: 60px;
+
+.app-main {
+  padding-bottom: $height-footer;
+  text-align: center;
+
+  &__text {
+    padding: 5px 0;
+    font-size: 3rem;
+  }
+}

@@ -1,0 +1,23 @@
+.app-main__table {
+  border-collapse: collapse;
+}
+
+.app-main__button {
+  background-color: transparent;
+  border-width: 0;
+  font-family: Simpsonfont, sans-serif;
+  cursor: pointer;
+}
+
+td,
+th {
+  border-style: solid;
+  border-width: 1px;
+}
+
+th {
+  padding-left: 2em;
+  padding-right: 2em;
+  cursor: pointer;
+  background-color: #0d7cc1;
+}

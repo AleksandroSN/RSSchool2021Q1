@@ -9,12 +9,13 @@ const MainPageContainer = (): JSX.Element => {
   const [result] = DummyServer();
 
   const arrData: Data[] = result as Data[];
-  const cards = arrData.map((elem) => {
+  const cards = arrData.map(({ category }, i) => {
     return (
       <Categories
-        image={elem.category.image}
-        name={elem.category.name}
-        id={elem.category.id}
+        key={i}
+        image={category.image}
+        name={category.name}
+        id={category.id}
       />
     );
   });

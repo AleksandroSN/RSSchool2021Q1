@@ -6,12 +6,17 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Simpsonfont";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("./assets/fonts/Simpsonfont2.woff2") format("woff2");
+}
+
 body {
   margin: 0;
   color: black;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: Simpsonfont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -30,6 +35,10 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
 .app-footer {
   position: fixed;
   bottom: 0;
@@ -41,6 +50,8 @@ a {
   gap: 30px;
   border-top: 2px solid grey;
   padding: 10px;
+  z-index: 10;
+  background-color: #ffffff;
 }
 
 .rsschool-logo {

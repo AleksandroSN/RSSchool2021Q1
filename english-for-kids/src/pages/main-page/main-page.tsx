@@ -1,7 +1,6 @@
-import React from "react";
 import MainPageContainer from "../../components/main-page-container/main-page-container";
 
-const MainPage = () => {
+const MainPage = (): JSX.Element => {
   return (
     <div className="app-main-page">
       <MainPageContainer />

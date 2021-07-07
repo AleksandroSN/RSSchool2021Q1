@@ -1,4 +1,4 @@
-export const Footer = () => {
+export const Footer = (): JSX.Element => {
   return (
     <footer className="app-footer">
       <a href="https://rs.school/js/">

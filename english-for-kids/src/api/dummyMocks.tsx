@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Data } from "./interfaces";
 
-const DummyServer = () => {
+const DummyServer = (): (string | Data[])[] => {
   const [result, setResult] = useState<Data[]>([]);
   const [loading, setLoading] = useState("true");
 

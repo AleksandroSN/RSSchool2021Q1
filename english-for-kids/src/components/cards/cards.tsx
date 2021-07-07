@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
-import { Card } from "../../api/interfaces";
+import { Card, WordsStatistics } from "../../api/interfaces";
+import { updateWordStats } from "../../utils/updateWordStats";
 import { gameModeContext } from "../game-mode/game-mode-context";
 import "./cards.scss";
 
@@ -11,9 +12,34 @@ const Cards = ({
   activeSound,
   NextAudio,
   gameArrIndex,
-}: Card) => {
+  Progress,
+  category,
+  isGame,
+}: Card): JSX.Element => {
+  const currentState: WordsStatistics = JSON.parse(
+    localStorage.getItem(`${word}`) as string
+  );
+
   const [isClick, setIsClick] = useState<boolean>(false);
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
+  const [clicksTrainMode, setClicksTrainMode] = useState<number>(() => {
+    if (currentState) {
+      return Number(currentState.clicksTrainMode);
+    }
+    return 0;
+  });
+  const [succesGameMode, setSuccesGameMode] = useState<number>(() => {
+    if (currentState) {
+      return Number(currentState.succesGameMode);
+    }
+    return 0;
+  });
+  const [wrongGameMode, setWrongGameMode] = useState<number>(() => {
+    if (currentState) {
+      return Number(currentState.wrongGameMode);
+    }
+    return 0;
+  });
 
   const context = useContext(gameModeContext);
 
@@ -44,21 +70,39 @@ const Cards = ({
     const audio = new Audio(url);
     audio.currentTime = 0;
     audio.play();
+    setClicksTrainMode((x) => x + 1);
   };
 
   const onCardClick = (elem: string) => {
+    if (!isGame) {
+      return;
+    }
     if (activeSound?.word === elem) {
+      setSuccesGameMode((x) => x + 1);
       setIsCorrect(true);
-      const audio = new Audio("../audio/correct.mp3");
+      Progress(true);
+      const audio = new Audio("../audio/correct.wav");
+      audio.volume = 0.3;
       audio.play();
       audio.addEventListener("ended", () => {
         NextAudio(gameArrIndex);
       });
     } else {
+      Progress(false);
+      setWrongGameMode((x) => x + 1);
       const audio = new Audio("../audio/error.mp3");
       audio.play();
     }
   };
+
+  updateWordStats({
+    category,
+    word,
+    translation,
+    clicksTrainMode,
+    succesGameMode,
+    wrongGameMode,
+  });
 
   const onClickHandler = context.gameMode === "PLAY" ? onCardClick : playAudio;
   const paramOnClickHandler = context.gameMode === "PLAY" ? word : audioSrc;
