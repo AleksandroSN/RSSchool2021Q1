@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/aleksandrosn-JSFE2021Q1/english-for-kids/static/css/main.a50ecbec.chunk.css",
+    "main.js": "/aleksandrosn-JSFE2021Q1/english-for-kids/static/js/main.663428fb.chunk.js",
+    "main.js.map": "/aleksandrosn-JSFE2021Q1/english-for-kids/static/js/main.663428fb.chunk.js.map",
+    "runtime-main.js": "/aleksandrosn-JSFE2021Q1/english-for-kids/static/js/runtime-main.eb9b4dac.js",
+    "runtime-main.js.map": "/aleksandrosn-JSFE2021Q1/english-for-kids/static/js/runtime-main.eb9b4dac.js.map",
+    "static/js/2.f6655fd9.chunk.js": "/aleksandrosn-JSFE2021Q1/english-for-kids/static/js/2.f6655fd9.chunk.js",
+    "static/js/2.f6655fd9.chunk.js.map": "/aleksandrosn-JSFE2021Q1/english-for-kids/static/js/2.f6655fd9.chunk.js.map",
+    "index.html": "/aleksandrosn-JSFE2021Q1/english-for-kids/index.html",
+    "static/css/main.a50ecbec.chunk.css.map": "/aleksandrosn-JSFE2021Q1/english-for-kids/static/css/main.a50ecbec.chunk.css.map",
+    "static/js/2.f6655fd9.chunk.js.LICENSE.txt": "/aleksandrosn-JSFE2021Q1/english-for-kids/static/js/2.f6655fd9.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/aleksandrosn-JSFE2021Q1/english-for-kids/static/media/Simpsonfont2.e223bece.woff2",
+    "static/media/App.scss": "/aleksandrosn-JSFE2021Q1/english-for-kids/static/media/mainWallp.254baa6c.jpg",
+    "static/media/game-container.scss": "/aleksandrosn-JSFE2021Q1/english-for-kids/static/media/repeat.8748a985.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.eb9b4dac.js",
+    "static/js/2.f6655fd9.chunk.js",
+    "static/css/main.a50ecbec.chunk.css",
+    "static/js/main.663428fb.chunk.js"
+  ]
+}
