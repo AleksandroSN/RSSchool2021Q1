@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/aleksandrosn-JSFE2021Q1/english-for-kids/static/css/main.a50ecbec.chunk.css",
-    "main.js": "/aleksandrosn-JSFE2021Q1/english-for-kids/static/js/main.060ad8e3.chunk.js",
-    "main.js.map": "/aleksandrosn-JSFE2021Q1/english-for-kids/static/js/main.060ad8e3.chunk.js.map",
+    "main.js": "/aleksandrosn-JSFE2021Q1/english-for-kids/static/js/main.7038ae57.chunk.js",
+    "main.js.map": "/aleksandrosn-JSFE2021Q1/english-for-kids/static/js/main.7038ae57.chunk.js.map",
     "runtime-main.js": "/aleksandrosn-JSFE2021Q1/english-for-kids/static/js/runtime-main.eb9b4dac.js",
     "runtime-main.js.map": "/aleksandrosn-JSFE2021Q1/english-for-kids/static/js/runtime-main.eb9b4dac.js.map",
     "static/js/2.f6655fd9.chunk.js": "/aleksandrosn-JSFE2021Q1/english-for-kids/static/js/2.f6655fd9.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.eb9b4dac.js",
     "static/js/2.f6655fd9.chunk.js",
     "static/css/main.a50ecbec.chunk.css",
-    "static/js/main.060ad8e3.chunk.js"
+    "static/js/main.7038ae57.chunk.js"
   ]
 }
