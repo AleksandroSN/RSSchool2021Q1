@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { Card, WordsStatistics } from "../../api/interfaces";
 import { updateWordStats } from "../../utils/updateWordStats";
-import { gameModeContext } from "../game-mode/game-mode-context";
+import { gameModeContext } from "../game-mode-ctx/game-mode-context";
 import "./cards.scss";
 
 const Cards = ({
@@ -10,11 +10,11 @@ const Cards = ({
   image,
   audioSrc,
   activeSound,
-  NextAudio,
   gameArrIndex,
-  Progress,
   category,
   isGame,
+  Progress,
+  NextAudio,
 }: Card): JSX.Element => {
   const currentState: WordsStatistics = JSON.parse(
     localStorage.getItem(`${word}`) as string
@@ -41,12 +41,12 @@ const Cards = ({
     return 0;
   });
 
-  const context = useContext(gameModeContext);
+  const { gameMode } = useContext(gameModeContext);
 
   let cardClasses = "card";
   let cardContainerClasses = "card-container";
 
-  if (context.gameMode === "PLAY") {
+  if (gameMode === "PLAY") {
     cardContainerClasses += " collapse";
   }
 
@@ -104,8 +104,8 @@ const Cards = ({
     wrongGameMode,
   });
 
-  const onClickHandler = context.gameMode === "PLAY" ? onCardClick : playAudio;
-  const paramOnClickHandler = context.gameMode === "PLAY" ? word : audioSrc;
+  const onClickHandler = gameMode === "PLAY" ? onCardClick : playAudio;
+  const paramOnClickHandler = gameMode === "PLAY" ? word : audioSrc;
   return (
     <div
       className={cardContainerClasses}

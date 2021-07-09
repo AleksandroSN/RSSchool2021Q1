@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import DummyServer from "../../api/dummyMocks";
 import { Card, Data, gameSound } from "../../api/interfaces";
 import { PropsGamePage } from "../../pages/game-page/game-page-props";
@@ -6,7 +6,7 @@ import { GameOverAudio } from "../../utils/game-over-audio";
 import { winStar, loseStar } from "../../utils/progressStars";
 import { shuffleArray } from "../../utils/shuffleArray";
 import Cards from "../cards/cards";
-import { gameModeContext } from "../game-mode/game-mode-context";
+import { gameModeContext } from "../game-mode-ctx/game-mode-context";
 import { GameOver } from "../game-over/game-over";
 import "./game-container.scss";
 

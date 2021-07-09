@@ -3,11 +3,11 @@ import "./App.scss";
 import {
   gameModeContext,
   UpdateGameModeCTX,
-} from "./components/game-mode/game-mode-context";
+} from "./components/game-mode-ctx/game-mode-context";
 import {
   OpenNavContext,
   UpdateOpenNavCTX,
-} from "./components/open-nav/open-nav";
+} from "./components/open-nav-ctx/open-nav";
 import { Header } from "./components/header/header";
 import { Main } from "./components/main/main";
 import { Footer } from "./components/footer/footer";

@@ -1,7 +1,7 @@
 import { Route, Switch } from "react-router-dom";
 import GamePage from "../../pages/game-page/game-page";
 import MainPage from "../../pages/main-page/main-page";
-import StatisticsPage from "../../pages/statistics-page/statistics-page";
+import { StatisticsPage } from "../../pages/statistics-page/statistics-page";
 import "./main.scss";
 
 export const Main = (): JSX.Element => {

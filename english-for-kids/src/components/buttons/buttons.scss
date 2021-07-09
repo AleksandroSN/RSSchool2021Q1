@@ -1,0 +1,23 @@
+.btn {
+  background-color: #7ec270;
+  border-width: 0;
+  border-radius: 10px;
+  text-transform: uppercase;
+  padding: 0;
+  outline-offset: 4px;
+  cursor: pointer;
+  font-family: Simpsonfont, sans-serif;
+
+  &__inner {
+    background-color: #c8ffbd;
+    display: block;
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 1rem;
+    transform: translateY(-6px);
+  }
+
+  &:active .btn__inner {
+    transform: translateY(-2px);
+  }
+}

@@ -1,6 +1,6 @@
-import React, { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import { GameMode, PLAY, TRAIN } from "../../api/types";
-import { gameModeContext } from "../game-mode/game-mode-context";
+import { gameModeContext } from "../game-mode-ctx/game-mode-context";
 import "./switcher.scss";
 
 const Switcher = (): JSX.Element => {

@@ -1,6 +1,6 @@
 import { useEffect, useContext, useState } from "react";
 import Navbar from "../navbar/Navbar";
-import { OpenNavContext } from "../open-nav/open-nav";
+import { OpenNavContext } from "../open-nav-ctx/open-nav";
 import "./burger-menu.scss";
 
 const Burger = (): JSX.Element => {

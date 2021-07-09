@@ -8,11 +8,11 @@ export interface Card extends BaseInterface {
   image: string;
   audioSrc: string;
   activeSound: gameSound;
-  NextAudio: (idx: number) => void;
   gameArrIndex: number;
-  Progress: (status: boolean) => void;
   category: string;
   isGame: boolean;
+  Progress: (status: boolean) => void;
+  NextAudio: (idx: number) => void;
 }
 
 export interface Category {
@@ -51,4 +51,8 @@ export interface WordsWithStatistics {
 
 export interface GameOverState {
   endGame: boolean;
+}
+
+export interface ButtonsFunc {
+  clearStorage: () => void;
 }
