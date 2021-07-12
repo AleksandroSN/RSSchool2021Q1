@@ -1,8 +1,35 @@
+$heightHeader: 70px;
+$heightFooter: 55px;
+
 .app-main {
   text-align: center;
 
   &__text {
     padding: 5px 0;
     font-size: 3rem;
+  }
+
+  &--flex {
+    // height: calc(100vh - 70px - 55px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__words-page {
+    align-self: flex-start;
+    flex: 1 1 100%;
+    padding: 0 10px;
+    margin-top: 30px;
+
+    &__title {
+      text-align: left;
+      font-size: 1.2rem;
+      line-height: 150%;
+    }
+
+    &__subtitle {
+      font-size: 2rem;
+    }
   }
 }

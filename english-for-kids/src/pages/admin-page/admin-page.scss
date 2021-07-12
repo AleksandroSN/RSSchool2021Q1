@@ -1,0 +1,7 @@
+.app-main__cabinet {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 400px));
+  padding: 0 50px;
+  flex: 1 0 100%;
+}

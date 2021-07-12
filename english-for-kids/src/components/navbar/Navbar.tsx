@@ -1,10 +1,22 @@
-import { MouseEvent } from "react";
+import { useContext, useState, MouseEvent, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { ArrLinks } from "../../utils/arrLinks";
+import { OpenModalContext } from "../context/modal-window-ctx/modal-window";
 import { PropsNavbar } from "./navbar-props-interfaces";
 import "./navbar.scss";
 
 const Navbar = ({ open, openNav }: PropsNavbar): JSX.Element => {
+  const { isOpen, setMode } = useContext(OpenModalContext);
+  // const [toggleIsOpen, setToggleIsOpen] = useState(isOpen);
+
+  // const openModal = (): void => {
+  //   setToggleIsOpen((toggle) => !toggle);
+  // };
+
+  // useEffect(() => {
+  //   setMode(toggleIsOpen);
+  // }, [setMode, toggleIsOpen]);
+
   let classNames = "app-header__nav";
 
   if (open) {
@@ -37,6 +49,15 @@ const Navbar = ({ open, openNav }: PropsNavbar): JSX.Element => {
       role="none"
     >
       <ul className="app-header__nav-list">{links}</ul>
+      <div className="app-header__nav-btn__wrapper">
+        <button
+          className="app-header__nav-btn"
+          type="button"
+          onClick={() => setMode(true)}
+        >
+          LOGIN
+        </button>
+      </div>
     </nav>
   );
 };

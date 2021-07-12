@@ -6,7 +6,7 @@ import { GameOverAudio } from "../../utils/game-over-audio";
 import { winStar, loseStar } from "../../utils/progressStars";
 import { shuffleArray } from "../../utils/shuffleArray";
 import Cards from "../cards/cards";
-import { gameModeContext } from "../game-mode-ctx/game-mode-context";
+import { gameModeContext } from "../context/game-mode-ctx/game-mode-context";
 import { GameOver } from "../game-over/game-over";
 import "./game-container.scss";
 

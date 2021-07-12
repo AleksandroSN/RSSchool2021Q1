@@ -4,8 +4,10 @@ import Switcher from "../switcher/Switcher";
 export const Header = (): JSX.Element => {
   return (
     <header className="app-header">
-      <Burger />
-      <Switcher />
+      <div className="app-header__container">
+        <Burger />
+        <Switcher />
+      </div>
     </header>
   );
 };

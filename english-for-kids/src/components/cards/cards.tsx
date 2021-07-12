@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { Card, WordsStatistics } from "../../api/interfaces";
 import { updateWordStats } from "../../utils/updateWordStats";
-import { gameModeContext } from "../game-mode-ctx/game-mode-context";
+import { gameModeContext } from "../context/game-mode-ctx/game-mode-context";
 import "./cards.scss";
 
 const Cards = ({

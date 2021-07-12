@@ -3,45 +3,47 @@ interface LinkData {
   linkName: string;
 }
 
+const basePath = "/game";
+
 export const ArrLinks: LinkData[] = [
   {
-    link: "/",
+    link: basePath,
     linkName: "Main Page",
   },
   {
-    link: "/game/1",
+    link: `${basePath}/1`,
     linkName: "Action (set A)",
   },
   {
-    link: "/game/2",
+    link: `${basePath}/2`,
     linkName: "Action (set B)",
   },
   {
-    link: "/game/3",
+    link: `${basePath}/3`,
     linkName: "Animal (set A)",
   },
   {
-    link: "/game/4",
+    link: `${basePath}/4`,
     linkName: "Animal (set B)",
   },
   {
-    link: "/game/5",
+    link: `${basePath}/5`,
     linkName: "Clothes",
   },
   {
-    link: "/game/6",
+    link: `${basePath}/6`,
     linkName: "Emotions",
   },
   {
-    link: "/game/7",
+    link: `${basePath}/7`,
     linkName: "Berries",
   },
   {
-    link: "/game/8",
+    link: `${basePath}/8`,
     linkName: "Furniture",
   },
   {
-    link: "/statistics",
+    link: `${basePath}/statistics`,
     linkName: "Statistics",
   },
 ];

@@ -1,20 +1,48 @@
 .app-container {
   min-height: 100vh;
-  padding: 0 10px;
+
   background-image: url(./assets/img/mainWallp.jpg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+
+  @media screen and (max-width: 992px) {
+    padding: 0 10px;
+  }
 }
 
 .app-header {
-  max-width: 1400px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 30px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 30px 10px;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &--cabinet {
+    background-color: green;
+    padding: 15px 10px;
+  }
+
+  &__breadcrumbs {
+    display: flex;
+    gap: 50px;
+
+    &--active {
+      border-bottom: 1px solid;
+    }
+  }
+
+  &__logout button {
+    border-width: 0;
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 10px;
+  }
 }
 
 .app-main {

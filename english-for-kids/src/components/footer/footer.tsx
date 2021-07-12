@@ -4,7 +4,7 @@ export const Footer = (): JSX.Element => {
       <a href="https://rs.school/js/">
         <img
           className="rsschool-logo"
-          src="../rs_school_js.svg"
+          src="../../rs_school_js.svg"
           alt="RSSCHOOL"
         />
       </a>

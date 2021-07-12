@@ -8,7 +8,9 @@ const DummyServer = (): (string | Data[])[] => {
   useEffect(() => {
     async function GetData() {
       try {
-        const response = await fetch("../cards.json");
+        const response = await fetch("../../cards.json");
+        console.log(response);
+
         const res: Data[] = await response.json();
         await setResult(res);
         setLoading("false");

@@ -8,6 +8,8 @@
   transition: left 0.5s cubic-bezier(0.72, 0.86, 1, 0.99);
   z-index: 100;
   display: flex;
+  flex-direction: column;
+  gap: 50px;
   justify-content: center;
   align-items: center;
 
@@ -59,5 +61,19 @@
 
   &.open {
     left: 0;
+  }
+
+  &-btn__wrapper {
+    border: 1px dashed;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+
+  &-btn {
+    border-width: 0;
+    background-color: transparent;
+    font-size: 1.5rem;
+    padding: 13px 110px;
+    cursor: pointer;
   }
 }

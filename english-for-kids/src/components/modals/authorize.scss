@@ -1,0 +1,59 @@
+$heightModal: 300px;
+$maxWidthModal: 500px;
+
+// TO-DO change color for modal and inputs
+.app-main__modal {
+  &-container {
+    height: $heightModal;
+    max-width: $maxWidthModal;
+    width: 100%;
+    position: fixed;
+    top: calc(50vh - 300px / 2);
+    left: calc(50vw - 250px / 2);
+    background-color: wheat;
+    z-index: 400;
+  }
+
+  &-form {
+    height: 100%;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &-input {
+    height: 30px;
+    background-color: transparent;
+    border-width: 0;
+    border-bottom: 1px solid;
+    outline: none;
+    font-family: Simpsonfont, sans-serif;
+    font-size: 1.2rem;
+
+    &::placeholder {
+      font-size: 1.2rem;
+      font-family: Simpsonfont, sans-serif;
+    }
+  }
+
+  &__btn-container {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  &__btn {
+    padding: 10px;
+    border-width: 0;
+    border-radius: 5px;
+  }
+}
+
+.btn-abort {
+  background-color: red;
+}
+
+.btn-success {
+  background-color: green;
+}
