@@ -1,21 +1,17 @@
-import React from "react";
-import DummyServer from "../../api/dummyMocks";
-import { Data } from "../../api/interfaces";
-// import Cards from "../cards/cards";
 import Categories from "../categories/categories";
+import { PropsMainPageContainer } from "./main-p-props-interface";
 import "./main-page-container.scss";
 
-const MainPageContainer = (): JSX.Element => {
-  const [result] = DummyServer();
-
-  const arrData: Data[] = result as Data[];
-  const cards = arrData.map(({ category }, i) => {
+const MainPageContainer = ({
+  arrData,
+}: PropsMainPageContainer): JSX.Element => {
+  const cards = arrData.map(({ imageSrc, categoryName, uniqueKey }, i) => {
     return (
       <Categories
         key={i}
-        image={category.image}
-        name={category.name}
-        id={category.id}
+        image={imageSrc as string}
+        name={categoryName}
+        id={uniqueKey as string}
       />
     );
   });

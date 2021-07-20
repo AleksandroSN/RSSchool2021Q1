@@ -1,7 +1,7 @@
-import { ButtonsFunc } from "../../api/interfaces";
+import { ButtonsFunc } from "./button-props-interface";
 import "./buttons.scss";
 
-export const Button = ({ clearStorage }: ButtonsFunc) => {
+export const Button = ({ clearStorage }: ButtonsFunc): JSX.Element => {
   return (
     <div
       className="app-main__table-btns"

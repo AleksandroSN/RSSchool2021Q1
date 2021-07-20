@@ -1,43 +1,51 @@
 import { useContext, useState, useEffect } from "react";
-import DummyServer from "../../api/dummyMocks";
-import { Card, Data, gameSound } from "../../api/interfaces";
-import { PropsGamePage } from "../../pages/game-page/game-page-props";
-import { GameOverAudio } from "../../utils/game-over-audio";
+import { Card, FetchData, gameSound } from "../../api/interfaces";
+import { GameMode, PLAY } from "../../api/types";
+import { gameOverAudio } from "../../utils/game-over-audio";
 import { winStar, loseStar } from "../../utils/progressStars";
 import { shuffleArray } from "../../utils/shuffleArray";
-import Cards from "../cards/cards";
-import { gameModeContext } from "../context/game-mode-ctx/game-mode-context";
+import { Cards } from "../cards/cards";
+import { GameModeContext } from "../context/game-mode-ctx/game-mode-context";
 import { GameOver } from "../game-over/game-over";
 import "./game-container.scss";
 
-const GameContainer = ({ id }: PropsGamePage): JSX.Element => {
-  const gameModeCTX = useContext(gameModeContext);
+interface PropsGameContainer {
+  id: string;
+  result: FetchData[];
+  loading: string;
+}
+
+export const GameContainer = ({
+  id,
+  result,
+  loading,
+}: PropsGameContainer): JSX.Element => {
+  const gameModeCTX = useContext(GameModeContext);
   const [isGame, setIsGame] = useState<boolean>(false);
   const [gameArr, setGameArr] = useState<Card[]>();
   const [gameArrIndex, setGameArrIndex] = useState<number>(0);
   const [activeSound, setActiveSound] = useState<gameSound | null>(null);
   const [gameProgress, setGameProgress] = useState<JSX.Element[]>([]);
-  const [endGame, setEndGame] = useState<boolean>();
+  const [endGame, setEndGame] = useState<boolean | undefined>();
   const [errors, setErrors] = useState<number>(0);
 
-  const [result, loading] = DummyServer();
   const index = Number(id) - 1;
-  const currArrCards: Data = result[index] as Data;
+  const currCardsArr: FetchData = result[index] as FetchData;
 
   useEffect(() => {
-    (async function createShuffleArr() {
-      if (currArrCards) {
-        const shuffleArr = await shuffleArray(currArrCards.cards);
+    (function createShuffleArr() {
+      if (currCardsArr) {
+        const shuffleArr = shuffleArray(currCardsArr.cards as Card[]);
         setGameArr(shuffleArr);
         setIsGame(false);
         setActiveSound(null);
       }
     })();
-  }, [currArrCards]);
+  }, [currCardsArr]);
 
   let btnClasses = "game-container__button";
 
-  if (gameModeCTX.gameMode === "PLAY") {
+  if (gameModeCTX.gameMode === (PLAY as GameMode)) {
     btnClasses += " show";
   }
 
@@ -45,36 +53,40 @@ const GameContainer = ({ id }: PropsGamePage): JSX.Element => {
     btnClasses += " game-container__button-game";
   }
 
-  const PlayAudio = (idx: number) => {
+  const playAudio = (idx: number) => {
     setIsGame(true);
     if (activeSound) {
       activeSound.audio.play();
     } else {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const audio = new Audio(gameArr![idx].audioSrc);
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       setActiveSound({ audio, word: gameArr![idx].word });
       audio.play();
       setGameArrIndex((x) => x + 1);
     }
   };
 
-  const NextAudio = (idx: number) => {
+  const nextAudio = (idx: number) => {
     if (gameArrIndex === gameArr?.length) {
       return;
     }
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const audio = new Audio(gameArr![idx].audioSrc);
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     setActiveSound({ audio, word: gameArr![idx].word });
     audio.play();
     setGameArrIndex((x) => x + 1);
   };
 
-  const Progress = (status: boolean) => {
+  const progress = (status: boolean) => {
     if (gameArrIndex === gameArr?.length) {
       setIsGame(false);
       if (errors > 0) {
-        GameOverAudio(false);
+        gameOverAudio(false);
         setEndGame(false);
       } else {
-        GameOverAudio(true);
+        gameOverAudio(true);
         setEndGame(true);
       }
     }
@@ -86,6 +98,27 @@ const GameContainer = ({ id }: PropsGamePage): JSX.Element => {
     }
   };
 
+  let cardsArr: JSX.Element[] = [];
+  if (currCardsArr) {
+    cardsArr = currCardsArr.cards!.map((card, i) => {
+      return (
+        <Cards
+          key={i}
+          word={card.word}
+          translation={card.translation}
+          imageSrc={card.imageSrc}
+          audioSrc={card.audioSrc}
+          activeSound={activeSound as gameSound}
+          NextAudio={nextAudio}
+          gameArrIndex={gameArrIndex}
+          Progress={progress}
+          category={currCardsArr.categoryName}
+          isGame={isGame}
+        />
+      );
+    });
+  }
+
   if (endGame) {
     return <GameOver endGame={endGame} />;
   }
@@ -96,31 +129,11 @@ const GameContainer = ({ id }: PropsGamePage): JSX.Element => {
 
   return (
     <div className="game-container">
-      {loading === "true" ? (
-        <h1>Waiting...</h1>
-      ) : (
-        currArrCards.cards.map((card, i) => {
-          return (
-            <Cards
-              key={i}
-              word={card.word}
-              translation={card.translation}
-              image={card.image}
-              audioSrc={card.audioSrc}
-              activeSound={activeSound!}
-              NextAudio={NextAudio}
-              gameArrIndex={gameArrIndex}
-              Progress={Progress}
-              category={currArrCards.category.name}
-              isGame={isGame}
-            />
-          );
-        })
-      )}
+      {loading === "true" ? <h1>Waiting...</h1> : cardsArr}
       <button
         className={btnClasses}
         type="button"
-        onClick={() => PlayAudio(gameArrIndex)}
+        onClick={() => playAudio(gameArrIndex)}
       >
         Start Game
       </button>
@@ -128,5 +141,3 @@ const GameContainer = ({ id }: PropsGamePage): JSX.Element => {
     </div>
   );
 };
-
-export default GameContainer;

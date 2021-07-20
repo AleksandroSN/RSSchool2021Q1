@@ -24,6 +24,8 @@ module.exports = {
     "react/self-closing-comp": "off",
     "react/react-in-jsx-scope": "off",
     "react/no-array-index-key": "off",
+    "react/require-default-props": "off",
+    "react/jsx-props-no-spreading": "off",
     "import/prefer-default-export": "off"
   },
 };

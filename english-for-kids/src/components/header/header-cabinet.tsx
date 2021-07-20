@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { IsAuthContext } from "../context/authorization-ctx/authorization-ctx";
+
 export const HeaderCabinet = (): JSX.Element => {
+  const { toggleAuth } = useContext(IsAuthContext);
   return (
     <header className="app-header app-header--cabinet">
       <div className="app-header__container">
@@ -7,11 +11,11 @@ export const HeaderCabinet = (): JSX.Element => {
           <div>Words</div>
         </div>
         <div className="app-header__logout">
-          <button type="button">Log Out</button>
+          <button type="button" onClick={() => toggleAuth(false)}>
+            Log Out
+          </button>
         </div>
       </div>
     </header>
   );
 };
-
-// TODO on click logout redirect to main and logout

@@ -2,11 +2,21 @@ interface BaseInterface {
   [key: string]: any;
 }
 
-export interface Card extends BaseInterface {
+export interface baseDataCard extends BaseInterface {
   word: string;
   translation: string;
-  image: string;
+  imageSrc: string;
   audioSrc: string;
+}
+
+export interface FetchData extends BaseInterface {
+  categoryName: string;
+  imageSrc?: string;
+  uniqueKey?: string;
+  cards?: baseDataCard[] | Card[];
+}
+
+export interface Card extends baseDataCard {
   activeSound: gameSound;
   gameArrIndex: number;
   category: string;
@@ -15,15 +25,20 @@ export interface Card extends BaseInterface {
   NextAudio: (idx: number) => void;
 }
 
+export interface Word extends BaseInterface {
+  word: string;
+  translation: string;
+  soundFileSrc: string;
+  image: string;
+  id: string;
+  arrData: FetchData;
+  reRenderPage: () => Promise<void>;
+}
+
 export interface Category {
   name: string;
   image: string;
   id: string;
-}
-
-export interface Data extends BaseInterface {
-  cards: Card[];
-  category: Category;
 }
 
 export interface gameSound {
@@ -53,6 +68,8 @@ export interface GameOverState {
   endGame: boolean;
 }
 
-export interface ButtonsFunc {
-  clearStorage: () => void;
+export interface AllData {
+  result: FetchData[];
+  loading: string;
+  getData: () => Promise<void>;
 }

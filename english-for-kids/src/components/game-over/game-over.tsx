@@ -12,18 +12,14 @@ export const GameOver = ({ endGame }: GameOverState): JSX.Element => {
 
   setTimeout(() => setRedirect(true), 3000);
 
-  if (endGame) {
-    return (
-      <div className="game-over">
-        <p className="game-over__text">Well Done!</p>
-        <img className="game-over__img" src="/img/success.jpg" alt="succes" />
-      </div>
-    );
-  }
+  const title = {
+    text: endGame ? "Well done" : "Try aganin",
+    image: endGame ? "/img/success.jpg" : "/img/failure.jpg",
+  };
   return (
     <div className="game-over">
-      <p className="game-over__text">Try again</p>
-      <img className="game-over__img" src="/img/failure.jpg" alt="failure" />
+      <p className="game-over__text">{title.text}</p>
+      <img className="game-over__img" src={title.image} alt="succes" />
     </div>
   );
 };

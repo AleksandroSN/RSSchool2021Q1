@@ -1,4 +1,4 @@
-export const GameOverAudio = (result: boolean): void => {
+export const gameOverAudio = (result: boolean): void => {
   if (result) {
     setTimeout(() => {
       const audio = new Audio("/audio/success.mp3");

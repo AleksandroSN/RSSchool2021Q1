@@ -4,7 +4,7 @@ import GamePage from "../../pages/game-page/game-page";
 import MainPage from "../../pages/main-page/main-page";
 import { StatisticsPage } from "../../pages/statistics-page/statistics-page";
 import { OpenModalContext } from "../context/modal-window-ctx/modal-window";
-import { ModalAuthorize } from "../modals/authorize";
+import { ModalAuthorize } from "../modals/authorize/authorize";
 import { Overlay } from "../overlay/overlay";
 import "./main.scss";
 

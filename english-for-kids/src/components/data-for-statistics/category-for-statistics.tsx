@@ -1,5 +1,6 @@
-import { WordsStatistics, WordsWithStatistics } from "../../api/interfaces";
-import { DataForStatistics } from "../../utils/dataForStatistics";
+import { WordsWithStatistics } from "../../api/interfaces";
+import { sortStatistic } from "../../utils/sorter";
+import { transformWords } from "./transformWords";
 import { WordForStatistics } from "./word-for-statistics";
 
 export const CategoryForStatistics = ({
@@ -8,35 +9,11 @@ export const CategoryForStatistics = ({
   sortedWords,
   sortConfig,
 }: WordsWithStatistics): JSX.Element => {
-  const modifyWords: WordsStatistics[] = [];
+  const actualWords = transformWords(words, category);
 
-  words.forEach((word) => {
-    const el = JSON.parse(localStorage.getItem(`${word.word}`) as string);
-    if (el) {
-      modifyWords.push(el);
-    } else {
-      modifyWords.push({
-        word: word.word,
-        translation: word.translation,
-        ...DataForStatistics,
-        category,
-      });
-    }
-  });
+  sortStatistic(sortedWords, sortConfig, actualWords);
 
-  if (sortedWords !== null) {
-    modifyWords.sort((a, b) => {
-      if (a[sortedWords] < b[sortedWords]) {
-        return sortConfig === "ASC" ? -1 : 1;
-      }
-      if (a[sortedWords] > b[sortedWords]) {
-        return sortConfig === "ASC" ? 1 : -1;
-      }
-      return 0;
-    });
-  }
-
-  const wordsStat = modifyWords.map((x, i) => {
+  const wordsStat = actualWords.map((x, i) => {
     return (
       <WordForStatistics
         key={i}

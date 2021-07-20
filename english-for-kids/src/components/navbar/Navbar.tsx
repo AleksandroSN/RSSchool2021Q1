@@ -1,21 +1,12 @@
-import { useContext, useState, MouseEvent, useEffect } from "react";
+import { useContext, MouseEvent } from "react";
 import { NavLink } from "react-router-dom";
 import { ArrLinks } from "../../utils/arrLinks";
 import { OpenModalContext } from "../context/modal-window-ctx/modal-window";
 import { PropsNavbar } from "./navbar-props-interfaces";
 import "./navbar.scss";
 
-const Navbar = ({ open, openNav }: PropsNavbar): JSX.Element => {
-  const { isOpen, setMode } = useContext(OpenModalContext);
-  // const [toggleIsOpen, setToggleIsOpen] = useState(isOpen);
-
-  // const openModal = (): void => {
-  //   setToggleIsOpen((toggle) => !toggle);
-  // };
-
-  // useEffect(() => {
-  //   setMode(toggleIsOpen);
-  // }, [setMode, toggleIsOpen]);
+const Navbar = ({ open, changeNavState }: PropsNavbar): JSX.Element => {
+  const { setMode } = useContext(OpenModalContext);
 
   let classNames = "app-header__nav";
 
@@ -31,7 +22,7 @@ const Navbar = ({ open, openNav }: PropsNavbar): JSX.Element => {
           to={link}
           exact
           onClick={() => {
-            openNav();
+            changeNavState();
           }}
         >
           {linkName}

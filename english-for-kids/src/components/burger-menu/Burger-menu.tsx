@@ -3,8 +3,8 @@ import Navbar from "../navbar/Navbar";
 import { OpenNavContext } from "../context/open-nav-ctx/open-nav";
 import "./burger-menu.scss";
 
-const Burger = (): JSX.Element => {
-  const { isOpen, setMode } = useContext(OpenNavContext);
+export const Burger = (): JSX.Element => {
+  const { isOpen, openNav } = useContext(OpenNavContext);
   const [toggleIsOpen, setToggleIsOpen] = useState(isOpen);
 
   let classNames = "b-container";
@@ -13,24 +13,22 @@ const Burger = (): JSX.Element => {
     classNames += " open";
   }
 
-  const openNav = (): void => {
+  const changeNavState = (): void => {
     setToggleIsOpen((toggle) => !toggle);
   };
 
   useEffect(() => {
-    setMode(toggleIsOpen);
-  }, [setMode, toggleIsOpen]);
+    openNav(toggleIsOpen);
+  }, [openNav, toggleIsOpen]);
 
   return (
-    <div className={classNames} onClick={() => openNav()} role="none">
+    <div className={classNames} onClick={() => changeNavState()} role="none">
       <div className="b-menu">
         <div className="b-bun b-bun--top"></div>
         <div className="b-bun b-bun--mid"></div>
         <div className="b-bun b-bun--bottom"></div>
       </div>
-      <Navbar open={isOpen} openNav={openNav} />
+      <Navbar open={isOpen} changeNavState={changeNavState} />
     </div>
   );
 };
-
-export default Burger;

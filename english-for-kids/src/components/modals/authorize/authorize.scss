@@ -1,7 +1,6 @@
 $heightModal: 300px;
 $maxWidthModal: 500px;
 
-// TO-DO change color for modal and inputs
 .app-main__modal {
   &-container {
     height: $heightModal;
@@ -9,7 +8,7 @@ $maxWidthModal: 500px;
     width: 100%;
     position: fixed;
     top: calc(50vh - 300px / 2);
-    left: calc(50vw - 250px / 2);
+    left: calc(50vw - 500px / 2);
     background-color: wheat;
     z-index: 400;
   }
@@ -30,6 +29,7 @@ $maxWidthModal: 500px;
     outline: none;
     font-family: Simpsonfont, sans-serif;
     font-size: 1.2rem;
+    margin-left: 10px;
 
     &::placeholder {
       font-size: 1.2rem;

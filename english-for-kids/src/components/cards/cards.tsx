@@ -1,13 +1,18 @@
 import { useState, useContext } from "react";
-import { Card, WordsStatistics } from "../../api/interfaces";
+import { Card } from "../../api/interfaces";
+import { GameMode, PLAY } from "../../api/types";
+import { playAudio } from "../../utils/playAudio";
 import { updateWordStats } from "../../utils/updateWordStats";
-import { gameModeContext } from "../context/game-mode-ctx/game-mode-context";
+import { GameModeContext } from "../context/game-mode-ctx/game-mode-context";
+import { clickCorrect, wrongClick } from "./cards-clickHandler";
+import { CardsControll, CountClicks } from "./cards-controll";
+import { CardMarkup } from "./cards-markup";
 import "./cards.scss";
 
-const Cards = ({
+export const Cards = ({
   word,
   translation,
-  image,
+  imageSrc,
   audioSrc,
   activeSound,
   gameArrIndex,
@@ -16,37 +21,23 @@ const Cards = ({
   Progress,
   NextAudio,
 }: Card): JSX.Element => {
-  const currentState: WordsStatistics = JSON.parse(
-    localStorage.getItem(`${word}`) as string
-  );
-
-  const [isClick, setIsClick] = useState<boolean>(false);
+  const { isClick, addClass, removeClass } = CardsControll();
+  const {
+    clicksTrainMode,
+    setClicksTrainMode,
+    succesGameMode,
+    setSuccesGameMode,
+    wrongGameMode,
+    setWrongGameMode,
+  } = CountClicks(word);
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
-  const [clicksTrainMode, setClicksTrainMode] = useState<number>(() => {
-    if (currentState) {
-      return Number(currentState.clicksTrainMode);
-    }
-    return 0;
-  });
-  const [succesGameMode, setSuccesGameMode] = useState<number>(() => {
-    if (currentState) {
-      return Number(currentState.succesGameMode);
-    }
-    return 0;
-  });
-  const [wrongGameMode, setWrongGameMode] = useState<number>(() => {
-    if (currentState) {
-      return Number(currentState.wrongGameMode);
-    }
-    return 0;
-  });
 
-  const { gameMode } = useContext(gameModeContext);
+  const { gameMode } = useContext(GameModeContext);
 
   let cardClasses = "card";
   let cardContainerClasses = "card-container";
 
-  if (gameMode === "PLAY") {
+  if (gameMode === (PLAY as GameMode)) {
     cardContainerClasses += " collapse";
   }
 
@@ -58,40 +49,25 @@ const Cards = ({
     cardClasses += " hover";
   }
 
-  const addClass = (): void => {
-    setIsClick(true);
-  };
-
-  const removeClass = (): void => {
-    setIsClick(false);
-  };
-
-  const playAudio = (url: string) => {
-    const audio = new Audio(url);
-    audio.currentTime = 0;
-    audio.play();
+  const onCardClickTrain = (url: string) => {
+    playAudio(url);
     setClicksTrainMode((x) => x + 1);
   };
 
-  const onCardClick = (elem: string) => {
+  const onCardClickGame = (elem: string) => {
     if (!isGame) {
       return;
     }
     if (activeSound?.word === elem) {
-      setSuccesGameMode((x) => x + 1);
-      setIsCorrect(true);
-      Progress(true);
-      const audio = new Audio("../audio/correct.wav");
-      audio.volume = 0.3;
-      audio.play();
-      audio.addEventListener("ended", () => {
-        NextAudio(gameArrIndex);
+      clickCorrect({
+        Progress,
+        setSuccesGameMode,
+        setIsCorrect,
+        NextAudio,
+        gameArrIndex,
       });
     } else {
-      Progress(false);
-      setWrongGameMode((x) => x + 1);
-      const audio = new Audio("../audio/error.mp3");
-      audio.play();
+      wrongClick({ Progress, setWrongGameMode });
     }
   };
 
@@ -104,44 +80,20 @@ const Cards = ({
     wrongGameMode,
   });
 
-  const onClickHandler = gameMode === "PLAY" ? onCardClick : playAudio;
+  const onClickHandler =
+    gameMode === "PLAY" ? onCardClickGame : onCardClickTrain;
   const paramOnClickHandler = gameMode === "PLAY" ? word : audioSrc;
   return (
-    <div
-      className={cardContainerClasses}
-      onClick={() => {
-        onClickHandler(paramOnClickHandler);
-      }}
-      onMouseLeave={() => removeClass()}
-      role="none"
-    >
-      <div className={cardClasses}>
-        <div className="card__front">
-          <img className="card__front-img" src={image} alt={`${word}`} />
-          <div className="card__front-container">
-            <p>{word}</p>
-            <button
-              className="card__front-rotateBtn"
-              type="button"
-              onClick={() => addClass()}
-            >
-              <img
-                className="rotate__svg"
-                src="../img/rotate.svg"
-                alt="rotate"
-              />
-            </button>
-          </div>
-        </div>
-        <div className="card__back">
-          <img className="card__back-img" src={image} alt={`${word}`} />
-          <div className="card__back-container">
-            <p>{translation}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <CardMarkup
+      cardContainerClasses={cardContainerClasses}
+      cardClasses={cardClasses}
+      imageSrc={imageSrc}
+      word={word}
+      translation={translation}
+      paramOnClickHandler={paramOnClickHandler}
+      onClickHandler={onClickHandler}
+      addClass={addClass}
+      removeClass={removeClass}
+    />
   );
 };
-
-export default Cards;

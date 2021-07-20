@@ -1,11 +1,11 @@
 import { useState, useContext, useEffect } from "react";
 import { GameMode, PLAY, TRAIN } from "../../api/types";
-import { gameModeContext } from "../context/game-mode-ctx/game-mode-context";
+import { GameModeContext } from "../context/game-mode-ctx/game-mode-context";
 import "./switcher.scss";
 
 const Switcher = (): JSX.Element => {
   const [gameMode, setGameMode] = useState(TRAIN as GameMode);
-  const { setMode } = useContext(gameModeContext);
+  const { setMode } = useContext(GameModeContext);
 
   let checked = false;
 

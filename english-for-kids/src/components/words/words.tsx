@@ -1,75 +1,70 @@
 import { useState } from "react";
+import { Word } from "../../api/interfaces";
+import { deleteWord } from "../../utils/HandlerDeleteWords";
+import { playAudio } from "../../utils/playAudio";
+import { sliceAudioName } from "../../utils/sliceAudioName";
+import { WordDummy } from "./words-dummy";
+import { UpdateAndCreateWord } from "./words-update-create";
 import "./words.scss";
 
-interface Word {
-  word: string;
-  translation: string;
-  soundFileSrc: string;
-  image: string;
-}
-
-export const Words = ({ word, translation, soundFileSrc, image }: Word) => {
+export const Words = ({
+  word,
+  translation,
+  soundFileSrc,
+  image,
+  id,
+  arrData,
+  reRenderPage,
+}: Word): JSX.Element => {
   const [editMode, setEditMode] = useState<boolean>(false);
+  const [isNew, setIsNew] = useState<boolean>(false);
 
-  const soundFile = soundFileSrc.substr(soundFileSrc.lastIndexOf("/") + 1);
+  const soundFile = sliceAudioName(soundFileSrc);
+
+  const createNewWord = () => {
+    setEditMode(true);
+    setIsNew(true);
+  };
+
+  const deleteMethod = async () => {
+    await deleteWord(arrData, word, reRenderPage, id);
+  };
 
   if (editMode) {
     return (
-      <form className="word">
-        <label className="category__label" htmlFor="categoryUpdate">
-          Category Name :
-          <input
-            className="category__input"
-            type="text"
-            name="categoryUpdate"
-            // id="categoryUpdate"
-            placeholder="New word name"
-          />
-        </label>
-        <label className="category__label" htmlFor="categoryUpdate">
-          Category Name :
-          <input
-            className="category__input"
-            type="text"
-            name="categoryUpdate"
-            // id="categoryUpdate"
-            placeholder="New translation name"
-          />
-        </label>
-        <label className="category__label" htmlFor="categoryUpdate">
-          Sound :
-          <input
-            className="category__input"
-            type="file"
-            name="categoryUpdate"
-            // id="categoryUpdate"
-          />
-        </label>
-        <label className="category__label" htmlFor="categoryUpdate">
-          Image :
-          <input
-            className="category__input"
-            type="file"
-            name="categoryUpdate"
-            // id="categoryUpdate"
-          />
-        </label>
-      </form>
+      <UpdateAndCreateWord
+        setEditMode={setEditMode}
+        isNew={isNew}
+        setIsNew={setIsNew}
+        arrData={arrData}
+        id={id}
+        reRenderPage={reRenderPage}
+        word={word}
+      />
     );
+  }
+
+  if (!word) {
+    return <WordDummy createNewWord={createNewWord} />;
   }
 
   return (
     <div className="word">
-      <div className="word__close">
+      <div className="word__close" onClick={() => deleteMethod()} role="none">
         <img src="../../img/close.svg" alt="delete word" />
       </div>
       <p className="word__title">Word: {word}</p>
       <p className="word__translation">Translation: {translation}</p>
-      <p className="word__audio">Audio: {soundFile}</p>
+      <p className="word__audio">
+        <button type="button" onClick={() => playAudio(soundFileSrc)}>
+          PLAY
+        </button>
+        Audio: {soundFile}
+      </p>
       <img className="word__image" src={`${image}`} alt="wallper word" />
       <div className="word-container-btns">
         <button type="button" onClick={() => setEditMode(true)}>
-          Change
+          Update
         </button>
       </div>
     </div>
