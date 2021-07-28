@@ -1,7 +1,7 @@
 import { GetAlldata } from "../../api/apiFetch";
-import MainPageContainer from "../../components/main-page-container/main-page-container";
+import { MainPageContainer } from "../../components/main-page-container/main-page-container";
 
-const MainPage = (): JSX.Element => {
+export const MainPage = (): JSX.Element => {
   const { result } = GetAlldata();
 
   return (
@@ -10,5 +10,3 @@ const MainPage = (): JSX.Element => {
     </div>
   );
 };
-
-export default MainPage;

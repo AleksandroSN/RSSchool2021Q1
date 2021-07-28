@@ -13,17 +13,17 @@ export const CategoryForStatistics = ({
 
   sortStatistic(sortedWords, sortConfig, actualWords);
 
-  const wordsStat = actualWords.map((x, i) => {
+  const wordsStat = actualWords.map((x) => {
     return (
       <WordForStatistics
-        key={i}
+        key={x.word}
         category={category}
         word={x.word}
         translation={x.translation}
         clicksTrainMode={x.clicksTrainMode}
         succesGameMode={x.succesGameMode}
         wrongGameMode={x.wrongGameMode}
-        percentCorrects={x.percentCorrects}
+        percentCorrects={(`${x.percentCorrects}%`)}
       />
     );
   });

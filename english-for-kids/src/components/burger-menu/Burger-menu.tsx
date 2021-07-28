@@ -1,5 +1,5 @@
 import { useEffect, useContext, useState } from "react";
-import Navbar from "../navbar/Navbar";
+import { Navbar } from "../navbar/Navbar";
 import { OpenNavContext } from "../context/open-nav-ctx/open-nav";
 import "./burger-menu.scss";
 

@@ -1,20 +1,18 @@
 import { GetAlldata } from "../../api/apiFetch";
 import { FetchData } from "../../api/interfaces";
 import { CategoriesCabinet } from "../../components/categories/categories-cabinet";
+import { findLastEl } from "../../utils/findLastEl";
 import "./admin-page.scss";
 
 export const AdminPage = (): JSX.Element => {
   const { result, getData } = GetAlldata();
   const arrData: FetchData[] = result as FetchData[];
 
-  const lastID = String(arrData.length);
-
   const reRenderPage = async () => {
     await getData();
   };
 
-  let categories: JSX.Element[] = [];
-  categories = arrData.map(({ categoryName, uniqueKey, cards }) => {
+  const categories = arrData.map(({ categoryName, uniqueKey, cards }) => {
     return (
       <CategoriesCabinet
         name={categoryName}
@@ -25,6 +23,8 @@ export const AdminPage = (): JSX.Element => {
       />
     );
   });
+
+  const lastID = findLastEl(result);
 
   const modifyCategories = [
     ...categories,

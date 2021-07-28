@@ -47,14 +47,13 @@ export interface gameSound {
 }
 
 export interface WordsStatistics extends BaseInterface {
-  key?: number;
   category: string;
   word: string;
   translation: string;
   clicksTrainMode?: number;
   succesGameMode?: number;
   wrongGameMode?: number;
-  percentCorrects?: number;
+  percentCorrects?: number | string;
 }
 
 export interface WordsWithStatistics {

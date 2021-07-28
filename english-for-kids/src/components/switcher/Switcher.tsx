@@ -3,7 +3,7 @@ import { GameMode, PLAY, TRAIN } from "../../api/types";
 import { GameModeContext } from "../context/game-mode-ctx/game-mode-context";
 import "./switcher.scss";
 
-const Switcher = (): JSX.Element => {
+export const Switcher = (): JSX.Element => {
   const [gameMode, setGameMode] = useState(TRAIN as GameMode);
   const { setMode } = useContext(GameModeContext);
 
@@ -47,5 +47,3 @@ const Switcher = (): JSX.Element => {
     </div>
   );
 };
-
-export default Switcher;

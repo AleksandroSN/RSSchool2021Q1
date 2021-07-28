@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
-import GamePage from "../../pages/game-page/game-page";
-import MainPage from "../../pages/main-page/main-page";
+import { GamePage } from "../../pages/game-page/game-page";
+import { MainPage } from "../../pages/main-page/main-page";
 import { StatisticsPage } from "../../pages/statistics-page/statistics-page";
 import { OpenModalContext } from "../context/modal-window-ctx/modal-window";
 import { ModalAuthorize } from "../modals/authorize/authorize";

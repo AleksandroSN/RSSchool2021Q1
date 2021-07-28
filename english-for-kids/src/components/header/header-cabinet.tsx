@@ -3,6 +3,8 @@ import { IsAuthContext } from "../context/authorization-ctx/authorization-ctx";
 
 export const HeaderCabinet = (): JSX.Element => {
   const { toggleAuth } = useContext(IsAuthContext);
+  console.log("HELLO");
+  
   return (
     <header className="app-header app-header--cabinet">
       <div className="app-header__container">

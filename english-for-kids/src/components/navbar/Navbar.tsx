@@ -5,7 +5,7 @@ import { OpenModalContext } from "../context/modal-window-ctx/modal-window";
 import { PropsNavbar } from "./navbar-props-interfaces";
 import "./navbar.scss";
 
-const Navbar = ({ open, changeNavState }: PropsNavbar): JSX.Element => {
+export const Navbar = ({ open, changeNavState }: PropsNavbar): JSX.Element => {
   const { setMode } = useContext(OpenModalContext);
 
   let classNames = "app-header__nav";
@@ -52,5 +52,3 @@ const Navbar = ({ open, changeNavState }: PropsNavbar): JSX.Element => {
     </nav>
   );
 };
-
-export default Navbar;

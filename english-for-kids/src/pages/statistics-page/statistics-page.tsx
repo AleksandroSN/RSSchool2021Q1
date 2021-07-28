@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useReducer } from "react";
 import { GetAlldata } from "../../api/apiFetch";
 import { Card, FetchData } from "../../api/interfaces";
 import { ASC, DESC, Order } from "../../api/types";
@@ -6,24 +6,52 @@ import { Button } from "../../components/buttons/buttons";
 import { CategoryForStatistics } from "../../components/data-for-statistics/category-for-statistics";
 import { arrTableHeaders } from "../../utils/arrTableHeaders";
 import { sortStatistic } from "../../utils/sorter";
+import {
+  STATISTICS_ACTIONS,
+  initialStatisticsState,
+  StatisticsPageReducer,
+} from "./statistics-page-reducer";
 import "./statistics-page.scss";
 
 export const StatisticsPage = (): JSX.Element => {
-  // useReducer to help
   const { result } = GetAlldata();
-  const [sortedCategory, setSortedCategory] = useState<string | null>(null);
-  const [sortedWords, setSortedWords] = useState<string | null>(null);
-  const [sortConfig, setSortConfig] = useState("ASC");
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [clearData, setClearData] = useState<boolean>(false);
   const allData: FetchData[] = result as FetchData[];
 
-  sortStatistic(sortedCategory, sortConfig, allData);
+  const [state, dispatch] = useReducer(
+    StatisticsPageReducer,
+    initialStatisticsState
+  );
+
+  const sortByCategory = (nameOnClick: string) => {
+    dispatch({
+      type: STATISTICS_ACTIONS.SORT_BY_CATEGORY,
+      payload: { category: nameOnClick },
+    });
+  };
+
+  const sortByOther = (nameOnClick: string) => {
+    dispatch({
+      type: STATISTICS_ACTIONS.SORT_BY_OTHER,
+      payload: { other: nameOnClick },
+    });
+  };
+
+  sortStatistic(state.sortedCategory, state.sortConfig, allData);
 
   const toogleSort = () => {
-    setSortConfig(
-      sortConfig === (ASC as Order) ? (DESC as Order) : (ASC as Order)
-    );
+    if (state.sortConfig === (ASC as Order)) {
+      dispatch({
+        type: STATISTICS_ACTIONS.SORT_CONFIG,
+        payload: { sortConfig: DESC as Order },
+      });
+    } else {
+      dispatch({
+        type: STATISTICS_ACTIONS.SORT_CONFIG,
+        payload: { sortConfig: ASC as Order },
+      });
+    }
   };
 
   const clearStorage = () => {
@@ -34,9 +62,9 @@ export const StatisticsPage = (): JSX.Element => {
   const tableHeaders = arrTableHeaders.map(
     ({ tableHeaderName, nameOnClick }) => {
       const clickHandler =
-        nameOnClick === "categoryName" ? setSortedCategory : setSortedWords;
+        nameOnClick === "categoryName" ? sortByCategory : sortByOther;
       return (
-        <th>
+        <th key={tableHeaderName}>
           <button
             className="app-main__button"
             type="button"
@@ -52,14 +80,14 @@ export const StatisticsPage = (): JSX.Element => {
     }
   );
 
-  const statistics = allData.map((cata, i) => {
+  const statistics = allData.map((cata) => {
     return (
       <CategoryForStatistics
-        key={i}
+        key={cata.categoryName}
         category={cata.categoryName}
         words={cata.cards as Card[]}
-        sortedWords={sortedWords}
-        sortConfig={sortConfig}
+        sortedWords={state.sortedWords}
+        sortConfig={state.sortConfig}
       />
     );
   });

@@ -3,7 +3,7 @@ import { Category } from "../../api/interfaces";
 
 import "./categories.scss";
 
-const Categories = ({ image, name, id }: Category): JSX.Element => {
+export const Categories = ({ image, name, id }: Category): JSX.Element => {
   return (
     <NavLink className="category-container" to={`/game/${id}`}>
       <div className="category-container__img">
@@ -13,5 +13,3 @@ const Categories = ({ image, name, id }: Category): JSX.Element => {
     </NavLink>
   );
 };
-
-export default Categories;

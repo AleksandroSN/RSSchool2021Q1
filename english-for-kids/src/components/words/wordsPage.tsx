@@ -17,13 +17,13 @@ interface StateTypeWordsPage {
 export const WordsPage = ({ category }: PropsWords): JSX.Element => {
   const { state } = useLocation<StateTypeWordsPage>();
   const { id } = state;
-  const idx = Number(id) - 1;
-
+  // const idx = Number(id) - 1;
   const { result, getData } = GetAlldata();
 
   const reRenderPage = async () => {
     await getData();
   };
+  const idx = result.findIndex((x) => x.uniqueKey === id);
 
   const arrData: FetchData = result[idx] as FetchData;
 

@@ -1,8 +1,8 @@
-import Categories from "../categories/categories";
+import { Categories } from "../categories/categories";
 import { PropsMainPageContainer } from "./main-p-props-interface";
 import "./main-page-container.scss";
 
-const MainPageContainer = ({
+export const MainPageContainer = ({
   arrData,
 }: PropsMainPageContainer): JSX.Element => {
   const cards = arrData.map(({ imageSrc, categoryName, uniqueKey }, i) => {
@@ -18,5 +18,3 @@ const MainPageContainer = ({
 
   return <div className="app-main-page__container">{cards}</div>;
 };
-
-export default MainPageContainer;
