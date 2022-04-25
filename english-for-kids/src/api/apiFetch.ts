@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { AllData, FetchData } from "./interfaces";
 
-export const BASE = "https://codefergog.tk";
-// export const BASE = "http://localhost:3005";
+export const BASE =
+  process.env.REACT_APP_BASE_SERVER ||
+  `http://localhost:${process.env.REACT_APP_LOCAL_SERVER_PORT}`;
 
 export const GetAlldata = (): AllData => {
   const [result, setResult] = useState<FetchData[]>([]);
